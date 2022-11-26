@@ -2,7 +2,6 @@
 author = "xfr"
 cat = ["НОВОСТИ"]
 date = 2021-08-25T21:00:00Z
-draft = true
 img = "images/top2.jpg"
 title = "Аналитики прогнозируют крах одной из самых популярных криптовалют 2-(copy)"
 top = "2"
