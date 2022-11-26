@@ -1,11 +1,15 @@
 {{ $data := index .Site.Data .Site.Language.Lang }}
 
 
-<section class="section section_news">
+<section class="section section_news" id="news">
     <div class="container">
         <div class="heading__group">
             <h3>Больше новостей</h3>
-            <button class="btn--text">Остальные новости ></button>
+            <button class="btn--text">Остальные новости 
+                <svg class="icon" width="12" height="12">
+                <use xlink:href="#i1"></use>
+              </svg>
+            </button>
            </div>
         <div class="row">
             {{ $arg := slice }}

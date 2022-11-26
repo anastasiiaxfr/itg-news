@@ -29,6 +29,36 @@
         </div>
         <!-- END soc -->
 
+        <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+      <svg class="icon navbar-toggler-open" width="20" height="20">
+        <use xlink:href="#menu"></use>
+      </svg>
+      <svg class="icon navbar-toggler-close d-none" width="20" height="20">
+        <use xlink:href="#close"></use>
+      </svg>
+      </button>
+
+      <script>
+        let menu_toggler = document.querySelector('.navbar-toggler-open');
+        let menu_toggler_close = document.querySelector('.navbar-toggler-close');
+        menu_toggler.addEventListener('click', function(){
+          this.style.display = "none";
+          menu_toggler_close.classList.toggle('d-none');
+        });
+        menu_toggler_close.addEventListener('click', function(){
+          this.classList.toggle('d-none');
+          menu_toggler.style.display = "block";
+        });
+      </script>
+
         {{- partial "_lang.html" . -}}
         </div>
 
@@ -38,21 +68,6 @@
     <div class="header__btm">
       <div class="container">
       <nav class="navbar navbar-expand-lg w-100">
-         
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-        <svg class="icon" width="20" height="20">
-          <use xlink:href="#menu"></use>
-        </svg>
-        </button>
-
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
             {{ range .Site.Menus.header }} {{ if .HasChildren }}

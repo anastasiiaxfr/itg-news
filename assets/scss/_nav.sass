@@ -25,6 +25,8 @@
         border-radius: 20pc
         border: 1px solid lighten($black0, 80%)
         padding: 8px 17px
+    +maw(480)
+        display: none
 
 .footer
     +theme(dark)
@@ -39,3 +41,16 @@
                 color: inherit
                 text-transform: uppercase
                 +ft(14, 14, 600)
+.navbar
+    padding: 0
+    &-nav
+        padding-top: 10px
+        padding-bottom: 10px
+.navbar-toggler
+    margin-right: 5px
+    display: none
+    padding: 0
+    &:focus
+        box-shadow: none
+    +maw(992)
+        display: block

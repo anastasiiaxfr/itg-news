@@ -3,27 +3,7 @@
 {{ if $data.homepage.hero }}
 {{ with $data.homepage.hero }}
 
-  <section class="section hero">
-    <div class="container my-5 py-3">
-      <div class="row align-items-center">
-        <div class="col-lg-7">
 
-          <h1 class="mb-5">{{ .title }}</h1>
-
-          <a href="{{ .btn.link }}" class="btn btn--lg btn--bg">{{ .btn.lable }}</a>
-
-        </div>
-        <div class="col-lg-5 d-none d-lg-block">
-
-          <div id="scene" class="scene">
-            <img  data-depth="-1.00" alt="{{ .title }}" src="{{ `images/arrow1.png` | relURL }}" width="auto" height="auto">
-            <img  data-depth="1.80" alt="{{ .title }}" src="{{ `images/arrow2.png` | relURL }}" width="auto" height="auto">
-          </div> 
-
-        </div>
-      </div>
-    </div>
-  </section>
 
 {{ end }}
 {{ end }}
