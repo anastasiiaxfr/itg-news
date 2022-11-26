@@ -4,6 +4,16 @@ auto_deploy: false
 admin_path: ''
 webhook_url: 
 sections:
+- type: heading
+  label: TOP-news
+- type: heading
+  label: News
+- type: heading
+  label: YouTube
+- type: heading
+  label: Полезное
+- type: heading
+  label: Статьи
 - type: directory
   path: i18n
   label: i18n
