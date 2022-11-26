@@ -1,0 +1,19 @@
+{{ $data := index .Site.Data .Site.Language.Lang }}
+
+<article class="card">
+  <a href="#">
+    <img src="{{ .Params.img | relURL }}" alt="{{ .Title }}" class="card__img" />
+    <div class="card__content">
+      <div class="card__title">
+        <div>
+         <a href="{{ .Permalink }}">
+          {{ .Title }}
+         </a>
+        </div>
+      </div>
+      <div class="card__date">
+        {{ .Date.Format "02/01/2006" }}
+      </div>
+    </div>
+  </a>
+</article>

@@ -1,0 +1,18 @@
+{{ $data := index .Site.Data .Site.Language.Lang }}
+<div class="video-news">
+  <div class="video-news__img">
+    <a href="{{ .Permalink }}">
+      <img src="{{ .Params.img | relURL }}" alt="{{ .Title }}" />
+    </a>
+  </div>
+  <div class="video-news__content">
+    <div class="video-news__title">
+      <a href="{{ .Permalink }}">
+        {{ .Title }}
+      </a>
+    </div>
+    <div class="video-news__date">
+      {{ .Date.Format "02/01/2006" }}
+    </div>
+  </div>
+</div>

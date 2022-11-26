@@ -1,0 +1,15 @@
+{{ $data := index .Site.Data .Site.Language.Lang }} 
+
+<div class="box">
+  <div class="box__title">
+      <a href="{{ .Permalink }}">
+          {{ .Title }}
+      </a>
+  </div>
+  <div class="box__footer">
+      <div class="box__date">
+          {{ .Date.Format "02/01/2006" }}
+      </div>
+          <a href="{{ .Permalink }}" class="btn--text">Подробнее >> </a>
+  </div>
+</div>

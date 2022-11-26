@@ -1,0 +1,22 @@
+{{ $data := index .Site.Data .Site.Language.Lang }}
+
+<article class="news">
+  <div class="news__img">
+    <a href="{{ .Permalink }}">
+      <img src="{{ .Params.img | relURL}}" alt="{{ .Title }}" />
+    </a>
+  </div>
+  <div class="news__content">
+    <div class="news__title">
+      <a href="{{ .Permalink }}"> {{ .Title }}</a>
+    </div>
+    <div class="news__footer">
+      <div class="news__author">
+        {{ .Params.author }}
+      </div>
+      <div class="news__date">
+        {{ .Date.Format "02/01/2006" }}
+      </div>
+    </div>
+  </div>
+</article>

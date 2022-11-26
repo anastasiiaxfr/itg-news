@@ -1,0 +1,53 @@
+<!-- Footer -->
+<!--Main Footer-->
+<footer class="footer">
+    
+    <div class="container">
+        <div class="d-flex align-items-center justify-content-center justify-content-lg-between flex-wrap">
+            {{ .Scratch.Set "img" .Site.Params.logo }} 
+            {{ .Scratch.Set "logo_w" 98 }}
+            {{ .Scratch.Set "logo_h" 61 }}
+            {{ .Scratch.Set "logo_mode" "dark" }}
+            {{- partial "_logo.html" . -}}
+            
+            <ul class="footer-nav mx-auto">
+                {{ range .Site.Menus.footer }} {{ if .HasChildren }}
+    
+                <li class="nav-item dropdown">
+                  <a
+                    class="nav-link dropdown-toggle"
+                    href="#"
+                    role="button"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                  >
+                    {{ .Name }}
+                  </a>
+    
+                  <ul class="dropdown-menu">
+                    {{ range .Children }}
+                    <li>
+                      <a class="dropdown-item" href="{{ .URL | relLangURL }}"
+                        >{{ .Name }}</a
+                      >
+                    </li>
+                    {{ end }}
+                  </ul>
+                </li>
+                {{ else }}
+                <li class="nav-item">
+                  <a class="nav-link" href="{{ .URL | relLangURL }}"
+                    >{{ .Name }}</a
+                  >
+                </li>
+    
+                {{ end }}
+          {{ end }}
+              </ul>
+
+
+        </div>
+    </div>
+</footer>
+<!--Main Footer-->
+

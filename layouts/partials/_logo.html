@@ -1,0 +1,19 @@
+<!--Logo Box-->
+{{ $img := .Scratch.Get "img" }}
+{{ $logo_w := .Scratch.Get "logo_w" }}
+{{ $logo_h := .Scratch.Get "logo_h" }}
+{{ $logo_mode := .Scratch.Get "logo_mode" }}
+
+<a class="logo" href="{{ $.Site.BaseURL }}">
+   {{ if $.Site.Params.logo }}
+     
+
+
+      <img src="{{ if eq $logo_mode "dark"  }} {{ $.Site.Params.logo_dark | relURL }} {{ else }} {{ $.Site.Params.logo | relURL }} {{ end }}" alt="{{ .Site.Params.site_name }}" {{ if $logo_w}} width="{{ $logo_w }}" height="{{ $logo_h }}" {{ end }}>
+   
+   
+      {{ else }}
+      {{ $.Site.Params.site_name | markdownify }}
+   {{ end }}
+</a>
+

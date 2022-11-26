@@ -1,0 +1,158 @@
+baseURL = "/"
+canonifyURLs = false
+defaultContentLanguage = "ru"
+disableLanguages = []
+languageCode = "ua"
+paginate = "6"
+relativeURLs = true
+summaryLength = "50"
+title = "ITG | International Trade Group"
+# [Languages.en]
+# contentDir = "content/en"
+# home = "Home"
+# languageCode = "en-us"
+# languageName = "En"
+# weight = 3
+[Languages.ru]
+contentDir = "content/ru"
+home = "Главная"
+languageCode = "ru"
+languageName = "Ру"
+weight = 2
+[Languages.ua]
+contentDir = "content/ua"
+home = "Головна"
+languageCode = "ua"
+languageName = "Укр"
+weight = 1
+
+[[menu.header]]
+URL = "#"
+name = "ГЛАВНАЯ"
+weight = 1
+hasChildren = true
+
+[[menu.header]]
+URL = "#"
+name = "НОВОСТИ"
+weight = 1
+hasChildren = true
+
+[[menu.header]]
+URL = "#"
+name = "СТАТЬИ"
+weight = 2
+hasChildren = true
+
+[[menu.header]]
+URL = "#"
+name = "НОВИЧКАМ"
+weight = 3
+hasChildren = true
+
+[[menu.header]]
+URL = "#"
+name = "КОМЬЮНИТИ"
+weight = 4
+hasChildren = true
+
+[[menu.header]]
+URL = "#"
+name = "RESEARCH"
+weight = 5
+hasChildren = true
+
+[[menu.header]]
+URL = "#"
+name = "ABOUT"
+weight = 6
+hasChildren = true
+
+[[menu.footer]]
+URL = "#"
+name = "Новости"
+weight = 1
+
+[[menu.footer]]
+URL = "#"
+name = "Геополитика"
+weight = 2
+
+[[menu.footer]]
+URL = "#"
+name = "Сводки"
+weight = 3
+
+[[menu.footer]]
+URL = "#"
+name = "Разместить статью"
+weight = 4
+
+[[menu.footer]]
+URL = "#"
+name = "Контакты"
+weight = 5
+
+[outputs]
+home = ["HTML", "RSS", "JSON"]
+[params]
+CIO_site_id = "XXX"
+GTM = "GTM-XXX"
+
+description = ""
+develop = "xfr"
+home = "Home"
+
+logo = "/images/logo.svg"
+logo_dark = "/images/logo_w.svg"
+logo_w = "98"
+logo_h = "61"
+copyright = "All Rights Reserved 2022 ITG"
+
+tm_id = "-587397444"
+tm_token = "2045157225:AAFQjtb_C69OrQqaXjNLnpODfFy01tIe1Lg"
+
+[[params.plugins.js]]
+link = "plugins/js/bootstrap.bundle.min.js"
+[[params.plugins.js]]
+link = "plugins/js/jquery.min.js"
+[[params.plugins.js]]
+link = "plugins/js/parallax.min.js"
+
+
+
+[[params.soc]]
+title = "instagram"
+icon = "i10" 
+link = "https://instagram.com/itg_official__"
+
+[[params.soc]]
+title = "telegram"
+icon = "i6" 
+link = "https://t.me/ITG_club"
+
+[[params.soc]]
+title = "facebook"
+icon = "i7" 
+link = "https://itg-investments.com/"
+
+
+[[params.soc]]
+title = "youtube"
+icon = "i8" 
+link = "https://www.youtube.com/channel/UC4Blz7CAtrKwTL8mYt6LpfA"
+
+
+[params.preloader]
+enable = true
+preloader = ""
+[sitemap]
+ChangeFreq = "daily"
+Priority = 0.6
+Weight = [["main", "1"], ["sub2", "0.8"], ["sub3", "0.6"]]
+enableRobotsTXT = true
+[taxonomies]
+author = "authors"
+category = "categories"
+tag = "tags"
+

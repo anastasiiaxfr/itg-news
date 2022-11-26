@@ -1,0 +1,39 @@
+// $fontSrc: '../fonts/'
+
+// $fntName: (Montserrat-Black, 900), (Montserrat-Bold, 700), (Montserrat-Medium, 500), (Montserrat-Regular, 400), (Montserrat-Light, 300)
+
+	
+// @each $fnt, $fntw in $fntName
+// 	@font-face 
+// 		$fntFldr: 'Montserrat'
+// 		font-family: 'Montserrat'
+// 		font-style: normal
+// 		font-weight: #{$fntw}
+// 		font-display: swap
+// 		src: local('Montserrat'), local('Montserrat'), url($fontSrc + '/' + $fntFldr + '/' +'#{$fnt}.woff') format('woff'), url($fontSrc + '/' + $fntFldr + '/' +'#{$fnt}.woff2') format('woff2'), url($fontSrc + '/' + $fntFldr + '/' +'#{$fnt}.ttf') format('ttf')
+
+$fontSrc: '../fonts'
+
+$fontFamily: 'OpenSans'
+
+
+$fntName: (OpenSans-Black, 900), (OpenSans-ExtraBold, 800), (OpenSans-Bold, 700), (OpenSans-SemiBold, 600),  (OpenSans-Regular, 400), (OpenSans-Light, 300)
+
+
+=font($fntName, $fntSrc, $fontFamily)	
+	@each $fnt, $fntw in $fntName
+		@font-face 
+			$fntFldr: $fontFamily
+			font-family: $fontFamily
+			font-style: normal
+			font-weight: #{$fntw}
+			font-display: swap
+			src: local($fontFamily), local($fontFamily), url($fontSrc + '/' + $fntFldr + '/' +'#{$fnt}.woff') format('woff'), url($fontSrc + '/' + $fntFldr + '/' +'#{$fnt}.woff2') format('woff2'), url($fontSrc + '/' + $fntFldr + '/' +'#{$fnt}.ttf') format('ttf')
+
+
+
+
+
++font($fntName, $fontSrc, $fontFamily)
+
+	

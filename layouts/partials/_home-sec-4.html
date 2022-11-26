@@ -1,0 +1,20 @@
+{{ $data := index .Site.Data .Site.Language.Lang }} 
+
+
+<section class="section section_articles">
+  <div class="container">
+   <div class="heading__group">
+    <h3>Статьи</h3>
+    <button class="btn--text">Больше статей ></button>
+   </div>
+   <div class="row">
+
+    {{ range first 10 (where .Site.RegularPages "Type" "articles") }}
+    <div class="col-lg-6">
+      {{- partial "_news.html" . -}}
+    </div>
+    {{ end }}
+    
+   </div>
+  </div>
+</section>

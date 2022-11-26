@@ -1,0 +1,65 @@
+.preloader {
+	@include flex(flex, center, center, nowrap);
+	@include sz(100%, 100%);
+	@include ps(fixed, (t, 0), (l, 0));
+    z-index: 100500;
+	transition: $trs;
+
+	background-color: rgba($white, 1);
+
+    &-dots {
+        @include sz(100px, 0);
+
+        .dot {
+            display: inline-block;
+            @include sz(10px, 10px);
+            margin: 2px;
+            opacity: 0.3;
+
+            background-color: $black;
+            border-radius: 50%;
+            animation: moveit 1.8s infinite;
+        }
+        
+    }
+}
+
+
+.dot {
+	&:nth-child(2) {
+		animation-delay: 0.15s;
+	}
+
+	&:nth-child(3) {
+		animation-delay: 0.3s;
+	}
+
+	&:nth-child(4) {
+		animation-delay: 0.45s;
+	}
+
+	&:nth-child(5) {
+		animation-delay: 0.6s;
+	}
+}
+
+@keyframes moveit {
+	0% {
+		transform: translateY(0px);
+	}
+	35% {
+		transform: translateY(0px);
+		opacity: 0.3;
+	}
+	50% {
+		transform: translateY(-20px);
+		opacity: 0.8;
+	}
+	70% {
+		transform: translateY(3px);
+		opacity: 0.8;
+	}
+	85% {
+		transform: translateY(-3px);
+	}
+}

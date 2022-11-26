@@ -1,0 +1,18 @@
+<button class="btn--top" title="to top">
+  
+</button>
+
+<script>
+// To Top Btn
+const scrollToTopBtn = document.querySelector(".btn_top");
+const rootElement = document.documentElement;
+
+function scrollToTop() {
+// Scroll to top logic
+rootElement.scrollTo({
+top: 0,
+behavior: "smooth"
+})
+}
+scrollToTopBtn.addEventListener("click", scrollToTop)
+</script>

@@ -1,0 +1,15 @@
+{{ if .Site.Params.preloader.enable }}
+<div class="preloader">
+	<div class="preloader-dots">
+		<div class="dot"></div>
+		<div class="dot"></div>
+		<div class="dot"></div>
+		<div class="dot"></div>
+	</div>
+</div>
+{{ end }}
+
+<script>
+	var preloader = document.querySelector('.preloader');
+	setTimeout(() => { preloader.style.display = "none";}, 600);
+</script>

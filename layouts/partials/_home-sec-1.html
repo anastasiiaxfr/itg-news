@@ -1,0 +1,57 @@
+{{ $data := index .Site.Data .Site.Language.Lang }}
+
+
+<section class="section section_news">
+    <div class="container">
+        <div class="heading__group">
+            <h3>Больше новостей</h3>
+            <button class="btn--text">Остальные новости ></button>
+           </div>
+        <div class="row">
+            {{ range (where .Site.RegularPages "Type" "news") }}
+            {{ if eq .Params.top "1" }} 
+            <div class="col-lg-4">
+                {{- partial "_card.html" . -}}
+             </div>
+            {{ end }}
+            {{ end }}
+
+            <div class="col-lg-4"></div>
+        </div>
+
+        <div class="row row--1">
+            {{ range (where .Site.RegularPages "Type" "news") }}
+            {{ if eq .Params.top "2" }} 
+            <div class="col-lg-4">
+                {{- partial "_box.html" . -}}
+            </div>
+            {{ end }}
+            {{ end }}
+            
+        </div>
+
+        <div class="row">
+            {{ range (where .Site.RegularPages "Type" "news") }}
+            {{ if eq .Params.top "3" }} 
+            <div class="col-lg-4">
+                {{- partial "_card.html" . -}}
+            </div>
+            {{ end }}
+            {{ end }}
+            <div class="col-lg-4"></div>
+        </div>
+
+        <div class="row row--1">
+            {{ range (where .Site.RegularPages "Type" "news") }}
+            {{ if eq .Params.top "4" }} 
+            <div class="col-lg-4">
+                {{- partial "_box.html" . -}}
+            </div>
+            {{ end }}
+            {{ end }}
+           
+        </div>
+         
+    </div>
+</section>
+

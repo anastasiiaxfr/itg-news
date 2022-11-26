@@ -1,0 +1,96 @@
+{{ $data := index .Site.Data .Site.Language.Lang }}
+
+<section class="section section_top">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-5">
+        {{ range (where .Site.RegularPages "Type" "top-news") }}
+        {{ if eq .Params.top "1" }} 
+        <article class="card-top">
+          <a href="{{ .Permalink }}" class="d-none d-lg-block">
+            <img src="{{ .Params.img | relURL }}" alt="{{ .Title }}" />
+          </a>
+          <div class="card-top__title">
+            <a href="{{ .Permalink }}">
+              {{ .Title }}
+            </a>
+          </div>
+          <div class="card-top__meta">
+            <div class="card-top__author">
+              {{ .Params.author }}
+            </div>
+            <div class="card-top__date">
+              {{ .Date.Format "02/01/2006" }}
+            </div>
+          </div>
+          <div class="card-top__content">
+            <a href="{{ .Permalink }}">
+             {{ .Summary | truncate 150 }}
+            </a>
+          </div>
+        </article>
+        {{ end }}
+        {{ end }}
+
+      </div>
+      <div class="col-lg-7">
+        <div class="row">
+          <div class="col-md-6">
+            {{ range (where .Site.RegularPages "Type" "top-news") }}
+            {{ if eq .Params.top "2" }} 
+            <article class="top-news">
+              <a href="{{ .Permalink }}">
+                <img src="{{ .Params.img | relURL }}" alt="{{ .Title }}" />
+              </a>
+              <div class="top-news__title">
+                <a href="{{ .Permalink }}">
+                  {{ .Title }}
+                </a>
+              </div>
+              <div class="top-news__footer">
+                <div class="top-news__author">
+                  {{ .Params.author }}
+                </div>
+                <div class="top-news__date">
+                  {{ .Date.Format "02/01/2006" }}
+                </div>
+              </div>
+            </article>
+            {{ end }}
+            {{ end }}
+          
+          </div>
+          <div class="col-md-6">
+            {{ range first 4 (where .Site.RegularPages "Type" "top-news") }}
+            <article class="article">
+              <div class="article__heading">
+                <div class="article__cat">
+                  {{ range first 1 .Params.cat }}
+                    {{ . }}
+                  {{ end }}
+                </div>
+                <div class="article__date">
+                  {{ .Date.Format "02/01/2006" }}
+                </div>
+              </div>
+              <div class="article__content">
+                <a href="{{ .Permalink }}">
+                  {{ .Title }}
+                </a>
+              </div>
+              <div class="article__footer">
+                {{ .Params.author }}
+              </div>
+            </article>
+            {{ end }}
+           
+
+        
+
+           
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
