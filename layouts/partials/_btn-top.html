@@ -1,10 +1,12 @@
 <button class="btn--top" title="to top">
-  
+  <svg class="icon" width="8" height="8">
+    <use xlink:href="#i1" fill="#fff"></use>
+  </svg>
 </button>
 
 <script>
 // To Top Btn
-const scrollToTopBtn = document.querySelector(".btn_top");
+const scrollToTopBtn = document.querySelector(".btn--top");
 const rootElement = document.documentElement;
 
 function scrollToTop() {

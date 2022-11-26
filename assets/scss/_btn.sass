@@ -56,6 +56,17 @@
         color: inherit
         +maw($sm)
             +ft(14, 14, 700)
+    &--top
+        width: 40px
+        height: 40px
+        position: fixed
+        bottom: 10px
+        right: 10px
+        border: none
+        background-color: lighten($black, 80%)
+        svg
+            transform: rotate(-90deg)
+            fill: $white
 
 .heading
     &__group
