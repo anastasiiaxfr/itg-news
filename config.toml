@@ -2,17 +2,17 @@ baseURL = "/"
 canonifyURLs = false
 defaultContentLanguage = "ru"
 disableLanguages = []
-languageCode = "ua"
+languageCode = "ru"
 paginate = "6"
 relativeURLs = true
 summaryLength = "50"
 title = "ITG | International Trade Group"
-# [Languages.en]
-# contentDir = "content/en"
-# home = "Home"
-# languageCode = "en-us"
-# languageName = "En"
-# weight = 3
+[Languages.en]
+contentDir = "content/en"
+home = "Home"
+languageCode = "en-us"
+languageName = "En"
+weight = 3
 [Languages.ru]
 contentDir = "content/ru"
 home = "Главная"
@@ -109,17 +109,10 @@ logo_w = "98"
 logo_h = "61"
 copyright = "All Rights Reserved 2022 ITG"
 
-tm_id = "-587397444"
-tm_token = "2045157225:AAFQjtb_C69OrQqaXjNLnpODfFy01tIe1Lg"
-
 [[params.plugins.js]]
 link = "plugins/js/bootstrap.bundle.min.js"
 [[params.plugins.js]]
 link = "plugins/js/jquery.min.js"
-[[params.plugins.js]]
-link = "plugins/js/parallax.min.js"
-
-
 
 [[params.soc]]
 title = "instagram"
@@ -135,7 +128,6 @@ link = "https://t.me/ITG_club"
 title = "facebook"
 icon = "i7" 
 link = "https://itg-investments.com/"
-
 
 [[params.soc]]
 title = "youtube"
