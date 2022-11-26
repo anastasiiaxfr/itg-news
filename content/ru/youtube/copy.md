@@ -1,6 +1,6 @@
 +++
 author = "xfr"
-date = 2021-08-26T21:00:00Z
+date = 2022-11-25T22:00:00Z
 img = "images/video.jpg"
 title = "Аналитики прогнозируют крах одной из самых популярных-(copy)"
 top = true
