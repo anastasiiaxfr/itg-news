@@ -8,48 +8,62 @@
             <button class="btn--text">Остальные новости ></button>
            </div>
         <div class="row">
-            {{ range first 2 (where .Site.RegularPages "Type" "news") }}
+            {{ $arg := slice }}
+            {{ range (where .Site.RegularPages "Type" "news") }}
             {{ if eq .Params.top "1" }} 
+            {{ $arg = $arg | append .  }}
+            {{ end }}
+            {{ end }}
+            {{ range last 2 $arg }}
             <div class="col-lg-4">
                 {{- partial "_card.html" . -}}
              </div>
-            {{ end }}
-            {{ end }}
+             {{ end }}
 
             <div class="col-lg-4"></div>
         </div>
 
         <div class="row row--1">
-            {{ range first 2 (where .Site.RegularPages "Type" "news") }}
+            {{ $arg := slice }}
+            {{ range (where .Site.RegularPages "Type" "news") }}
             {{ if eq .Params.top "2" }} 
+            {{ $arg = $arg | append .  }}
+            {{ end }}
+            {{ end }}
+            {{ range last 2 $arg }}
             <div class="col-lg-4">
                 {{- partial "_box.html" . -}}
             </div>
             {{ end }}
-            {{ end }}
-            
         </div>
 
         <div class="row">
-            {{ range first 2 (where .Site.RegularPages "Type" "news") }}
+            {{ $arg := slice }}
+            {{ range (where .Site.RegularPages "Type" "news") }}
             {{ if eq .Params.top "3" }} 
+            {{ $arg = $arg | append .  }}
+            {{ end }}
+            {{ end }}
+            {{ range last 2 $arg }}
             <div class="col-lg-4">
                 {{- partial "_card.html" . -}}
             </div>
             {{ end }}
-            {{ end }}
             <div class="col-lg-4"></div>
         </div>
 
         <div class="row row--1">
-            {{ range first 3 (where .Site.RegularPages "Type" "news") }}
+            {{ $arg := slice }}
+            {{ range (where .Site.RegularPages "Type" "news") }}
             {{ if eq .Params.top "4" }} 
+            {{ $arg = $arg | append .  }}
+            {{ end }}
+            {{ end }}
+            {{ range last 3 $arg }}
             <div class="col-lg-4">
                 {{- partial "_box.html" . -}}
             </div>
             {{ end }}
-            {{ end }}
-           
         </div>
          
     </div>

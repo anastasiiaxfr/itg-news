@@ -4,8 +4,13 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-5">
-        {{ range first 1 (where .Site.RegularPages "Type" "top-news") }}
+        {{ $arg := slice }}
+        {{ range (where .Site.RegularPages "Type" "top-news")  }}
         {{ if eq .Params.top "1" }} 
+        {{ $arg = $arg | append .  }}
+        {{ end }}
+        {{ end }}
+        {{ range last 1 $arg }}
         <article class="card-top">
           <a href="{{ .Permalink }}" class="d-none d-lg-block">
             <img src="{{ .Params.img | relURL }}" alt="{{ .Title }}" />
@@ -30,14 +35,18 @@
           </div>
         </article>
         {{ end }}
-        {{ end }}
 
       </div>
       <div class="col-lg-7">
         <div class="row">
           <div class="col-md-6">
-            {{ range first 2 (where .Site.RegularPages "Type" "top-news") }}
+            {{ $arg := slice }}
+            {{ range (where .Site.RegularPages "Type" "top-news") }}
             {{ if eq .Params.top "2" }} 
+            {{ $arg = $arg | append .  }}
+            {{ end }}
+            {{ end }}
+            {{ range last 2 $arg }}
             <article class="top-news">
               <a href="{{ .Permalink }}">
                 <img src="{{ .Params.img | relURL }}" alt="{{ .Title }}" />
@@ -56,8 +65,7 @@
                 </div>
               </div>
             </article>
-            {{ end }}
-            {{ end }}
+           {{ end }}
           
           </div>
           <div class="col-md-6">
