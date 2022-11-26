@@ -1,7 +1,6 @@
 +++
 author = "xfr"
 date = 2021-08-26T21:00:00Z
-draft = true
 img = "images/card2.jpg"
 title = "Аналитики прогнозируют крах одной из самых популярных 1-(copy)"
 top = "1"
