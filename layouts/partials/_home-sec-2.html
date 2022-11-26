@@ -20,7 +20,7 @@
         </div>
         <div class="col-lg-6">
           
-    {{ range first 4 (where .Site.RegularPages "Type" "youtube") }}
+    {{ range last 4 (where .Site.RegularPages "Type" "youtube") }}
 
                 {{- partial "_video-news.html" . -}}
                 
