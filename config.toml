@@ -127,7 +127,7 @@ link = "https://t.me/ITG_club"
 [[params.soc]]
 title = "facebook"
 icon = "i7" 
-link = "https://itg-investments.com/"
+link = "#"
 
 [[params.soc]]
 title = "youtube"
