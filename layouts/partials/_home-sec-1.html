@@ -8,7 +8,7 @@
             <button class="btn--text">Остальные новости ></button>
            </div>
         <div class="row">
-            {{ range (where .Site.RegularPages "Type" "news") }}
+            {{ range first 2 (where .Site.RegularPages "Type" "news") }}
             {{ if eq .Params.top "1" }} 
             <div class="col-lg-4">
                 {{- partial "_card.html" . -}}
@@ -20,7 +20,7 @@
         </div>
 
         <div class="row row--1">
-            {{ range (where .Site.RegularPages "Type" "news") }}
+            {{ range first 2 (where .Site.RegularPages "Type" "news") }}
             {{ if eq .Params.top "2" }} 
             <div class="col-lg-4">
                 {{- partial "_box.html" . -}}
@@ -31,7 +31,7 @@
         </div>
 
         <div class="row">
-            {{ range (where .Site.RegularPages "Type" "news") }}
+            {{ range first 2 (where .Site.RegularPages "Type" "news") }}
             {{ if eq .Params.top "3" }} 
             <div class="col-lg-4">
                 {{- partial "_card.html" . -}}
