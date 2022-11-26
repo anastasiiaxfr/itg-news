@@ -22,7 +22,7 @@ sections:
 - type: heading
   label: Content
 - type: directory
-  path: content/**u/top-news
+  path: content/**/top-news
   label: Top-News
   create: all
   match: "**/*"
