@@ -2,7 +2,7 @@
 <section class="single-page">
   <div class="container">
 
-    <div class="row py-5">
+    <div class="row py-5" id="main-content">
         <div class="col-lg-7">
 
             <h1>{{ .Title }}</h1>
@@ -10,8 +10,9 @@
             {{ .Content }}
 
         </div>
-        <div class="col-lg-4">
-            {{ range first 2 (where .Site.RegularPages "Type" "top-news") }}
+        <aside class="col-lg-4" id="sidebar">
+            <div class="sidebar__inner">
+                {{ range first 2 (where .Site.RegularPages "Type" "top-news") }}
             <article class="article">
               <div class="article__heading">
                 <div class="article__cat">
@@ -46,7 +47,8 @@
             
             {{ end }}
 
-        </div>
+            </div>
+        </aside>
     </div>
    
     <div class="heading__group">
