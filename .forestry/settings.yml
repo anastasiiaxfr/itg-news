@@ -46,6 +46,13 @@ sections:
   label: Статьи [RU]
   create: all
   match: "**/*"
+- type: heading
+  label: UA
+- type: directory
+  path: content/ua/top-news
+  label: Top-News [UA]
+  create: all
+  match: "**/*"
 upload_dir: static/images
 public_path: "/images"
 front_matter_path: ''
