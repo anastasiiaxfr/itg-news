@@ -2,7 +2,7 @@
 {{- partial "head.html" . -}}
 
 <body lang="{{ with .Site.LanguageCode }}{{ . }}{{ else }}en-US{{ end }}" class="page__body">
-
+  {{- partial "header.html" . -}}
   <main class="page__wrap">
 
     {{- partial "preloader.html" . -}}
@@ -12,6 +12,7 @@
 
   </main>
   <!-- {{- partial "_btn-top.html" . -}} -->
+ 
 
   {{- partial "footer.html" . -}}
 

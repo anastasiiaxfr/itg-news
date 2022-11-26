@@ -11,7 +11,7 @@
         {{- partial "_logo.html" . -}}
   
         <!-- BEGIN search -->
-        <form action="{{`search` | relURL }}" class="search">
+        <form action="{{`search` | relURL }}" class="search d-none">
           <input type="search" id="search-query" name="s" class="form-control" placeholder="Search..." />
           <button type="submit" hidden></button>
         </form>
