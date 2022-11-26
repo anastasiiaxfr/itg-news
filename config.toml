@@ -98,7 +98,7 @@ name = "Контакты"
 weight = 5
 
 [outputs]
-home = ["HTML", "RSS", "JSON"]
+home = ["HTML", "RSS", "JSON"] 
 [params]
 CIO_site_id = "XXX"
 GTM = "GTM-XXX"
@@ -117,13 +117,13 @@ copyright = "All Rights Reserved 2022 ITG"
 link = "plugins/js/bootstrap.bundle.min.js"
 [[params.plugins.js]]
 link = "plugins/js/jquery.min.js"
+
 [[params.plugins.js]]
 link = "plugins/search/fuse.min.js"
 [[params.plugins.js]]
 link = "plugins/search/mark.js"
 [[params.plugins.js]]
 link = "plugins/search/search.js"
-
 
 [[params.soc]]
 title = "instagram"
