@@ -14,7 +14,7 @@
             {{ $arg = $arg | append .  }}
             {{ end }}
             {{ end }}
-            {{ range last 2 $arg }}
+            {{ range first 2 $arg }}
             <div class="col-lg-4">
                 {{- partial "_card.html" . -}}
              </div>
@@ -30,7 +30,7 @@
             {{ $arg = $arg | append .  }}
             {{ end }}
             {{ end }}
-            {{ range last 2 $arg }}
+            {{ range first 2 $arg }}
             <div class="col-lg-4">
                 {{- partial "_box.html" . -}}
             </div>
@@ -44,7 +44,7 @@
             {{ $arg = $arg | append .  }}
             {{ end }}
             {{ end }}
-            {{ range last 2 $arg }}
+            {{ range first 2 $arg }}
             <div class="col-lg-4">
                 {{- partial "_card.html" . -}}
             </div>
@@ -59,7 +59,7 @@
             {{ $arg = $arg | append .  }}
             {{ end }}
             {{ end }}
-            {{ range last 3 $arg }}
+            {{ range first 3 $arg }}
             <div class="col-lg-4">
                 {{- partial "_box.html" . -}}
             </div>
