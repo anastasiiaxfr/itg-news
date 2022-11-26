@@ -19,19 +19,26 @@ sections:
   label: content
   create: all
   match: "**/*"
-- type: heading
-  label: TOP-news
-- type: heading
+- type: directory
+  path: content/**u/top-news
+  label: Top-News
+  create: all
+  match: "**/*"
+- type: directory
+  path: content/**/news
   label: News
-- type: heading
-  label: YouTube
+  create: all
+  match: "**/*"
 - type: directory
   path: content/**/youtube
   label: YouTube
   create: all
   match: "**/*"
-- type: heading
-  label: Статьи
+- type: directory
+  path: content/**/begginers
+  label: Полезное
+  create: all
+  match: "**/*"
 - type: directory
   path: content/**/articles
   label: Статьи
