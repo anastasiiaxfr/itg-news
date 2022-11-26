@@ -4,7 +4,7 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-5">
-        {{ range (where .Site.RegularPages "Type" "top-news") }}
+        {{ range first 1 (where .Site.RegularPages "Type" "top-news") }}
         {{ if eq .Params.top "1" }} 
         <article class="card-top">
           <a href="{{ .Permalink }}" class="d-none d-lg-block">
@@ -36,7 +36,7 @@
       <div class="col-lg-7">
         <div class="row">
           <div class="col-md-6">
-            {{ range (where .Site.RegularPages "Type" "top-news") }}
+            {{ range first 2 (where .Site.RegularPages "Type" "top-news") }}
             {{ if eq .Params.top "2" }} 
             <article class="top-news">
               <a href="{{ .Permalink }}">
