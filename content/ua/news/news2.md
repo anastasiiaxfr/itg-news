@@ -1,7 +1,7 @@
 +++
-date = 2021-08-27T21:00:00Z
+date = 2021-08-25T21:00:00Z
 title = "Аналитики прогнозируют крах одной из самых популярных 2"
-img = "images/card2.jpg"
+img = "images/card1.jpg"
 type = "news"
 top = "1"
 author = "xfr"

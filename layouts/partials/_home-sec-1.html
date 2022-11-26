@@ -42,7 +42,7 @@
         </div>
 
         <div class="row row--1">
-            {{ range (where .Site.RegularPages "Type" "news") }}
+            {{ range first 3 (where .Site.RegularPages "Type" "news") }}
             {{ if eq .Params.top "4" }} 
             <div class="col-lg-4">
                 {{- partial "_box.html" . -}}

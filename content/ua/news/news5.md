@@ -1,7 +1,7 @@
 +++
 date = 2021-08-26T21:00:00Z
 title = "Аналитики прогнозируют крах одной из самых популярных 5"
-img = "images/news1.jpg"
+img = "images/card4.jpg"
 type = "news"
 top = "3"
 author = "xfr"

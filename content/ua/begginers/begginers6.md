@@ -1,7 +1,7 @@
 +++
 date = 2021-08-26T21:00:00Z
 title = "Аналитики прогнозируют крах одной из самых популярных 6"
-type = "begginers"
+type = "beginners"
 author = "xfr"
 cat = ["ПОЛЕЗНОЕ", "Guide"]
 top = false

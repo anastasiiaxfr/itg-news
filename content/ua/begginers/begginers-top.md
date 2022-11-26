@@ -2,7 +2,7 @@
 date = 2021-08-26T21:00:00Z
 title = "Аналитики прогнозируют крах одной из самых популярных"
 img = "images/box-top.jpg"
-type = "begginers"
+type = "beginners"
 author = "xfr"
 top = true
 +++
