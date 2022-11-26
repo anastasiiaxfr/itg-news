@@ -19,6 +19,8 @@ sections:
   label: content
   create: all
   match: "**/*"
+- type: heading
+  label: Content
 - type: directory
   path: content/**u/top-news
   label: Top-News
