@@ -22,8 +22,8 @@ sections:
 - type: heading
   label: Content
 - type: directory
-  path: content/**/top-news
-  label: Top-News
+  path: content/ru/top-news
+  label: Top-News [RU]
   create: all
   match: "**/*"
 - type: directory
