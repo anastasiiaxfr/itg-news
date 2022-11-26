@@ -15,6 +15,11 @@ sections:
 - type: heading
   label: Статьи
 - type: directory
+  path: content/**/articles
+  label: Статьи
+  create: all
+  match: "**/*"
+- type: directory
   path: i18n
   label: i18n
   create: all
