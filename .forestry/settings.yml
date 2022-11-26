@@ -4,8 +4,6 @@ auto_deploy: false
 admin_path: ''
 webhook_url: 
 sections:
-- type: heading
-  label: News
 - type: directory
   path: i18n
   label: i18n
@@ -16,22 +14,29 @@ sections:
   label: data
   create: all
   match: "**/*"
-- type: heading
-  label: TOP-news
 - type: directory
   path: content
   label: content
   create: all
   match: "**/*"
 - type: heading
+  label: TOP-news
+- type: heading
+  label: News
+- type: heading
   label: YouTube
+- type: directory
+  path: content/**/youtube
+  label: YouTube
+  create: all
+  match: "**/*"
+- type: heading
+  label: Статьи
 - type: directory
   path: content/**/articles
   label: Статьи
   create: all
   match: "**/*"
-- type: heading
-  label: Статьи
 upload_dir: static/images
 public_path: "/images"
 front_matter_path: ''
