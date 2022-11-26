@@ -20,30 +20,30 @@ sections:
   create: all
   match: "**/*"
 - type: heading
-  label: Content
+  label: RU
 - type: directory
   path: content/ru/top-news
   label: Top-News [RU]
   create: all
   match: "**/*"
 - type: directory
-  path: content/**/news
-  label: News
+  path: content/ru/news
+  label: News [RU]
   create: all
   match: "**/*"
 - type: directory
-  path: content/**/youtube
-  label: YouTube
+  path: content/ru/youtube
+  label: YouTube [RU]
   create: all
   match: "**/*"
 - type: directory
-  path: content/**/begginers
-  label: Полезное
+  path: content/ru/begginers
+  label: Полезное [RU]
   create: all
   match: "**/*"
 - type: directory
-  path: content/**/articles
-  label: Статьи
+  path: content/ru/articles
+  label: Статьи [RU]
   create: all
   match: "**/*"
 upload_dir: static/images
