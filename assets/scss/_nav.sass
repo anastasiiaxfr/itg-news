@@ -59,3 +59,19 @@
     &__inner
         position: sticky
         top: 5%
+    
+.breadcrumb
+    &-wrap
+        padding: 10px 0
+        margin-bottom: 0
+    &__item
+        display: inline-flex
+        padding-right: 4px
+        text-transform: uppercase
+        +ft(12, 12, 600)
+        &::after
+            content: '/'
+            margin-left: 8px
+        &:last-child
+            &::after
+                content: normal 

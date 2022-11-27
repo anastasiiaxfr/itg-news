@@ -11,10 +11,11 @@
         {{- partial "_logo.html" . -}}
   
         <!-- BEGIN search -->
-       <form action="/search" method="GET" class="search">
-          <input type="search" id="search-query" name="q" placeholder="Поиск..." />
+       <form action="/search" method="GET" class="search d-none">
+          <input type="search" id="search-query" name="s" placeholder="Поиск..." />
           <button type="submit" hidden></button>
         </form>
+       
         <!-- END search -->
         
         <div class="d-flex">
