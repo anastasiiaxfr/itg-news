@@ -1,5 +1,5 @@
 <section class="mb-5">
-  <h4>Tags</h4>
+  <h3 class="h5">{{ i18n "tags" }}</h3>
   {{- if isset .Site.Taxonomies "cat" }}
   {{- if not (eq (len .Site.Taxonomies.cat) 0) }}
   <ul class="categories">
@@ -12,36 +12,36 @@
 </section>
 
 <section class="my-4">
-  <h4>
-    Latest News
-  </h4>
+  <h3 class="h5">
+    {{ i18n "latest-news" }}
+  </h3>
   {{ range first 3 ( where .Site.RegularPages "Type" "news" )}}
   {{- partial "_video-news.html" . -}}
   {{ end }}
 </section>
 
 <section class="my-4">
-	<h4>
-	  Latest TOP News
-	</h4>
+	<h3 class="h5">
+	 {{ i18n "latest-top-news" }}
+	</h3>
 	{{ range first 3 ( where .Site.RegularPages "Type" "top-news" )}}
 	{{- partial "_video-news.html" . -}}
 	{{ end }}
   </section>
 
   <section class="my-4">
-	<h4>
-	  Latest article
-	</h4>
+	<h3 class="h5">
+	  {{ i18n "latest-articles" }}
+	</h3>
 	{{ range first 3 ( where .Site.RegularPages "Type" "articles" )}}
 	{{- partial "_video-news.html" . -}}
 	{{ end }}
   </section>
 
   <section class="my-4">
-	<h4>
-	  Latest beginners guide
-	</h4>
+	<h3 class="h5">
+	  {{ i18n "latest-beginners" }}
+	</h3>
 	{{ range first 3 ( where .Site.RegularPages "Type" "beginners" )}}
 	{{- partial "_video-news.html" . -}}
 	{{ end }}

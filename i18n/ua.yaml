@@ -19,3 +19,13 @@
   translation: Рассылка раз в неделю
 - id: subscribe-btn
   translation: Подписаться
+- id: tags
+  translation: Теги
+- id: latest-news
+  translation: Новости
+- id: latest-top-news
+  translation: ТОП новости 
+- id: latest-articles
+  translation: Статьи
+- id: latest-beginners
+  translation: Новичкам 
