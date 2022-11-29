@@ -146,6 +146,21 @@ title = "youtube"
 icon = "i8" 
 link = "https://www.youtube.com/channel/UC4Blz7CAtrKwTL8mYt6LpfA"
 
+[[params.contacts]]
+title = "email"
+icon = "i2" 
+link = "mailto: office@itg-investments.com"
+[[params.contacts]]
+title = "tel"
+icon = "i4" 
+link = "380505635807"
+[[params.contacts]]
+title = "site"
+icon = "site" 
+link = "https://itg-investments.com/"
+
+
+
 [params.preloader]
 enable = true
 preloader = ""

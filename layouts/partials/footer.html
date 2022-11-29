@@ -45,7 +45,21 @@
           {{ end }}
               </ul>
 
-
+              {{ range .Site.Params.contacts }}
+              {{ if eq .title "tel" }}
+              <a href="tel:{{.link}}" target="_blank" rel="noopener noreferrer" title="{{ .title }}">
+                 <svg class="icon me-3" width="30" height="30">
+                  <use xlink:href="#{{.icon}}"></use>
+                </svg>
+              </a>
+              {{ else }}
+              <a href="{{.link}}" target="_blank" rel="noopener noreferrer" title="{{ .title }}">
+                <svg class="icon me-3" width="30" height="30">
+                 <use xlink:href="#{{.icon}}"></use>
+               </svg>
+             </a>
+              {{ end }}
+              {{ end }}
         </div>
     </div>
 </footer>
