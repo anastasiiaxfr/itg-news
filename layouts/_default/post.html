@@ -1,0 +1,26 @@
+<div class="card card--bd">
+
+  {{ if .Params.Img }}
+  <a href="{{ .Permalink }}" class="card__img"><img src="{{ .Params.Img | relURL }}"></a>
+  {{ else }}
+  <a href="{{ .Permalink }}" class="card__img"><img src="{{ `/images/news.jpg` | relURL }}"></a>
+  {{ end }}
+
+  <div class="card__body">
+    <div class="card__meta mb-2">By <b><a class="" href="{{ `author/` | relLangURL }}{{ .Params.Author | urlize }}">{{ .Params.Author | title }}</a></b> / on
+      <strong class="">{{ .PublishDate.Format "02 Jan, 2006" }}</strong></div>
+    <h4>
+      {{ if .Params.url }}
+      <a href="{{ .Params.url }}" class="card__heading">{{ .Title }}</a>
+      {{ else }}
+      <a href="{{ .Permalink }}" class="card__heading">{{ .Title }}</a>
+      {{ end }}
+    </h4>
+    <div class="card__text">{{ .Summary | truncate 150 }}</div>
+    {{ if .Params.url }}
+    <a href="{{ .Params.url }}" class="btn btn--text">Подробнее</a>
+    {{ else }}
+    <a href="{{ .Permalink }}" class="btn btn--text">Подробнее</a>
+    {{ end }}
+  </div>
+</div>

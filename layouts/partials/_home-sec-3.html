@@ -11,7 +11,7 @@
         <td>
           <div class="row">
 
-            {{ range first 6 (where .Site.RegularPages "Type" "begginers") }}
+            {{ range first 6 (where .Site.RegularPages "Type" "beginners") }}
 
             <div class="col-md-6">
               {{- partial "_article.html" . -}}
@@ -23,7 +23,7 @@
         </td>
         <td>
 
-          {{ range first 1 (where .Site.RegularPages "Type" "begginers") }}
+          {{ range first 1 (where .Site.RegularPages "Type" "beginners") }}
           
           {{ if eq .Params.top true }} 
           <article class="article-top">

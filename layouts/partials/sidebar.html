@@ -1,0 +1,48 @@
+<section class="mb-5">
+  <h4>Tags</h4>
+  {{- if isset .Site.Taxonomies "cat" }}
+  {{- if not (eq (len .Site.Taxonomies.cat) 0) }}
+  <ul class="categories">
+    {{- range $name, $items := .Site.Taxonomies.cat }}
+    <li><a href="{{ "cat/" | relLangURL }}{{ $name | urlize | lower }}" class="">{{ $name | title | humanize }}</a></li>
+    {{- end }}
+  </ul>
+  {{- end }}
+  {{- end }}
+</section>
+
+<section class="my-4">
+  <h4>
+    Latest News
+  </h4>
+  {{ range first 3 ( where .Site.RegularPages "Type" "news" )}}
+  {{- partial "_video-news.html" . -}}
+  {{ end }}
+</section>
+
+<section class="my-4">
+	<h4>
+	  Latest TOP News
+	</h4>
+	{{ range first 3 ( where .Site.RegularPages "Type" "top-news" )}}
+	{{- partial "_video-news.html" . -}}
+	{{ end }}
+  </section>
+
+  <section class="my-4">
+	<h4>
+	  Latest article
+	</h4>
+	{{ range first 3 ( where .Site.RegularPages "Type" "articles" )}}
+	{{- partial "_video-news.html" . -}}
+	{{ end }}
+  </section>
+
+  <section class="my-4">
+	<h4>
+	  Latest beginners guide
+	</h4>
+	{{ range first 3 ( where .Site.RegularPages "Type" "beginners" )}}
+	{{- partial "_video-news.html" . -}}
+	{{ end }}
+  </section>
