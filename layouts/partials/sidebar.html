@@ -1,17 +1,27 @@
-<section class="mb-5">
+
+  {{- if isset .Site.Taxonomies "tags" }}
+  
+  {{ $tags := .Site.Taxonomies.tags }}
+  {{- if not (eq (len $tags) 0) }}
+  {{- $.Scratch.Set "myLimit" 0 }}
+  <section class="mb-4">
   <h3 class="h5">{{ i18n "tags" }}</h3>
-  {{- if isset .Site.Taxonomies "cat" }}
-  {{- if not (eq (len .Site.Taxonomies.cat) 0) }}
+
   <ul class="categories">
-    {{- range $name, $items := .Site.Taxonomies.cat }}
+
+    {{- range $name, $items :=  $tags }}
+	{{- $.Scratch.Set "myLimit" (add ($.Scratch.Get "myLimit") 1) }}
+	{{- if le ($.Scratch.Get "myLimit") ($.Site.Param `tagsLimit`) }}
     <li><a href="{{ "cat/" | relLangURL }}{{ $name | urlize | lower }}" class="">{{ $name | title | humanize }}</a></li>
     {{- end }}
+	{{ end }}
   </ul>
-  {{- end }}
-  {{- end }}
 </section>
+  {{- end }}
+  {{- end }}
 
-<section class="my-4">
+
+<section class="mb-4">
   <h3 class="h5">
     {{ i18n "latest-news" }}
   </h3>

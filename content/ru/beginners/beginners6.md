@@ -4,6 +4,7 @@ title = "Аналитики прогнозируют крах одной из с
 type = "beginners"
 author = "xfr"
 cat = ["ПОЛЕЗНОЕ", "Guide"]
+tags = ["guide", "tag1"]
 top = false
 
 +++
