@@ -4,6 +4,7 @@ title = "Аналитики прогнозируют крах одной из с
 img = "images/box-top.jpg"
 type = "beginners"
 cat = ["ПОЛЕЗНОЕ"]
+tags = ["guide", "tag3"]
 author = "xfr"
 top = true
 +++

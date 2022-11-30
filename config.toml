@@ -31,25 +31,25 @@ languageName = "Укр"
 weight = 1
 
 [[menu.header]]
-URL = "#"
+URL = "/"
 name = "ГЛАВНАЯ"
 weight = 1
 hasChildren = true
 
 [[menu.header]]
-URL = "#news"
+URL = "/news"
 name = "НОВОСТИ"
 weight = 1
 hasChildren = true
 
 [[menu.header]]
-URL = "#articles"
+URL = "/articles"
 name = "СТАТЬИ"
 weight = 2
 hasChildren = true
 
 [[menu.header]]
-URL = "#beginners"
+URL = "/beginners"
 name = "НОВИЧКАМ"
 weight = 3
 hasChildren = true
@@ -73,7 +73,7 @@ weight = 6
 hasChildren = true
 
 [[menu.footer]]
-URL = "#"
+URL = "/news"
 name = "Новости"
 weight = 1
 
