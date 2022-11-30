@@ -6,12 +6,11 @@
       <div class="container">
         <div class="d-flex align-items-center justify-content-between">
         {{ .Scratch.Set "img" .Site.Params.logo }} 
-        {{ .Scratch.Set "logo_w" 98 }}
-        {{ .Scratch.Set "logo_h" 61 }}
+        {{ .Scratch.Set "logo_h" 50 }}
         {{- partial "_logo_base.html" . -}}
   
         <!-- BEGIN search -->
-       <form action="/search" method="GET" class="search d-none">
+       <form action="/search" method="GET" class="search">
           <input type="search" id="search-query" name="s" placeholder="Поиск..." />
           <button type="submit" hidden></button>
         </form>
@@ -23,7 +22,7 @@
         <div class="soc me-2">
           {{ range .Site.Params.soc }}
           <a href="{{.link}}" target="_blank" rel="noopener noreferrer" title="{{ .title }}">
-             <svg class="icon me-3" width="30" height="30">
+             <svg class="icon me-3" width="25" height="25">
               <use xlink:href="#{{.icon}}"></use>
             </svg>
           </a>

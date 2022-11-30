@@ -8,9 +8,7 @@
    {{ if $.Site.Params.logo }}
      
 
-
-      <img src="{{ $.Site.Params.logo | relURL }}" alt="{{ .Site.Params.site_name }}" {{ if $logo_w}} width="{{ $logo_w }}" height="{{ $logo_h }}" {{ end }}>
-   
+      <img src="{{ $.Site.Params.logo | relURL }}" alt="{{ .Site.Params.site_name }}" {{ if $logo_w}} width="{{ $logo_w }}" {{ end }} height="{{ $logo_h }}">
    
       {{ else }}
       {{ $.Site.Params.site_name | markdownify }}
