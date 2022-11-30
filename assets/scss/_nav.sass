@@ -61,6 +61,18 @@
         top: 5%
     
 .breadcrumb
+    margin-top: 30px
+    li
+        display: inline-flex
+        text-transform: uppercase
+        +ft(12, 12, 600)
+        margin-right: 10px
+        &::after
+            content: '/'
+            margin-left: 10px
+        &:last-child
+            &::after
+                content: none
     &-wrap
         padding: 10px 0
         margin-bottom: 0

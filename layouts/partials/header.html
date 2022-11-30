@@ -8,7 +8,7 @@
         {{ .Scratch.Set "img" .Site.Params.logo }} 
         {{ .Scratch.Set "logo_w" 98 }}
         {{ .Scratch.Set "logo_h" 61 }}
-        {{- partial "_logo.html" . -}}
+        {{- partial "_logo_base.html" . -}}
   
         <!-- BEGIN search -->
        <form action="/search" method="GET" class="search d-none">
