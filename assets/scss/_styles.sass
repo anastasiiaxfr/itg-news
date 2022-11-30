@@ -161,8 +161,8 @@
     border-radius: 10px
     border: 1px solid lighten($black0, 80%)
     padding: 25px
-    margin-bottom: 16px
-    margin-top: 16px
+    // margin-bottom: 16px
+    // margin-top: 16px
     &__title
         text-transform: uppercase
         +ft(18, 18*1.4, 700)  
@@ -282,3 +282,24 @@
                 border-left: none
             &:first-child
                 padding-right: 0
+
+.table1
+    margin-left: -10px
+    margin-right: -10px
+    margin-bottom: 30px
+    td
+        // border: 1px solid 
+        vertical-align: top
+        padding: 10px
+    &__col
+        width: 33%
+    
+    +maw($md)
+        &__col, td
+            display: inline-flex
+            width: 50%
+    +maw($sm)
+        &__col, td
+            display: block
+            width: 100%
+       
