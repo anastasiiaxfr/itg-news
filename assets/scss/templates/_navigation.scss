@@ -243,10 +243,15 @@
 
 .footer {
   &__nav li {
-    margin-right: 24px;
+    margin: 0 12px;
 
     &:last-child {
       margin-right: 0;
+    }
+
+    a:hover{
+      color: $white;
+      text-decoration: underline;
     }
   }
 }

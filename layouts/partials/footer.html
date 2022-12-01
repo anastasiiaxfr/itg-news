@@ -15,7 +15,7 @@
             <p class="text-white content">{{ .Site.Params.footer_content | markdownify }}</p>
           </div> -->
           <div class="row mx-0">
-            <ul class="list-unstyled footer__nav d-flex">
+            <ul class="list-unstyled footer__nav d-flex flex-wrap justify-content-center">
               {{ range $i, $arr := .Site.Menus.footer }}
               <li class="text-white"><a href="{{ .URL | relURL }}">{{ .Name }}</a></li>
               {{ end }}
