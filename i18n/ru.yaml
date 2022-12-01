@@ -29,3 +29,5 @@
   translation: Последние статьи
 - id: latest-beginners
   translation: Новичкам последнее
+- id: read_more
+  translation: Подробнее

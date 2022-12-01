@@ -1,103 +1,30 @@
 {{ define "main" }}
-<section class="single-page">
+{{ partial "_breadcrumbs.html" . }}
+<section class="section-sm">
   <div class="container">
-    
-    <div class="">
-    {{- partial "_breadcrumbs.html" . -}}
-    </div>
-    <div class="row py-5" id="main-content">
-        <div class="col-lg-7">
-
-            <h1>{{ .Title }}</h1>
-            <img class="w-100 my-3" src="{{ .Params.img | relURL }}" alt="{{ .Title }}">
-            {{ .Content }}
-
-        </div>
-        <aside class="col-lg-4" id="sidebar">
-            <div class="sidebar__inner">
-                {{ range first 2 (where .Site.RegularPages "Type" "top-news") }}
-            <article class="article">
-              <div class="article__heading">
-                <div class="article__cat">
-                  {{ range first 1 .Params.cat }}
-                    {{ . }}
-                  {{ end }}
-                </div>
-                <div class="article__date">
-                  {{ .Date.Format "02/01/2006" }}
-                </div>
-              </div>
-              <div class="article__content">
-                <a href="{{ .Permalink }}">
-                  {{ .Title }}
-                </a>
-              </div>
-              <div class="article__footer">
-                {{ .Params.author }}
-              </div>
-            </article>
-            {{ end }}
-
-            {{ $arg := slice }}
-            {{ range (where .Site.RegularPages "Type" "news") }}
-            {{ if eq .Params.top "3" }} 
-            {{ $arg = $arg | append .  }}
-            {{ end }}
-            {{ end }}
-            {{ range first 3 $arg }}
-           
-                {{- partial "_card.html" . -}}
-            
-            {{ end }}
-
-            </div>
-        </aside>
-    </div>
-   
-    <div class="heading__group">
-        <h3>Больше новостей</h3>
-        <button class="btn--text">Остальные новости 
-            <svg class="icon" width="12" height="12">
-            <use xlink:href="#i1"></use>
-          </svg>
-        </button>
-    </div>
     <div class="row">
-        {{ $arg := slice }}
-        {{ range (where .Site.RegularPages "Type" "news") }}
-        {{ if eq .Params.top "1" }} 
-        {{ $arg = $arg | append .  }}
-        {{ end }}
-        {{ end }}
-        {{ range first 2 $arg }}
-        <div class="col-lg-4">
-            {{- partial "_card.html" . -}}
-         </div>
-         {{ end }}
+      <div class="col-lg-8">
+        <h2 class="mb-4">{{ .Title | upper }}</h2>
 
-        <div class="col-lg-4"></div>
-    </div>
+        {{ if .Params.Image }}
+        <img class="img-fluid w-auto mx-auto mb-2" src="{{ .Params.Image | relURL }}" alt="{{ .Title }}">
+        {{ end }}
 
-    <div class="row row--1">
-        {{ $arg := slice }}
-        {{ range (where .Site.RegularPages "Type" "news") }}
-        {{ if eq .Params.top "2" }} 
-        {{ $arg = $arg | append .  }}
-        {{ end }}
-        {{ end }}
-        {{ range first 3 $arg }}
-        <div class="col-lg-4">
-            {{- partial "_box.html" . -}}
+        <div class="mb-4">By <a class="text-dark font-weight-bold"
+            href="{{ `author/` | relLangURL }}{{ .Params.Author | urlize }}">{{ .Params.Author | title }}</a> / on
+          <strong class="text-dark">{{ .PublishDate.Format "02 Jan, 2006" }}</strong></div>
+        <div class="content">{{ .Content }}</div>
+
+        <!-- comments -->
+        {{ if .Site.DisqusShortname }}
+        <div class="mt-5">
+          {{ template "_internal/disqus.html" . }}
         </div>
         {{ end }}
+      </div>
+      {{ partial "blog-sidebar.html" . }}
     </div>
-
   </div>
-
-  
-<!-- BEGIN section -->
-{{- partial "_rss.html" . -}}
-<!-- END section -->
-
 </section>
+
 {{ end }}

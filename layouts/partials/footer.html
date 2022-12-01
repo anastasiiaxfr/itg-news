@@ -1,67 +1,71 @@
-<!-- Footer -->
-<!--Main Footer-->
-<footer class="footer">
-    
-    <div class="container">
-        <div class="d-flex align-items-center justify-content-center justify-content-lg-between flex-wrap">
-            {{ .Scratch.Set "img" .Site.Params.logo }} 
-            {{ .Scratch.Set "logo_w" 98 }}
-            {{ .Scratch.Set "logo_h" 61 }}
-            {{ .Scratch.Set "logo_mode" "dark" }}
-            {{- partial "_logo.html" . -}}
+<!-- footer -->
+<footer class="footer bg-cover overlay overflow-hidden" style="background-image: url('{{`images/backgrounds/footer.jpg` | relURL}}');">
+  <div class="container" style="position: relative; z-index: 1;">
+    <div class="row justify-content-center py-3">
+
+      
+<div class="w-100 mb-3">
+  <a href="{{ .Site.BaseURL }}" class="d-flex align-items-center justify-content-center">
+    <img class="img-fluid" src="{{ .Site.Params.logo | relURL }}" alt="{{ .Site.Title }}" width="{{ .Site.Params.logo_w }}">
+  </a>
+
+</div>
+          <!-- <div class="col-lg-4 mb-4 mb-lg-0">
+            <h5 class="text-white mb-4">{{ i18n "about_us"}}</h5>
+            <p class="text-white content">{{ .Site.Params.footer_content | markdownify }}</p>
+          </div> -->
+          <div class="row mx-0">
+            <ul class="list-unstyled footer__nav d-flex">
+              {{ range $i, $arr := .Site.Menus.footer }}
+              <li class="text-white"><a href="{{ .URL | relURL }}">{{ .Name }}</a></li>
+              {{ end }}
+            </ul>
+
             
-            <ul class="footer-nav mx-auto">
-                {{ range .Site.Menus.footer }} {{ if .HasChildren }}
-    
-                <li class="nav-item dropdown">
-                  <a
-                    class="nav-link dropdown-toggle"
-                    href="#"
-                    role="button"
-                    data-bs-toggle="dropdown"
-                    aria-expanded="false"
-                  >
-                    {{ .Name }}
-                  </a>
-    
-                  <ul class="dropdown-menu">
-                    {{ range .Children }}
-                    <li>
-                      <a class="dropdown-item" href="{{ .URL | relLangURL }}"
-                        >{{ .Name }}</a
-                      >
-                    </li>
-                    {{ end }}
-                  </ul>
-                </li>
-                {{ else }}
-                <li class="nav-item">
-                  <a class="nav-link" href="{{ .URL | relLangURL }}"
-                    >{{ .Name }}</a
-                  >
-                </li>
-    
-                {{ end }}
-          {{ end }}
-              </ul>
 
-              {{ range .Site.Params.contacts }}
-              {{ if eq .title "tel" }}
-              <a href="tel:{{.link}}" target="_blank" rel="noopener noreferrer" title="{{ .title }}">
-                 <svg class="icon me-3" width="30" height="30">
-                  <use xlink:href="#{{.icon}}"></use>
-                </svg>
-              </a>
-              {{ else }}
-              <a href="{{.link}}" target="_blank" rel="noopener noreferrer" title="{{ .title }}">
-                <svg class="icon me-3" width="30" height="30">
-                 <use xlink:href="#{{.icon}}"></use>
-               </svg>
-             </a>
-              {{ end }}
-              {{ end }}
-        </div>
+          
+         
+      </div>
     </div>
+  </div>
 </footer>
-<!--Main Footer-->
+<!-- /footer -->
 
+{{ if .Site.Params.search }}
+<script>
+  var indexURL = {{"index.json" | relURL}}
+</script>
+{{ end }}
+
+{{ "<!-- Google Map API -->" | safeHTML }}
+{{ with .Site.Params.map.gmap_api }}
+<script src="{{ . | safeURL }}"></script>
+{{ end }}
+
+{{ "<!-- JS Plugins -->" | safeHTML }}
+{{ range .Site.Params.plugins.js}}
+<script src="{{ .link | relURL }}"></script>
+{{ end }}
+
+{{ "<!-- Main Script -->" | safeHTML }}
+{{ $script := resources.Get "js/script.js" | minify}}
+<script src="{{ $script.Permalink }}"></script>
+
+{{ "<!-- google analitycs -->" | safeHTML }}
+{{ with .Site.Params.google_analitycs_id}}
+<script>
+  (function (i, s, o, g, r, a, m) {
+    i['GoogleAnalyticsObject'] = r;
+    i[r] = i[r] || function () {
+      (i[r].q = i[r].q || []).push(arguments)
+    }, i[r].l = 1 * new Date();
+    a = s.createElement(o),
+      m = s.getElementsByTagName(o)[0];
+    a.async = 1;
+    a.src = g;
+    m.parentNode.insertBefore(a, m)
+  })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+  ga('create', '{{ . }}', 'auto');
+  ga('send', 'pageview');
+</script>
+{{ end }}
