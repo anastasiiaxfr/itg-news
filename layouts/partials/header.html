@@ -21,9 +21,16 @@
           {{ end }}
 
       <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navigation">
-        <i class="ti-align-justify text-white"></i>
-        
+        <i class="navbar-toggler--open ti-align-justify text-white"></i>
+        <i class="navbar-toggler--close ti-close d-none"></i>
       </button>
+      <script>
+        
+        let menu_toggler=document.querySelector('.navbar-toggler--open');
+        let menu_toggler_close=document.querySelector('.navbar-toggler--close');
+        menu_toggler.addEventListener('click',function(){this.style.display="none";menu_toggler_close.classList.toggle('d-none');});menu_toggler_close.addEventListener('click',function(){this.classList.toggle('d-none');menu_toggler.style.display="block";});
+
+      </script>
       </div>
 
       <div class="collapse navbar-collapse text-center" id="navigation">

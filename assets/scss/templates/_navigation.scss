@@ -152,12 +152,6 @@
   i {
     font-size: 15px;
   }
-  @include maw($md){
-    i {
-      font-size: 20px;
-    }
-  }
- 
 }
 
 .search-wrapper {

@@ -15,7 +15,7 @@
     {{- end }}
   </div>
   {{ "<!-- tags -->" | safeHTML }}
-  <div class="bg-white mb-5">
+  <div class="bg-white mb-3">
     <h4 class="mb-4">{{ i18n "tags" }}</h4>
     {{- if isset .Site.Taxonomies "tags" }}
     {{ $tags := .Site.Taxonomies.tags }}

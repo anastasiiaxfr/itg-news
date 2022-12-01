@@ -55,6 +55,10 @@ a:hover {
   &-sm {
     padding-top: 80px;
     padding-bottom: 80px;
+
+  @include maw($md){
+    padding-top: 20px;
+  }
   }
 
   &-lg {
