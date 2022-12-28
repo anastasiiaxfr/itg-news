@@ -337,3 +337,29 @@ body
         padding-top: 100px
         +maw($md)
             padding-top: 0px
+
+.logo
+    &__wrap
+        +flex(flex, center, flex-start, wrap)
+        text-transform: uppercase
+        +ft(11px, 13px, 700)
+        a
+            display: block
+            margin: 0
+            margin-bottom: 5px
+        span
+            display: block
+            width: 100%
+            
+
+
+.qr
+    text-align: center
+    color: $white
+
+.policy
+    text-align: center
+    a
+        &:hover
+            color: inherit
+            text-decoration: underline

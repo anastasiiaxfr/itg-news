@@ -185,7 +185,38 @@ icon = "ti-instagram" # themify icon pack : https://themify.me/themify-icons
 link = "#"
 
 
+####
+[[params.soc]]
+icon = "images/icon/im.svg" # themify icon pack : https://themify.me/themify-icons
+link = "https://www.instagram.com/itg_official__/"
 
+[[params.soc]]
+icon = "images/icon/ytb.svg" # themify icon pack : https://themify.me/themify-icons
+link = "https://www.youtube.com/channel/UC4Blz7CAtrKwTL8mYt6LpfA"
+
+[[params.soc]]
+icon = "images/icon/tm.svg" # themify icon pack : https://themify.me/themify-icons
+link = "https://t.me/ITG_club"
+
+[[params.soc]]
+icon = "images/icon/tn.svg" # themify icon pack : https://themify.me/themify-icons
+link = "https://ru.tradingview.com/u/ITG_company"
+
+[[params.soc]]
+icon = "images/icon/tk.svg" # themify icon pack : https://themify.me/themify-icons
+link = "http://www.tiktok.com/@itg_general__"
+
+[[params.soc]]
+icon = "images/icon/tw.svg" # themify icon pack : https://themify.me/themify-icons
+link = "https://twitter.com/ITG_General_"
+
+[[params.soc]]
+icon = "images/icon/fb.svg" # themify icon pack : https://themify.me/themify-icons
+link = "https://www.facebook.com/InternationalTradeGroup2018"
+
+[[params.soc]]
+icon = "images/icon/email.svg" # themify icon pack : https://themify.me/themify-icons
+link = "mailto: office@itg-investments.com"
 ################################### English language #####################################
 [Languages.en]
 languageName = "En"

@@ -1,39 +1,73 @@
 <!-- footer -->
-<footer class="footer bg-cover overlay overflow-hidden" style="background-image: url('{{`images/backgrounds/footer.jpg` | relURL}}');">
+<footer class="footer bg-cover overlay overflow-hidden"
+  style="background-image: url('{{`images/backgrounds/footer.jpg` | relURL}}');">
   <div class="container" style="position: relative; z-index: 1;">
     <div class="row justify-content-center py-3">
 
-      
-<div class="w-100 mb-3">
-  <a href="{{ .Site.BaseURL }}" class="d-flex align-items-center justify-content-center">
-    <img class="img-fluid" src="{{ .Site.Params.logo | relURL }}" alt="{{ .Site.Title }}" width="{{ .Site.Params.logo_w }}">
-  </a>
+      <div class="col-md-9 text-center text-md-left">
 
-</div>
-          <!-- <div class="col-lg-4 mb-4 mb-lg-0">
-            <h5 class="text-white mb-4">{{ i18n "about_us"}}</h5>
-            <p class="text-white content">{{ .Site.Params.footer_content | markdownify }}</p>
-          </div> -->
-          <div class="row mx-0">
-            <ul class="list-unstyled footer__nav d-flex flex-wrap justify-content-center">
-              {{ range $i, $arr := .Site.Menus.footer }}
-              <li class="text-white"><a href="{{ .URL | relURL }}">{{ .Name }}</a></li>
-              {{ end }}
-            </ul>
 
-            
+        <div class="row align-items-center">
 
-          
-         
+          <div class="col-md-8">
+
+            <!-- BEGIN soc -->
+            {{- partial "_soc-all.html" . -}}
+            <!-- END soc -->
+            <p clas="d-none d-sm-block">
+              Мы инновационная, динамично развивающаяся консалтинговая компания, открывающая перед инвесторами
+              глобальные перспективы в мире Web 3.0 технологий и геополитического устройства мира финансов.
+            </p>
+          </div>
+          <div class="col-md-4">
+            <a href="/about" class="btn-sm btn-bd mr-sm-2">
+              О нас
+            </a>
+            <a href="/adv" class="btn-sm btn-bd my-3">
+              Реклама
+            </a>
+          </div>
+        </div>
+
+
+        <div class="row align-items-center">
+          <div class="col-md-4">
+            <div class="logo__wrap mb-4 mb-md-0 d-none d-md-block">
+              <a href="{{ .Site.BaseURL }}" class="d-flex align-items-center">
+                <img class="" src="{{ .Site.Params.logo | relURL }}" alt="{{ .Site.Title }}"
+                  width="{{ .Site.Params.logo_w }}">
+              </a>
+              <span>International Trade Group</span>
+            </div>
+          </div>
+          <div class="col-md-8">
+            Все опубликованные материалы принадлежат ITG. Вы можете перепечатывать наши материалы только после
+            согласования с редакцией и с указанием активной ссылки на ITG.
+          </div>
+        </div>
+
+
+
+      </div>
+      <div class="col-md-3 mt-4 mt-md-0">
+        <div class="qr">
+          <img src="{{ `images/news.svg` | relURL }}" width="170" height="170" alt="{{ .Title }}">
+        </div>
+        <nav class="policy mt-2">
+          <a href="/privacy">Политика приватности</a><br>
+          <a href="/terms">Условия пользования</a>
+        </nav>
       </div>
     </div>
+
+  </div>
   </div>
 </footer>
 <!-- /footer -->
 
 {{ if .Site.Params.search }}
 <script>
-  var indexURL = {{"index.json" | relURL}}
+  var indexURL = {{ "index.json" | relURL}}
 </script>
 {{ end }}
 
