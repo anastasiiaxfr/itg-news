@@ -99,6 +99,9 @@ weight = 5
 
 [outputs]
 home = ["HTML", "RSS", "JSON"] 
+[outputFormats.RSS]
+    mediaType = "application/rss+xml"
+    baseName = "feed"
 [params]
 tagsLimit = 15
 CIO_site_id = "XXX"

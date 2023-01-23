@@ -21,5 +21,8 @@
   {{ $custom := resources.Get "scss/custom.sass" | toCSS |  minify }} 
   <link rel="stylesheet" href="{{ $custom.Permalink | relURL }}?v={{ now.Format "01-02-2006-14-52-26"}}" media="screen">
 
+  {{ range .AlternativeOutputFormats -}}
+    {{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
+  {{ end -}}
 
 </head>
