@@ -2,7 +2,6 @@
 author = "xfr"
 cat = ["НОВОСТИ"]
 date = 2021-08-26T21:00:00Z
-draft = true
 img = "images/news7.jpg"
 tags = ["tag1"]
 title = "Аналитики прогнозируют крах одной из самых популярных криптовалют 7-(copy)"
