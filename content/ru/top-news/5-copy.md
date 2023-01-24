@@ -1,8 +1,7 @@
 +++
 author = "xfr"
 cat = ["НОВОСТИ"]
-date = 2021-08-26T21:00:00Z
-draft = true
+date = 2023-01-24T15:00:00Z
 img = "images/card5.jpg"
 tags = ["tag1"]
 title = "Аналитики прогнозируют крах одной из самых популярных 5-(copy)"
