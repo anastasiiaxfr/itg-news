@@ -2,3 +2,5 @@
 label: Post
 hide_body: false
 fields: []
+pages:
+- content/ru/top-news/test.md
