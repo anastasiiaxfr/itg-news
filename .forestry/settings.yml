@@ -35,7 +35,7 @@ sections:
   label: Configuration
 - type: directory
   path: ''
-  label: Config
+  label: Site
   create: all
   match: "**/*"
 upload_dir: exampleSite/static/images
