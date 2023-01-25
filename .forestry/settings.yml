@@ -20,7 +20,7 @@ sections:
   create: all
   match: "**/*"
 - type: heading
-  label: Data
+  label: Content
 - type: directory
   path: content
   label: Content
