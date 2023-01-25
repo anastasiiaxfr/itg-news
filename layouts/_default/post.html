@@ -1,26 +1,26 @@
-<div class="card card--bd">
+<div class="card rounded-0">
 
   {{ if .Params.Img }}
-  <a href="{{ .Permalink }}" class="card__img"><img src="{{ .Params.Img | relURL }}"></a>
+  <img class="card-img-top rounded-0" src="{{ .Params.Img | relURL }}">
   {{ else }}
-  <a href="{{ .Permalink }}" class="card__img"><img src="{{ `/images/news.jpg` | relURL }}"></a>
+  <img class="card-img-top rounded-0" src="{{ `/images/news/news.jpg` | relURL }}">
   {{ end }}
 
-  <div class="card__body">
-    <div class="card__meta mb-2">By <b><a class="" href="{{ `author/` | relLangURL }}{{ .Params.Author | urlize }}">{{ .Params.Author | title }}</a></b> / on
-      <strong class="">{{ .PublishDate.Format "02 Jan, 2006" }}</strong></div>
+  <div class="card-body">
+    <div class="mb-2">By <a class="text-dark font-weight-bold" href="{{ `author/` | relLangURL }}{{ .Params.Author | urlize }}">{{ .Params.Author | title }}</a> / on
+      <strong class="text-dark">{{ .PublishDate.Format "02 Jan, 2006" }}</strong></div>
     <h4>
       {{ if .Params.url }}
-      <a href="{{ .Params.url }}" class="card__heading">{{ .Title }}</a>
+      <a href="{{ .Params.url }}">{{ .Title }}</a>
       {{ else }}
-      <a href="{{ .Permalink }}" class="card__heading">{{ .Title }}</a>
+      <a href="{{ .Permalink }}">{{ .Title }}</a>
       {{ end }}
     </h4>
-    <div class="card__text">{{ .Summary | truncate 150 }}</div>
+    <p>{{ .Summary }}...</p>
     {{ if .Params.url }}
-    <a href="{{ .Params.url }}" class="btn btn--text">Подробнее</a>
+    <a href="{{ .Params.url }}" class="btn btn-primary btn-sm">{{ i18n "read_more"}}</a>
     {{ else }}
-    <a href="{{ .Permalink }}" class="btn btn--text">Подробнее</a>
+    <a href="{{ .Permalink }}" class="btn btn-primary btn-sm">{{ i18n "read_more"}}</a>
     {{ end }}
   </div>
 </div>

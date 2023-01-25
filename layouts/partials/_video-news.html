@@ -5,14 +5,14 @@
       {{ if .Params.Img }}
       <a href="{{ .Permalink }}"><img src="{{ .Params.Img | relURL }}"></a>
       {{ else }}
-      <a href="{{ .Permalink }}"><img src="{{ `/images/news.jpg` | relURL }}"></a>
+      <a href="{{ .Permalink }}"><img src="{{ `/images/news/news.jpg` | relURL }}"></a>
       {{ end }}
     
   </div>
   <div class="video-news__content">
     <div class="video-news__title">
       <a href="{{ .Permalink }}">
-        {{ .Title }}
+        {{ .Title | truncate 150 }}
       </a>
     </div>
     <div class="video-news__date">

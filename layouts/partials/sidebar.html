@@ -7,12 +7,12 @@
   <section class="mb-4">
   <h3 class="h5">{{ i18n "tags" }}</h3>
 
-  <ul class="categories">
+  <ul class="list-inline">
 
     {{- range $name, $items :=  $tags }}
 	{{- $.Scratch.Set "myLimit" (add ($.Scratch.Get "myLimit") 1) }}
 	{{- if le ($.Scratch.Get "myLimit") ($.Site.Param `tagsLimit`) }}
-    <li><a href="{{ "tags/" | relLangURL }}{{ $name | urlize | lower }}" class="">{{ $name | title | humanize }}</a></li>
+    <li class="list-inline-item mb-2"><a href="{{ "tags/" | relLangURL }}{{ $name | urlize | lower }}" class="px-3 py-2 d-block bg-light">{{ $name | title | humanize }}</a></li>
     {{- end }}
 	{{ end }}
   </ul>

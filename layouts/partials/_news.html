@@ -2,13 +2,15 @@
 
 <article class="news">
   <div class="news__img">
+    {{ if .Params.img }}
     <a href="{{ .Permalink }}">
       <img src="{{ .Params.img | relURL}}" alt="{{ .Title }}" />
     </a>
+    {{ end }}
   </div>
   <div class="news__content">
     <div class="news__title">
-      <a href="{{ .Permalink }}"> {{ .Title }}</a>
+      <a href="{{ .Permalink }}"> {{ .Title | truncate 150 }}</a>
     </div>
     <div class="news__footer">
       <div class="news__author">

@@ -1,13 +1,15 @@
 {{ $data := index .Site.Data .Site.Language.Lang }}
 
 <article class="card">
-  <a href="#">
+  <a href="{{ .Permalink }}">
+    {{ if .Params.img }}
     <img src="{{ .Params.img | relURL }}" alt="{{ .Title }}" class="card__img" />
+    {{ end }}
     <div class="card__content">
       <div class="card__title">
         <div>
          <a href="{{ .Permalink }}">
-          {{ .Title }}
+          {{ .Title | truncate 150 }}
          </a>
         </div>
       </div>

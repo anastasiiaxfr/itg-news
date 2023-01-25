@@ -1,0 +1,10 @@
+<ul class="soc__wrap">
+    {{ range .Site.Params.soc }}
+    <li class="soc">
+        <a href="{{ .link | safeURL }}" target="_blank" rel="noopener noreferrer">
+            <img src="{{ .icon | relURL }}" alt="{{ .title }}">
+            
+        </a>
+    </li>
+    {{ end }}
+</ul>

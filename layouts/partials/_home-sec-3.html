@@ -28,14 +28,16 @@
           {{ if eq .Params.top true }} 
           <article class="article-top">
             <div class="article-top__img">
+              {{ if .Params.img }}
               <a href="{{ .Permalink }}">
                 <img src="{{ .Params.img | relURL }}" alt="{{ .Title }}" />
               </a>
+              {{ end }}
             </div>
             <div class="article-top__content">
               <div class="article-top__title">
                 <a href="{{ .Permalink }}">
-                  {{ .Title }}
+                  {{ .Title | truncate 150 }}
                 </a>
               </div>
               <div class="article-top__meta">

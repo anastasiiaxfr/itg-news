@@ -1,67 +1,105 @@
-<!-- Footer -->
-<!--Main Footer-->
-<footer class="footer">
-    
-    <div class="container">
-        <div class="d-flex align-items-center justify-content-center justify-content-lg-between flex-wrap">
-            {{ .Scratch.Set "img" .Site.Params.logo }} 
-            {{ .Scratch.Set "logo_w" 98 }}
-            {{ .Scratch.Set "logo_h" 61 }}
-            {{ .Scratch.Set "logo_mode" "dark" }}
-            {{- partial "_logo.html" . -}}
-            
-            <ul class="footer-nav mx-auto">
-                {{ range .Site.Menus.footer }} {{ if .HasChildren }}
-    
-                <li class="nav-item dropdown">
-                  <a
-                    class="nav-link dropdown-toggle"
-                    href="#"
-                    role="button"
-                    data-bs-toggle="dropdown"
-                    aria-expanded="false"
-                  >
-                    {{ .Name }}
-                  </a>
-    
-                  <ul class="dropdown-menu">
-                    {{ range .Children }}
-                    <li>
-                      <a class="dropdown-item" href="{{ .URL | relLangURL }}"
-                        >{{ .Name }}</a
-                      >
-                    </li>
-                    {{ end }}
-                  </ul>
-                </li>
-                {{ else }}
-                <li class="nav-item">
-                  <a class="nav-link" href="{{ .URL | relLangURL }}"
-                    >{{ .Name }}</a
-                  >
-                </li>
-    
-                {{ end }}
-          {{ end }}
-              </ul>
+<!-- footer -->
+<footer class="footer bg-cover overlay overflow-hidden"
+  style="background-image: url('{{`images/backgrounds/footer.jpg` | relURL}}');">
+  <div class="container" style="position: relative; z-index: 1;">
+    <div class="row justify-content-center py-3">
 
-              {{ range .Site.Params.contacts }}
-              {{ if eq .title "tel" }}
-              <a href="tel:{{.link}}" target="_blank" rel="noopener noreferrer" title="{{ .title }}">
-                 <svg class="icon me-3" width="30" height="30">
-                  <use xlink:href="#{{.icon}}"></use>
-                </svg>
-              </a>
-              {{ else }}
-              <a href="{{.link}}" target="_blank" rel="noopener noreferrer" title="{{ .title }}">
-                <svg class="icon me-3" width="30" height="30">
-                 <use xlink:href="#{{.icon}}"></use>
-               </svg>
-             </a>
-              {{ end }}
-              {{ end }}
+      <div class="col-md-9 text-center text-md-left">
+
+
+        <div class="row align-items-center">
+
+          <div class="col-md-8">
+
+            <!-- BEGIN soc -->
+            {{- partial "_soc-all.html" . -}}
+            <!-- END soc -->
+            <p clas="d-none d-sm-block">
+              Мы инновационная, динамично развивающаяся консалтинговая компания, открывающая перед инвесторами
+              глобальные перспективы в мире Web 3.0 технологий и геополитического устройства мира финансов.
+            </p>
+          </div>
+          <div class="col-md-4">
+            <a href="/about" class="btn-sm btn-bd mr-sm-2">
+              О нас
+            </a>
+            <a href="/adv" class="btn-sm btn-bd my-3">
+              Реклама
+            </a>
+          </div>
         </div>
-    </div>
-</footer>
-<!--Main Footer-->
 
+
+        <div class="row align-items-center">
+          <div class="col-md-4">
+            <div class="logo__wrap mb-4 mb-md-0 d-none d-md-block">
+              <a href="{{ .Site.BaseURL }}" class="d-flex align-items-center">
+                <img class="" src="{{ .Site.Params.logo | relURL }}" alt="{{ .Site.Title }}"
+                  width="{{ .Site.Params.logo_w }}">
+              </a>
+              <span>International Trade Group</span>
+            </div>
+          </div>
+          <div class="col-md-8">
+            Все опубликованные материалы принадлежат ITG. Вы можете перепечатывать наши материалы только после
+            согласования с редакцией и с указанием активной ссылки на ITG.
+          </div>
+        </div>
+
+
+
+      </div>
+      <div class="col-md-3 mt-4 mt-md-0">
+        <div class="qr">
+          <img src="{{ `images/news.svg` | relURL }}" width="170" height="170" alt="{{ .Title }}">
+        </div>
+        <nav class="policy mt-2">
+          <a href="/privacy">Политика приватности</a><br>
+          <a href="/terms">Условия пользования</a>
+        </nav>
+      </div>
+    </div>
+
+  </div>
+  </div>
+</footer>
+<!-- /footer -->
+
+{{ if .Site.Params.search }}
+<script>
+  var indexURL = {{ "index.json" | relURL}}
+</script>
+{{ end }}
+
+{{ "<!-- Google Map API -->" | safeHTML }}
+{{ with .Site.Params.map.gmap_api }}
+<script src="{{ . | safeURL }}"></script>
+{{ end }}
+
+{{ "<!-- JS Plugins -->" | safeHTML }}
+{{ range .Site.Params.plugins.js}}
+<script src="{{ .link | relURL }}"></script>
+{{ end }}
+
+{{ "<!-- Main Script -->" | safeHTML }}
+{{ $script := resources.Get "js/script.js" | minify}}
+<script src="{{ $script.Permalink }}"></script>
+
+{{ "<!-- google analitycs -->" | safeHTML }}
+{{ with .Site.Params.google_analitycs_id}}
+<script>
+  (function (i, s, o, g, r, a, m) {
+    i['GoogleAnalyticsObject'] = r;
+    i[r] = i[r] || function () {
+      (i[r].q = i[r].q || []).push(arguments)
+    }, i[r].l = 1 * new Date();
+    a = s.createElement(o),
+      m = s.getElementsByTagName(o)[0];
+    a.async = 1;
+    a.src = g;
+    m.parentNode.insertBefore(a, m)
+  })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+  ga('create', '{{ . }}', 'auto');
+  ga('send', 'pageview');
+</script>
+{{ end }}

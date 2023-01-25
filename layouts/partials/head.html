@@ -1,28 +1,24 @@
 <head>
-  {{ partial "_seo.html" . }} {{ "<!-- mobile responsive meta -->" | safeHTML }}
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1, maximum-scale=1"
-  />
-  <!--[if lt IE 9
-    ]><script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script
-  ><![endif]-->
-  <!--[if lt IE 9]><script src="js/respond.js"></script><![endif]-->
+  <meta charset="utf-8">
+  <title>{{ .Title }}</title>
 
-  {{ "<!-- Main Stylesheet -->" | safeHTML }} 
-  {{ $main := resources.Get "scss/main.sass" | toCSS | minify }}
-  <link rel="stylesheet" href="{{ $main.Permalink | relURL }}?v={{ now.Format "01-02-2006-14-52-26"}}" media="screen"> 
-  {{ " <!-- plugins --> " | safeHTML }} 
-  {{ range .Site.Params.plugins.css }} 
-  <link rel="stylesheet" href="{{ .link | relURL }}?v={{ now.Format "01-02-2006-14-52-26"}}"> 
+  {{ "<!-- mobile responsive meta -->" | safeHTML }}
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ with .Site.Params.description }}{{ . }}{{ end }}{{ end }}">
+  {{ with .Site.Params.author }}<meta name="author" content="{{ . }}">{{ end }}
+  {{ hugo.Generator }}
+
+  {{ "<!-- plugins -->" | safeHTML }}
+  {{ range .Site.Params.plugins.css }}
+  <link rel="stylesheet" href="{{ .link | absURL }} ">
   {{ end }}
-  {{ "<!-- Custom Stylesheet -->" | safeHTML }} 
-  {{ $custom := resources.Get "scss/custom.sass" | toCSS |  minify }} 
-  <link rel="stylesheet" href="{{ $custom.Permalink | relURL }}?v={{ now.Format "01-02-2006-14-52-26"}}" media="screen">
 
-  {{ range .AlternativeOutputFormats -}}
-    {{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
-  {{ end -}}
+  {{ "<!-- Main Stylesheet -->" | safeHTML }}
+  {{ $styles := resources.Get "scss/style.scss" | toCSS | minify }}
+  <link rel="stylesheet" href="{{ $styles.Permalink }}" media="screen">
+
+  {{ "<!--Favicon-->" | safeHTML }}
+  <link rel="shortcut icon" href="{{ `images/favicon.png` | absURL }} " type="image/x-icon">
+  <link rel="icon" href="{{ `images/favicon.png` | absURL }} " type="image/x-icon">
 
 </head>

@@ -1,77 +1,107 @@
+######################## default configuration ####################
 baseURL = "/"
-canonifyURLs = false
-defaultContentLanguage = "ru"
-disableLanguages = []
-languageCode = "ru"
-paginate = "6"
 relativeURLs = true
-summaryLength = "50"
 title = "ITG"
-
-
-
-
-[Languages.en]
-contentDir = "content/en"
-home = "Home"
-languageCode = "en-us"
-languageName = "En"
-weight = 3
-[Languages.ru]
-contentDir = "content/ru"
-home = "Главная"
+# theme = "slots-nj-hugo"
+# post pagination
+paginate = "8"
+# post excerpt
+summaryLength = "10"
+# disqus short name
+disqusShortname = "itg" # get your shortname form here : https://disqus.com
+# disable language
+defaultContentLanguage = "ru"
+disableLanguages = [] # desable language from here
 languageCode = "ru"
-languageName = "Ру"
-weight = 2
-[Languages.ua]
-contentDir = "content/ua"
-home = "Головна"
-languageCode = "ua"
-languageName = "Укр"
-weight = 1
 
-[[menu.header]]
+
+[outputs]
+home = ["HTML", "RSS", "JSON"]
+[outputFormats.RSS]
+    mediaType = "application/rss+xml"
+    baseName = "feed"
+############################# Plugins ##############################
+
+# CSS Plugins
+[[params.plugins.css]]
+link = "plugins/bootstrap/bootstrap.min.css"
+[[params.plugins.css]]
+link = "plugins/slick/slick.css"
+[[params.plugins.css]]
+link = "plugins/magnific-popup/magnific-popup.css"
+[[params.plugins.css]]
+link = "plugins/themify-icons/themify-icons.css"
+
+# JS Plugins
+[[params.plugins.js]]
+link = "plugins/jQuery/jquery.min.js"
+[[params.plugins.js]]
+link = "plugins/bootstrap/bootstrap.min.js"
+[[params.plugins.js]]
+link = "plugins/slick/slick.min.js"
+[[params.plugins.js]]
+link = "plugins/match-height/jquery.matchHeight-min.js"
+[[params.plugins.js]]
+link = "plugins/shuffle/shuffle.min.js"
+[[params.plugins.js]]
+link = "plugins/magnific-popup/jquery.magnific.popup.min.js"
+[[params.plugins.js]]
+link = "plugins/search/fuse.min.js"
+[[params.plugins.js]]
+link = "plugins/search/mark.js"
+[[params.plugins.js]]
+link = "plugins/search/search.js"
+[[params.plugins.js]]
+link = "plugins/google-map/gmap.js"
+
+############################## navigation ###############################
+# main menu
+[[menu.main]]
 URL = "/"
 name = "ГЛАВНАЯ"
 weight = 1
-hasChildren = true
 
-[[menu.header]]
+[[menu.main]]
 URL = "/news"
 name = "НОВОСТИ"
-weight = 1
-hasChildren = true
+weight = 2
 
-[[menu.header]]
+
+[[menu.main]]
 URL = "/articles"
 name = "СТАТЬИ"
-weight = 2
-hasChildren = true
+weight = 3
 
-[[menu.header]]
+
+[[menu.main]]
 URL = "/beginners"
 name = "НОВИЧКАМ"
-weight = 3
-hasChildren = true
+weight = 4
 
-[[menu.header]]
+
+[[menu.main]]
 URL = "#"
 name = "КОМЬЮНИТИ"
-weight = 4
-hasChildren = true
+weight = 5
 
-[[menu.header]]
+
+[[menu.main]]
 URL = "#"
 name = "RESEARCH"
-weight = 5
-hasChildren = true
+weight = 6
 
-[[menu.header]]
+
+[[menu.main]]
 URL = "#"
 name = "ABOUT"
-weight = 6
+weight = 7
 hasChildren = true
 
+
+
+
+
+# footer menu
 [[menu.footer]]
 URL = "/news"
 name = "Новости"
@@ -81,6 +111,7 @@ weight = 1
 URL = "#"
 name = "Геополитика"
 weight = 2
+
 
 [[menu.footer]]
 URL = "#"
@@ -92,88 +123,122 @@ URL = "#"
 name = "Разместить статью"
 weight = 4
 
+
 [[menu.footer]]
 URL = "#"
 name = "Контакты"
 weight = 5
 
-[outputs]
-home = ["HTML", "RSS", "JSON"] 
-[outputFormats.RSS]
-    mediaType = "application/rss+xml"
-    baseName = "feed"
+#################### default parameters ################################
 [params]
 tagsLimit = 15
-CIO_site_id = "XXX"
-GTM = "GTM-XXX"
-
-description = ""
-develop = "xfr"
-home = "Home"
-
-logo = "/images/logo.svg"
-logo_dark = "/images/logo_w.svg"
+logo = "images/logo_w.svg"
+logo_dark = "images/logo.svg"
 logo_w = "98"
-logo_h = "61"
-copyright = "All Rights Reserved 2022 ITG"
+home = "Home"
+# Meta data
+description = "This is meta description"
+author = "xfr"
+# contact info
 
-[[params.plugins.js]]
-link = "plugins/js/bootstrap.bundle.min.js"
-[[params.plugins.js]]
-link = "plugins/js/jquery.min.js"
+# contact form action
+contact_form_action = "#" # contact form works with https://formspree.io
+# Google Analitycs
+google_analitycs_id = "" # your id
+# search
+search = true
 
-[[params.plugins.js]]
-link = "plugins/search/fuse.min.js"
-[[params.plugins.js]]
-link = "plugins/search/mark.js"
-[[params.plugins.js]]
-link = "plugins/search/search.js"
+# Preloader
+[params.preloader]
+enable = true
+preloader = "" # use jpg, png, svg or gif format.
+
+# Navigation button
+[params.navigation_button]
+enable = true
+label = "get a quote"
+link = "contact"
+
+# google map
+[params.map]
+enable = true
+gmap_api = "https://maps.googleapis.com/maps/api/js?key=AIzaSyBu5nZKbeK-WHQ70oqOWo-_4VmwOwKP9YQ"
+map_latitude = "51.5223477"
+map_longitude = "-0.1622023"
+map_marker = "images/marker.png"
+
+
+
+############################# social icon #################################
+[[params.social]]
+icon = "ti-facebook" # themify icon pack : https://themify.me/themify-icons
+link = "#"
+
+[[params.social]]
+icon = "ti-twitter-alt" # themify icon pack : https://themify.me/themify-icons
+link = "#"
+
+[[params.social]]
+icon = "ti-linkedin" # themify icon pack : https://themify.me/themify-icons
+link = "#"
+
+[[params.social]]
+icon = "ti-github" # themify icon pack : https://themify.me/themify-icons
+link = "#"
+
+[[params.social]]
+icon = "ti-instagram" # themify icon pack : https://themify.me/themify-icons
+link = "#"
+
+
+####
+[[params.soc]]
+icon = "images/icon/im.svg" # themify icon pack : https://themify.me/themify-icons
+link = "https://www.instagram.com/itg_official__/"
 
 [[params.soc]]
-title = "instagram"
-icon = "i10" 
-link = "https://instagram.com/itg_official__"
+icon = "images/icon/ytb.svg" # themify icon pack : https://themify.me/themify-icons
+link = "https://www.youtube.com/channel/UC4Blz7CAtrKwTL8mYt6LpfA"
 
 [[params.soc]]
-title = "telegram"
-icon = "i6" 
+icon = "images/icon/tm.svg" # themify icon pack : https://themify.me/themify-icons
 link = "https://t.me/ITG_club"
 
 [[params.soc]]
-title = "facebook"
-icon = "i7" 
-link = "#"
+icon = "images/icon/tn.svg" # themify icon pack : https://themify.me/themify-icons
+link = "https://ru.tradingview.com/u/ITG_company"
 
 [[params.soc]]
-title = "youtube"
-icon = "i8" 
-link = "https://www.youtube.com/channel/UC4Blz7CAtrKwTL8mYt6LpfA"
+icon = "images/icon/tk.svg" # themify icon pack : https://themify.me/themify-icons
+link = "http://www.tiktok.com/@itg_general__"
 
-[[params.contacts]]
-title = "email"
-icon = "i2" 
+[[params.soc]]
+icon = "images/icon/tw.svg" # themify icon pack : https://themify.me/themify-icons
+link = "https://twitter.com/ITG_General_"
+
+[[params.soc]]
+icon = "images/icon/fb.svg" # themify icon pack : https://themify.me/themify-icons
+link = "https://www.facebook.com/InternationalTradeGroup2018"
+
+[[params.soc]]
+icon = "images/icon/email.svg" # themify icon pack : https://themify.me/themify-icons
 link = "mailto: office@itg-investments.com"
-[[params.contacts]]
-title = "tel"
-icon = "i4" 
-link = "380505635807"
-[[params.contacts]]
-title = "site"
-icon = "site" 
-link = "https://itg-investments.com/"
-
-
-
-[params.preloader]
-enable = true
-preloader = ""
-[sitemap]
-ChangeFreq = "daily"
-Priority = 0.6
-Weight = [["main", "1"], ["sub2", "0.8"], ["sub3", "0.6"]]
-enableRobotsTXT = true
-[taxonomies]
-author = "authors"
-category = "cat"
-tag = "tags"
-
+################################### English language #####################################
+[Languages.en]
+contentDir = "content/en"
+home = "Home"
+languageCode = "en-us"
+languageName = "En"
+weight = 2
+[Languages.ru]
+contentDir = "content/ru"
+home = "Главная"
+languageCode = "ru"
+languageName = "Ру"
+weight = 1
+[Languages.ua]
+contentDir = "content/ua"
+home = "Головна"
+languageCode = "ua"
+languageName = "Укр"
+weight = 3

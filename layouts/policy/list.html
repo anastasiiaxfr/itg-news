@@ -1,0 +1,19 @@
+{{ define "main" }}
+ {{ $data := index .Site.Data .Site.Language.Lang }}
+  {{ partial "page-title.html" . }}
+   {{ partial "cta.html" . }}
+
+<section class="section">
+  <div class="container">
+    {{ if $data.policy.privacy.enable }}
+    {{ with $data.policy.privacy }}
+        <div class="section-content">
+            {{ .content | markdownify }}
+        </div>
+    {{ end }}
+    {{ end }}
+{{ .Content }}
+  </div>
+</section>
+
+{{ end }}

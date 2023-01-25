@@ -1,45 +1,14 @@
 <!DOCTYPE html>
+<html lang="{{ with .Site.LanguageCode }}{{ . }}{{ else }}en-US{{ end }}">
 {{- partial "head.html" . -}}
 
-<body lang="{{ with .Site.LanguageCode }}{{ . }}{{ else }}en-US{{ end }}" class="page__body">
-  {{- partial "header.html" . -}}
-  
-  <div id="cr-widget-marquee"
-  data-coins="bitcoin,ethereum,tether,ripple,cardano"
-  data-theme="light"
-  data-show-symbol="true"
-  data-show-icon="true"
-  data-show-period-change="true"
-  data-period-change="24H"
-  data-api-url="https://api.cryptorank.io/v0"
->
-  <a href="https://cryptorank.io"></a>
-  <script src="https://cryptorank.io/widget/marquee.js"></script>
-</div>
-
-  <main class="page__wrap">
-
-    {{- partial "preloader.html" . -}}
-   
-
-    {{- block "main" . }}{{- end }}
-
-  </main>
-  {{- partial "_btn-top.html" . -}}
-
-
-  {{- partial "footer.html" . -}}
-
-  {{ range .Site.Params.plugins.js }}
-  <script src="{{ .link | relURL }}"></script>
-  {{ end }}
-
-  {{ $script := resources.Get "js/script.js" | minify }}
-  <script src="{{ $script.Permalink | relURL }}?v={{ now.Format " 01-02-2006-14-52-26"}}"></script>
-
-  {{- partial "_svg.html" . -}}
-
-
-
+<body>
+	{{- partial "preloader.html" . -}}
+	{{- partial "header.html" . -}}
+	{{- block "main" . }}{{- end }}
+	{{- partial "_btn-top.html" . -}}
+	{{- partial "_svg.html" . -}}
+	{{- partial "footer.html" . -}}
 </body>
+
 </html>

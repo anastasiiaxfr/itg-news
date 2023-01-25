@@ -1,0 +1,5 @@
+<ul class="list-inline text-center mb-0">
+    {{ range .Site.Params.social }}
+    <li class="list-inline-item mx-2 list-inline-item text-white"><a href="{{ .link | safeURL }}"><i class="{{ .icon }}"></i></a></li>
+    {{ end }}
+</ul>
