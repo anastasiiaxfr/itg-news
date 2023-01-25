@@ -40,9 +40,9 @@ sections:
   match: "**/*"
 - type: directory
   path: ''
-  label: Config
-  create: all
-  match: "**/*"
+  label: Conf
+  create: documents
+  match: "**/*.toml"
   new_doc_ext: ".toml"
 upload_dir: exampleSite/static/images
 public_path: "/images"
