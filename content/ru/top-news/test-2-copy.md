@@ -2,7 +2,6 @@
 author = "xfr"
 cat = ["НОВОСТИ"]
 date = 2021-08-25T21:00:00Z
-draft = true
 img = "images/top2.jpg"
 tags = ["tag1"]
 title = "TEST 2-(copy)"
