@@ -1,10 +1,10 @@
 +++
 author = "xfr"
 cat = ["НОВОСТИ"]
-tags = ["tag1"]
 date = 2021-08-25T21:00:00Z
 img = "images/top2.jpg"
-title = "Аналитики прогнозируют крах одной из самых популярных криптовалют 2"
+tags = ["tag1"]
+title = "TEST 2"
 top = "2"
 
 +++
