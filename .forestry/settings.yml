@@ -33,12 +33,10 @@ sections:
   match: "**/*"
 - type: heading
   label: Configuration
-- type: directory
-  path: ''
-  label: Configuration
-  create: all
-  match: "*.toml"
-  new_doc_ext: toml
+- type: document
+  path: config.toml
+  label: Config
+  match: "**/*"
 upload_dir: exampleSite/static/images
 public_path: "/images"
 front_matter_path: ''
