@@ -43,7 +43,7 @@ sections:
   label: Conf
   create: documents
   match: "**/*.toml"
-  new_doc_ext: ".toml"
+  new_doc_ext: toml
 upload_dir: exampleSite/static/images
 public_path: "/images"
 front_matter_path: ''
