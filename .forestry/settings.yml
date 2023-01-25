@@ -22,6 +22,11 @@ sections:
 - type: heading
   label: Data
 - type: directory
+  path: content
+  label: Content
+  create: all
+  match: "**/*"
+- type: directory
   path: exampleSite/i18n
   label: i18n
   create: documents
