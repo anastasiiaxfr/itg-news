@@ -27,14 +27,14 @@ sections:
   create: all
   match: "**/*"
 - type: directory
-  path: exampleSite/i18n
+  path: i18n
   label: i18n
   create: documents
   match: "**/*"
 - type: heading
   label: Configuration
 - type: directory
-  path: exampleSite
+  path: ''
   label: Configuration
   create: all
   match: "*.toml"
