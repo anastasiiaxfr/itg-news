@@ -2,13 +2,13 @@
 author = "xfr"
 cat = ["НОВОСТИ"]
 date = 2021-08-25T21:00:00Z
-img = "images/top2.jpg"
+img = "/images/photo_2023-01-25_13-21-56.jpg"
 tags = ["tag1"]
 title = "Шахаф Бар-Геффен, гендиректор сети COTI, призвал пользователей подготовиться к запуску Djed"
 top = "2"
 
 +++
-Согласно обновлению, распространенному сетью COTI, запуск стабильной монеты Cardano с избыточным обеспечением, Djed, теперь намного ближе, https://u.today/cardano-djed-builder-unveils-launch-date-for-highly-anticipated-stablecoin
+Согласно обновлению, распространенному сетью COTI, запуск стабильной монеты Cardano с избыточным обеспечением, Djed, теперь намного ближе, [https://u.today/cardano-djed-builder-unveils-launch-date-for-highly-anticipated-stablecoin](https://u.today/cardano-djed-builder-unveils-launch-date-for-highly-anticipated-stablecoin)
 
 Ретвитнув информацию, предоставленную учетной записью сети COTI в Twitter, официальный аккаунт Djed в Twitter сообщил, что стабильная монета Djed появится через несколько дней. Однако никаких подробностей о точной дате не предоставлено.
 
