@@ -5,6 +5,17 @@ fields:
 - type: text
   name: title
   label: title
+- type: select
+  name: select
+  label: select
+  description: Select a category for this page
+  hidden: false
+  config:
+      source:
+        type: custom
+      options:
+          - "Scott Gallant"
+          - "Jordan Patterson"
 - type: datetime
   name: date
   label: date
