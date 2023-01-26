@@ -20,13 +20,6 @@ sections:
   create: all
   match: "**/*"
 - type: heading
-  label: Content
-- type: directory
-  path: content
-  label: Content
-  create: all
-  match: "**/*"
-- type: heading
   label: Configuration
 - type: directory
   path: i18n
