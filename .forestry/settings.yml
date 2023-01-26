@@ -37,6 +37,11 @@ sections:
   create: documents
   match: "**/*.toml"
   new_doc_ext: toml
+- type: directory
+  path: ''
+  label: All
+  create: all
+  match: "**/*"
 upload_dir: static/images
 public_path: "/images"
 front_matter_path: ''
