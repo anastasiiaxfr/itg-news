@@ -12,8 +12,7 @@
         </div>
       </div>
       <div class="card__date">
-        {{ .PublishDate.Format "02/01/2006" }} | 
-        {{  .PublishDate.Format "15:04" }}
+        {{  dateFormat "02/01/2006 | 15:04" .Date.Local }}
       </div>
     </div>
   </a>

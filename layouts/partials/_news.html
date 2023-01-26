@@ -19,8 +19,8 @@
         {{ .Params.author }}
       </div>
       <div class="news__date">
-        {{ .PublishDate.Format "02/01/2006" }} <br>
-        {{  .PublishDate.Format "15:04" }}
+        {{  dateFormat "02/01/2006" .Date.Local }} <br>
+        {{  dateFormat "15:04" .Date.Local }}
       </div>
     </div>
   </div>
