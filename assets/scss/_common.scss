@@ -232,6 +232,7 @@ blockquote {
 }
 
 .content {
+  word-wrap: break-word;
   * {
     margin-bottom: 20px;
   }
@@ -381,6 +382,10 @@ textarea.form-control {
     width: auto;
     max-width: 200px;
     transform: scale(1.1);
+
+    &-top {
+      object-fit: cover;
+    }
   }
 
 }

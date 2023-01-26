@@ -7,13 +7,16 @@
   {{ end }}
 
   <div class="card-body">
-    <div class="mb-2">By <a class="text-dark font-weight-bold" href="{{ `author/` | relLangURL }}{{ .Params.Author | urlize }}">{{ .Params.Author | title }}</a> / on
-      <strong class="text-dark">{{ .PublishDate.Format "02 Jan, 2006" }}</strong></div>
+    <div class="mb-2"> <a class="text-dark font-weight-bold" href="{{ `author/` | relLangURL }}{{ .Params.Author | urlize }}">{{ .Params.Author | title }}</a> |
+      <strong class="text-dark">
+        {{ .PublishDate.Format "02/01/2006" }} |
+        {{ .PublishDate.Format "15:04" }}  
+      </strong></div>
     <h4>
       {{ if .Params.url }}
-      <a href="{{ .Params.url }}">{{ .Title }}</a>
+      <a href="{{ .Params.url }}">{{ .Title | truncate 50 }}</a>
       {{ else }}
-      <a href="{{ .Permalink }}">{{ .Title }}</a>
+      <a href="{{ .Permalink }}">{{ .Title | truncate 50 }}</a>
       {{ end }}
     </h4>
     <p>{{ .Summary }}...</p>

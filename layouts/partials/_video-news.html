@@ -12,11 +12,12 @@
   <div class="video-news__content">
     <div class="video-news__title">
       <a href="{{ .Permalink }}">
-        {{ .Title | truncate 150 }}
+        {{ .Title | truncate 50 }}
       </a>
     </div>
     <div class="video-news__date">
-      {{ .Date.Format "02/01/2006" }}
+      {{ .PublishDate.Format "02/01/2006" }} |
+      {{ .PublishDate.Format "15:04" }}
     </div>
   </div>
 </div>

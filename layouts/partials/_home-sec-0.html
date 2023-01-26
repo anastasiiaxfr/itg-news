@@ -27,7 +27,8 @@
               {{ .Params.author }}
             </div>
             <div class="card-top__date">
-              {{ .Date.Format "02/01/2006" }}
+              {{ .PublishDate.Format "02/01/2006" }} | 
+              {{  .PublishDate.Format "15:04" }}
             </div>
           </div>
           <div class="card-top__content">
@@ -65,7 +66,8 @@
                   {{ .Params.author }}
                 </div>
                 <div class="top-news__date">
-                  {{ .Date.Format "02/01/2006" }}
+                  {{ .PublishDate.Format "02/01/2006" }} | 
+                  {{  .PublishDate.Format "15:04" }}
                 </div>
               </div>
             </article>
@@ -82,7 +84,8 @@
                   {{ end }}
                 </div>
                 <div class="article__date">
-                  {{ .Date.Format "02/01/2006" }}
+                  {{ .PublishDate.Format "02/01/2006" }} | 
+                  {{  .PublishDate.Format "15:04" }}
                 </div>
               </div>
               <div class="article__content">

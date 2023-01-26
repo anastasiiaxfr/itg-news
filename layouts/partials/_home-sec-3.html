@@ -12,20 +12,25 @@
           <div class="row">
 
             {{ range first 6 (where .Site.RegularPages "Type" "beginners") }}
-
+            {{ if ne .Params.top true }} 
             <div class="col-md-6">
               {{- partial "_article.html" . -}}
             </div>
+            {{ end }}
             {{ end }}
 
             
           </div>
         </td>
         <td>
-
-          {{ range first 1 (where .Site.RegularPages "Type" "beginners") }}
-          
+          {{ $arg := slice }}
+          {{ range (where .Site.RegularPages "Type" "beginners") }}
           {{ if eq .Params.top true }} 
+          {{ $arg = $arg | append .  }}
+          {{ end }}
+          {{ end }}
+
+          {{ range first 1 $arg }}          
           <article class="article-top">
             <div class="article-top__img">
               {{ if .Params.img }}
@@ -37,7 +42,7 @@
             <div class="article-top__content">
               <div class="article-top__title">
                 <a href="{{ .Permalink }}">
-                  {{ .Title | truncate 150 }}
+                  {{ .Title | truncate 100 }}
                 </a>
               </div>
               <div class="article-top__meta">
@@ -45,7 +50,8 @@
                   {{ .Params.author }}
                 </div>
                 <div class="article-top__date">
-                  {{ .Date.Format "02/01/2006" }}
+                  {{ .PublishDate.Format "02/01/2006" }} |
+                  {{  .PublishDate.Format "15:04" }}
                 </div>
               </div>
               <div class="article-top__content">
@@ -55,8 +61,6 @@
               </div>
             </div>
           </article>
-         
-          {{ end }}
           {{ end }}
 
 

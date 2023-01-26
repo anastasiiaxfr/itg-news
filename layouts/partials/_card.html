@@ -8,13 +8,12 @@
     <div class="card__content">
       <div class="card__title">
         <div>
-         <a href="{{ .Permalink }}">
-          {{ .Title | truncate 150 }}
-         </a>
+          {{ .Title | truncate 50 }}
         </div>
       </div>
       <div class="card__date">
-        {{ .Date.Format "02/01/2006" }}
+        {{ .PublishDate.Format "02/01/2006" }} | 
+        {{  .PublishDate.Format "15:04" }}
       </div>
     </div>
   </a>

@@ -10,9 +10,12 @@
         <img class="img-fluid w-auto mx-auto mb-2" src="{{ .Params.Image | relURL }}" alt="{{ .Title }}">
         {{ end }}
 
-        <div class="mb-4">By <a class="text-dark font-weight-bold"
-            href="{{ `author/` | relLangURL }}{{ .Params.Author | urlize }}">{{ .Params.Author | title }}</a> / on
-          <strong class="text-dark">{{ .PublishDate.Format "02 Jan, 2006" }}</strong></div>
+        <div class="mb-4"> <a class="text-dark font-weight-bold"
+            href="{{ `author/` | relLangURL }}{{ .Params.Author | urlize }}">{{ .Params.Author | title }}</a> |
+          <strong class="text-dark">
+            {{ .PublishDate.Format "02/01/2006" }} |
+            {{ .PublishDate.Format "15:04" }}
+          </strong></div>
         <div class="content">{{ .Content }}</div>
 
         <!-- comments -->

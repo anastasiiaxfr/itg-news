@@ -6,18 +6,21 @@
     <a href="{{ .Permalink }}">
       <img src="{{ .Params.img | relURL}}" alt="{{ .Title }}" />
     </a>
+    {{ else }}
+    <a href="{{ .Permalink }}"><img src="{{ `/images/news/news.jpg` | relURL }}"></a>
     {{ end }}
   </div>
   <div class="news__content">
     <div class="news__title">
-      <a href="{{ .Permalink }}"> {{ .Title | truncate 150 }}</a>
+      <a href="{{ .Permalink }}"> {{ .Title | truncate 100 }}</a>
     </div>
     <div class="news__footer">
       <div class="news__author">
         {{ .Params.author }}
       </div>
       <div class="news__date">
-        {{ .Date.Format "02/01/2006" }}
+        {{ .PublishDate.Format "02/01/2006" }} <br>
+        {{  .PublishDate.Format "15:04" }}
       </div>
     </div>
   </div>
