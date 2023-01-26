@@ -11,11 +11,11 @@ fields:
   description: Select a category for this page
   hidden: false
   config:
-      source:
-        type: custom
-      options:
-          - "Scott Gallant"
-          - "Jordan Patterson"
+    source:
+      type: custom
+    options:
+    - Scott Gallant
+    - Jordan Patterson
 - type: datetime
   name: date
   label: date
@@ -48,3 +48,5 @@ fields:
   name: type
   label: type
   default: post
+pages:
+- content/ru/top-news/test-post.md
