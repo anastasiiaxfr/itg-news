@@ -30,8 +30,7 @@
       <title>{{ .Title }}</title>
       <link>{{ .Permalink }}</link>
       <pubDate>
-      {{ .PublishDate.Format "02/01/2006" }} | 
-      {{  .PublishDate.Format "15:04" }}
+      {{  dateFormat "02/01/2006 | 15:04" .Date.Local }}
       </pubDate>
       {{ with .Site.Author.email }}<author>{{.}}{{ with $.Site.Author.name }} ({{.}}){{end}}</author>{{end}}
       <guid>{{ .Permalink }}</guid>
