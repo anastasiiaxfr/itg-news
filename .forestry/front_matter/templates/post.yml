@@ -56,10 +56,10 @@ fields:
   name: tags
   label: tags
 pages:
-- content/ru/top-news/cardano-ada-44-30.md
 - content/ru/top-news/news-25-01-23-11-00.md
 - content/ru/top-news/news-25-01-23-11-10.md
 - content/ru/top-news/news-25-01-23-11-33.md
+- content/ru/top-news/news-25-01-23-13-07.md
 - content/ru/top-news/news-25-01-23-14-13.md
 - content/ru/top-news/news-25-01-23-14-58.md
 - content/ru/top-news/news-25-01-23-15-07.md
