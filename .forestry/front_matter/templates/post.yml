@@ -56,6 +56,7 @@ fields:
   name: tags
   label: tags
 pages:
+- content/ru/articles/.1-4.md
 - content/ru/beginners/news-25-01-23-10-16.md
 - content/ru/beginners/news-25-01-23-12-11.md
 - content/ru/beginners/news-25-01-23-12-23.md
@@ -77,4 +78,3 @@ pages:
 - content/ru/top-news/news-26-01-23-12-04.md
 - content/ru/top-news/news-26-01-23-12-36.md
 - content/ru/top-news/news-27-01-23-11-44.md
-- content/ru/top-news/test-img_rss_27-01-23-12-58.md
