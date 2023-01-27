@@ -6,6 +6,6 @@ img = ""
 position = ""
 tags = []
 title = "news test"
-type = ""
+type = "top-news"
 
 +++
