@@ -3,11 +3,17 @@ label: base
 hide_body: false
 fields:
 - type: text
+  name: title
+  label: title
+- type: text
+  name: type
+  label: type
+- type: boolean
+  name: top
+  label: top
+- type: text
   name: author
   label: author
-- type: list
-  name: cat
-  label: cat
 - type: datetime
   name: date
   label: date
@@ -15,14 +21,8 @@ fields:
   name: img
   label: img
 - type: list
+  name: cat
+  label: cat
+- type: list
   name: tags
   label: tags
-- type: text
-  name: title
-  label: title
-- type: boolean
-  name: top
-  label: top
-- type: text
-  name: type
-  label: type
