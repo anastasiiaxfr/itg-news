@@ -18,6 +18,24 @@ fields:
     - news
     - beginners
     - articles
+
+- type: select
+  name: position
+  label: position
+  description: Select a post position for this page
+  hidden: false
+  config:
+    source:
+      type: none
+    options:
+    - none
+    - top-news-1
+    - top-news-2
+    - news-1
+    - news-2
+    - news-3
+    - news-4
+    - beginners-top
 - type: datetime
   name: date
   label: date
