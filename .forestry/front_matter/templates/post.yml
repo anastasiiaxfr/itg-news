@@ -43,7 +43,7 @@ fields:
     time_format: h:mm A Z
     display_utc: true
     export_format: YYYY-MM-DDThh:mm:ssZ
-  default: '2023-01-27T10:00:00+00:00'
+  default: '2023-01-30T12:00:00+02:00'
 - type: file
   name: img
   label: img
