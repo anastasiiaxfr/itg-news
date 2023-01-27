@@ -7,17 +7,17 @@ sections:
 - type: directory
   path: content/ru
   label: RU
-  create: all
+  create: documents
   match: "**/*"
 - type: directory
   path: content/en
   label: EN
-  create: all
+  create: documents
   match: "**/*"
 - type: directory
   path: content/ua
   label: UA
-  create: all
+  create: documents
   match: "**/*"
 - type: heading
   label: Configuration
