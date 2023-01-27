@@ -40,7 +40,7 @@ fields:
   label: date
   config:
     date_format: DD/MM/YYYY
-    time_format: h:mm A Z
+    time_format: h:mm A ZZ
     display_utc: true
     export_format: YYYY-MM-DDThh:mm:ssZ
   default: '2023-01-27T10:00:00+00:00'
