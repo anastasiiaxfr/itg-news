@@ -56,6 +56,7 @@ fields:
   name: tags
   label: tags
 pages:
+- content/ru/top-news/coti-djed.md
 - content/ru/top-news/news-25-01-23-11-00.md
 - content/ru/top-news/news-25-01-23-11-10.md
 - content/ru/top-news/news-25-01-23-11-33.md
