@@ -11,6 +11,7 @@
           {{ $paginator := .Paginate .Data.Pages }}
           {{ range $paginator.Pages }}
           {{ "<!-- blog post -->" | safeHTML }}
+
           <article class="col-md-6 mb-4">
             {{ .Render "post"}}
           </article>

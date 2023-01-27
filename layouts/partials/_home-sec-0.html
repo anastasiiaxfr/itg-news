@@ -6,7 +6,7 @@
       <div class="col-lg-5">
         {{ $arg := slice }}
         {{ range (where .Site.RegularPages "Type" "top-news") }}
-        {{ if eq .Params.top "1" }}
+        {{ if eq .Params.position "top-news-1" }}
         {{ $arg = $arg | append . }}
         {{ end }}
         {{ end }}
@@ -44,7 +44,7 @@
           <div class="col-md-6">
             {{ $arg := slice }}
             {{ range (where .Site.RegularPages "Type" "top-news") }}
-            {{ if eq .Params.top "2" }}
+            {{ if eq .Params.position "top-news-2" }}
             {{ $arg = $arg | append . }}
             {{ end }}
             {{ end }}

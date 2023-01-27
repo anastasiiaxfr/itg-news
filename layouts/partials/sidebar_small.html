@@ -1,6 +1,6 @@
 
   {{- if isset .Site.Taxonomies "tags" }}
-  
+  TEST
   {{ $tags := .Site.Taxonomies.tags }}
   {{- if not (eq (len $tags) 0) }}
   {{- $.Scratch.Set "myLimit" 0 }}

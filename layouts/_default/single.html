@@ -13,8 +13,7 @@
         <div class="mb-4"> <a class="text-dark font-weight-bold"
             href="{{ `author/` | relLangURL }}{{ .Params.Author | urlize }}">{{ .Params.Author | title }}</a> |
           <strong class="text-dark">
-            {{ .PublishDate.Format "02/01/2006" }} |
-            {{ .PublishDate.Format "15:04" }}
+            {{  dateFormat "02/01/2006 | 15:04" .Date.Local }}
           </strong></div>
         <div class="content">{{ .Content }}</div>
 

@@ -16,20 +16,19 @@
   </div>
   {{ "<!-- tags -->" | safeHTML }}
   <div class="bg-white mb-3">
-    <h4 class="mb-4">{{ i18n "tags" }}</h4>
+    
     {{- if isset .Site.Taxonomies "tags" }}
     {{ $tags := .Site.Taxonomies.tags }}
 
-
       {{- if not (eq (len $tags) 0)  }}
-
-      {{- $.Scratch.Set "myLimit" 0 }}
+      <h4 class="mb-4">{{ i18n "tags" }}</h4>
+      {{- $.Scratch.Set "tagsLimit" 0 }}
 
     <ul class="list-inline">
       {{- range $name, $items :=  $tags }}
 
-      {{- $.Scratch.Set "myLimit" (add ($.Scratch.Get "myLimit") 1) }}
-      {{- if le ($.Scratch.Get "myLimit") ($.Site.Param `tagsLimit`) }}
+      {{- $.Scratch.Set "tagsLimit" (add ($.Scratch.Get "tagsLimit") 1) }}
+      {{- if le ($.Scratch.Get "tagsLimit") ($.Site.Param `tagsLimit`) }}
     
         <li class="list-inline-item mb-2"><a class="px-3 py-2 d-block bg-light" href="{{ "tags/" | relLangURL }}{{ $name | urlize | lower }}">{{ $name | humanize }}</a></li>
      
