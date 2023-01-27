@@ -4,6 +4,8 @@
   <a href="{{ .Permalink }}">
     {{ if .Params.img }}
     <img src="{{ .Params.img | relURL }}" alt="{{ .Title }}" class="card__img" />
+    {{ else }}
+    <img src="{{ `/images/news/news.jpg` | relURL }}">
     {{ end }}
     <div class="card__content">
       <div class="card__title">
