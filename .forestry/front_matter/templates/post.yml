@@ -27,8 +27,8 @@ fields:
     display_utc: false
     export_format: YYYY-MM-DDThh:mm:ssZ
 - type: file
-  name: image
-  label: image
+  name: img
+  label: img
 - type: text
   name: author
   label: author
