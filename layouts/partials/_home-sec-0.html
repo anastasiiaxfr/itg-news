@@ -73,10 +73,17 @@
 
           </div>
           <div class="col-md-6">
-            {{ range first 4 (where .Site.RegularPages "Type" "top-news") }}
+            {{ $arg := slice }}
+            {{ range (where .Site.RegularPages "Type" "top-news") }}
+            {{ if ne .Params.position "top-news-1" "top-news-2"}}
+            {{ $arg = $arg | append . }}
+            {{ end }}
+            {{ end }}
+            {{ range first 4 $arg }}
+
             <article class="article">
               <div class="article__heading">
-
+              
                 {{ if .Params.cat }}
                 <div class="article__cat">
                   {{ range first 1 .Params.cat }}
