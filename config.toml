@@ -12,7 +12,7 @@ summaryLength = "10"
 disqusShortname = "itg" # get your shortname form here : https://disqus.com
 # disable language
 defaultContentLanguage = "ru"
-disableLanguages = [] # desable language from here
+disableLanguages = ["en", "ua"] # desable language from here
 languageCode = "ru"
 
 
