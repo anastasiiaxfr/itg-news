@@ -5,6 +5,7 @@ fields:
 - type: text
   name: title
   label: title
+  default: news
 - type: select
   name: type
   label: type
