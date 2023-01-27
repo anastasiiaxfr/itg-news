@@ -56,8 +56,8 @@ fields:
   name: tags
   label: tags
 pages:
-- content/ru/beginners/2-1-2022.md
 - content/ru/beginners/news-25-01-23-12-11.md
+- content/ru/beginners/news-26-01-23-17-03.md
 - content/ru/top-news/news-25-01-23-11-00.md
 - content/ru/top-news/news-25-01-23-11-10.md
 - content/ru/top-news/news-25-01-23-11-33.md
