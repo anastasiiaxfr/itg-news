@@ -1,6 +1,7 @@
 ######################## default configuration ####################
 baseURL = "/"
 relativeURLs = true
+
 title = "ITG"
 # theme = "slots-nj-hugo"
 # post pagination
@@ -20,6 +21,14 @@ home = ["HTML", "RSS", "JSON"]
 [outputFormats.RSS]
     mediaType = "application/rss+xml"
     baseName = "feed"
+
+[permalinks]
+  news = ':section/post-:year-:month-:day-:15:-04/'
+  top-news = ':section/post-:year-:month-:day-:15:-04/'
+  beginners = ':section/post-:year-:month-:day-:15:-04/'
+  articles = ':section/post-:year-:month-:day-:15:-04/'
+
+  
 ############################# Plugins ##############################
 
 # CSS Plugins
