@@ -6,16 +6,18 @@ fields:
   name: title
   label: title
 - type: select
-  name: select
-  label: select
-  description: Select a category for this page
+  name: type
+  label: type
+  description: Select a type for this page
   hidden: false
   config:
     source:
-      type: custom
+      type: top-news
     options:
-    - Scott Gallant
-    - Jordan Patterson
+    - top-news
+    - news
+    - beginners
+    - articles
 - type: datetime
   name: date
   label: date
@@ -25,28 +27,17 @@ fields:
     display_utc: false
     export_format: YYYY-MM-DDThh:mm:ssZ
 - type: file
-  name: bg_image
-  label: bg image
-  description: page header background image
-- type: file
   name: image
   label: image
 - type: text
   name: author
   label: author
-- type: text
-  name: description
-  label: description
-  description: this is meta description
 - type: list
-  name: categories
-  label: categories
+  name: cat
+  label: cat
 - type: list
   name: tags
   label: tags
-- type: text
-  name: type
-  label: type
-  default: post
+
 pages:
 - content/ru/top-news/news-27-01-23-09-57.md

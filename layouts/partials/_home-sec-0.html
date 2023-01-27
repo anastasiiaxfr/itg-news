@@ -5,9 +5,9 @@
     <div class="row">
       <div class="col-lg-5">
         {{ $arg := slice }}
-        {{ range (where .Site.RegularPages "Type" "top-news")  }}
-        {{ if eq .Params.top "1" }} 
-        {{ $arg = $arg | append .  }}
+        {{ range (where .Site.RegularPages "Type" "top-news") }}
+        {{ if eq .Params.top "1" }}
+        {{ $arg = $arg | append . }}
         {{ end }}
         {{ end }}
         {{ range first 1 $arg }}
@@ -27,12 +27,12 @@
               {{ .Params.author }}
             </div>
             <div class="card-top__date">
-              {{  dateFormat "02/01/2006 | 15:04" .Date.Local }}
+              {{ dateFormat "02/01/2006 | 15:04" .Date.Local }}
             </div>
           </div>
           <div class="card-top__content">
             <a href="{{ .Permalink }}">
-             {{ .Summary | truncate 150 }}
+              {{ .Summary | truncate 150 }}
             </a>
           </div>
         </article>
@@ -44,8 +44,8 @@
           <div class="col-md-6">
             {{ $arg := slice }}
             {{ range (where .Site.RegularPages "Type" "top-news") }}
-            {{ if eq .Params.top "2" }} 
-            {{ $arg = $arg | append .  }}
+            {{ if eq .Params.top "2" }}
+            {{ $arg = $arg | append . }}
             {{ end }}
             {{ end }}
             {{ range first 2 $arg }}
@@ -65,24 +65,27 @@
                   {{ .Params.author }}
                 </div>
                 <div class="top-news__date">
-                  {{  dateFormat "02/01/2006 | 15:04" .Date.Local }}
+                  {{ dateFormat "02/01/2006 | 15:04" .Date.Local }}
                 </div>
               </div>
             </article>
-           {{ end }}
-          
+            {{ end }}
+
           </div>
           <div class="col-md-6">
             {{ range first 4 (where .Site.RegularPages "Type" "top-news") }}
             <article class="article">
               <div class="article__heading">
+
+                {{ if .Params.cat }}
                 <div class="article__cat">
                   {{ range first 1 .Params.cat }}
-                    {{ . }}
+                  {{ . }}
                   {{ end }}
                 </div>
+                {{ end }}
                 <div class="article__date">
-                  {{  dateFormat "02/01/2006 | 15:04" .Date.Local }}
+                  {{ dateFormat "02/01/2006 | 15:04" .Date.Local }}
                 </div>
               </div>
               <div class="article__content">
@@ -95,7 +98,7 @@
               </div>
             </article>
             {{ end }}
-           
+
           </div>
         </div>
       </div>
