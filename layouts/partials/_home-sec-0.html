@@ -75,7 +75,7 @@
           <div class="col-md-6">
             {{ $arg := slice }}
             {{ range (where .Site.RegularPages "Type" "top-news") }}
-            {{ if ne .Params.position "top-news-1" "top-news-2"}}
+            {{ if and (ne .Params.position "top-news-1") (ne .Params.position "top-news-2")}}
             {{ $arg = $arg | append . }}
             {{ end }}
             {{ end }}
