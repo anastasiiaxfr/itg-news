@@ -23,10 +23,10 @@ home = ["HTML", "RSS", "JSON"]
     baseName = "feed"
 
 [permalinks]
-  news = ':section/post-:year-:month-:day-:15:-04/'
-  top-news = ':section/post-:year-:month-:day-:15:-04/'
-  beginners = ':section/post-:year-:month-:day-:15:-04/'
-  articles = ':section/post-:year-:month-:day-:15:-04/'
+  news = ':section/post-:year-:month-:day-:15:04/'
+  top-news = ':section/post-:year-:month-:day-:15:04/'
+  beginners = ':section/post-:year-:month-:day-:15:04/'
+  articles = ':section/post-:year-:month-:day-:15:04/'
 
   
 ############################# Plugins ##############################
