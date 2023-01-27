@@ -1,8 +1,9 @@
 +++
-author = "Владимир Матвеев"
+author = ""
 cat = []
-date = 2023-01-20T12:09:00Z
+date = 2023-01-20T00:09:00Z
 img = "/images/photo_2023-01-20_13-20-22.jpg"
+position = ""
 tags = []
 title = "Гендиректор JPMorgan выразил сомнение в лимите эмиссии биткоина в 21 млн монет"
 type = "articles"
