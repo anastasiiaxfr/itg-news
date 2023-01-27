@@ -1,6 +1,7 @@
 ######################## default configuration ####################
 baseURL = "/"
 relativeURLs = true
+
 title = "ITG"
 # theme = "slots-nj-hugo"
 # post pagination
@@ -11,7 +12,7 @@ summaryLength = "10"
 disqusShortname = "itg" # get your shortname form here : https://disqus.com
 # disable language
 defaultContentLanguage = "ru"
-disableLanguages = ["ua", "en"] # desable language from here
+disableLanguages = [] # desable language from here
 languageCode = "ru"
 
 
@@ -20,6 +21,14 @@ home = ["HTML", "RSS", "JSON"]
 [outputFormats.RSS]
     mediaType = "application/rss+xml"
     baseName = "feed"
+
+[permalinks]
+  news = ':section/post-:year-:month-:day-:15:04/'
+  top-news = ':section/post-:year-:month-:day-:15:04/'
+  beginners = ':section/post-:year-:month-:day-:15:04/'
+  articles = ':section/post-:year-:month-:day-:15:04/'
+
+  
 ############################# Plugins ##############################
 
 # CSS Plugins
@@ -138,7 +147,7 @@ logo_w = "98"
 home = "Home"
 # Meta data
 description = "This is meta description"
-author = "xfr"
+author = "Anastasiia Berest"
 # contact info
 
 # contact form action
