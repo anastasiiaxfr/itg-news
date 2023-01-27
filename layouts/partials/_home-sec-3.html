@@ -1,0 +1,70 @@
+{{ $data := index .Site.Data .Site.Language.Lang }}
+
+<section class="section section_beginners" id="beginners">
+  <div class="container">
+    <div class="heading__group">
+      <h3>{{ i18n "beginners" }}</h3>
+    </div>
+
+    <table class="table">
+      <tr>
+        <td>
+          <div class="row">
+
+            {{ range first 6 (where .Site.RegularPages "Type" "beginners") }}
+            {{ if ne .Params.position "beginners-top" }} 
+            <div class="col-md-6">
+              {{- partial "_article.html" . -}}
+            </div>
+            {{ end }}
+            {{ end }}
+
+            
+          </div>
+        </td>
+        <td>
+          {{ $arg := slice }}
+          {{ range (where .Site.RegularPages "Type" "beginners") }}
+          {{ if eq .Params.position "beginners-top" }} 
+          {{ $arg = $arg | append .  }}
+          {{ end }}
+          {{ end }}
+
+          {{ range first 1 $arg }}          
+          <article class="article-top">
+            <div class="article-top__img">
+              {{ if .Params.img }}
+              <a href="{{ .Permalink }}">
+                <img src="{{ .Params.img | relURL }}" alt="{{ .Title }}" />
+              </a>
+              {{ end }}
+            </div>
+            <div class="article-top__content">
+              <div class="article-top__title">
+                <a href="{{ .Permalink }}">
+                  {{ .Title | truncate 100 }}
+                </a>
+              </div>
+              <div class="article-top__meta">
+                <div class="article-top__author">
+                  {{ .Params.author }}
+                </div>
+                <div class="article-top__date">
+                  {{  dateFormat "02/01/2006 | 15:04" .Date.Local }}
+                </div>
+              </div>
+              <div class="article-top__content">
+                <a href="#">
+                 {{ .Summary | truncate 150 }}
+                </a>
+              </div>
+            </div>
+          </article>
+          {{ end }}
+
+
+        </td>
+      </tr>
+    </table>
+  </div>
+</section>

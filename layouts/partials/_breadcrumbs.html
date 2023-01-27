@@ -1,0 +1,23 @@
+<!-- BEGIN breadcrumbs -->
+
+<section aria-label="breadcrumb" class="breadcrumb__wrap">
+	<nav class="container">
+	<ul class="breadcrumb">
+		{{ template "breadcrumbnav" (dict "p1" . "p2" .) }}
+	  </ul>
+	  
+	  {{ define "breadcrumbnav" }}
+		{{ if .p1.Parent }}
+		  {{ template "breadcrumbnav" (dict "p1" .p1.Parent "p2" .p2 )}}
+		{{ else if not .p1.IsHome }}
+		  {{ template "breadcrumbnav" (dict "p1" .p1.Site.Home "p2" .p2 )}}
+		{{ end }}
+		<li{{ if eq .p1 .p2 }} class="active"{{ end }}>
+		  <a href="{{ .p1.RelPermalink }}">{{ .p1.Title | truncate 50 }}</a>
+		</li>
+	  {{ end }}
+	
+	</div>
+</section>
+
+<!-- END breadcrumbs -->

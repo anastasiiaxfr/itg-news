@@ -1,0 +1,40 @@
+
+  {{- if isset .Site.Taxonomies "tags" }}
+  
+  {{ $tags := .Site.Taxonomies.tags }}
+  {{- if not (eq (len $tags) 0) }}
+  {{- $.Scratch.Set "myLimit" 0 }}
+  <section class="mb-4">
+  <h3 class="h5">{{ i18n "tags" }}</h3>
+
+  <ul class="list-inline">
+
+    {{- range $name, $items :=  $tags }}
+	{{- $.Scratch.Set "myLimit" (add ($.Scratch.Get "myLimit") 1) }}
+	{{- if le ($.Scratch.Get "myLimit") ($.Site.Param `tagsLimit`) }}
+    <li><a href="{{ "tags/" | relLangURL }}{{ $name | urlize | lower }}" class="list-inline-item mb-2">{{ $name | title | humanize }}</a></li>
+    {{- end }}
+	{{ end }}
+  </ul>
+</section>
+  {{- end }}
+  {{- end }}
+
+
+<section class="mb-4">
+  <h3 class="h5">
+    {{ i18n "latest-news" }}
+  </h3>
+  {{ range first 3 ( where .Site.RegularPages "Type" "news" )}}
+  {{- partial "_video-news.html" . -}}
+  {{ end }}
+</section>
+
+  <section class="my-4">
+	<h3 class="h5">
+	  {{ i18n "latest-articles" }}
+	</h3>
+	{{ range first 3 ( where .Site.RegularPages "Type" "articles" )}}
+	{{- partial "_video-news.html" . -}}
+	{{ end }}
+  </section>

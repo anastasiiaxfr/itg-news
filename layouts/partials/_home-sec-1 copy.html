@@ -1,0 +1,84 @@
+{{ $data := index .Site.Data .Site.Language.Lang }}
+
+
+<section class="section section_news" id="news">
+    <div class="container">
+        <div class="heading__group">
+            <h3>{{ i18n "more-news" }}</h3>
+            <button class="btn--text">{{ i18n "other-news" }} 
+                <svg class="icon" width="12" height="12">
+                <use xlink:href="#i1"></use>
+              </svg>
+            </button>
+           </div>
+        <div class="row">
+            {{ $arg := slice }}
+            {{ range (where .Site.RegularPages "Type" "news") }}
+            {{ if eq .Params.top "1" }} 
+            {{ $arg = $arg | append .  }}
+            {{ end }}
+            {{ end }}
+            {{ range first 2 $arg }}
+            <div class="col-lg-4">
+                {{- partial "_card.html" . -}}
+             </div>
+             {{ end }}
+
+            <div class="col-lg-4">
+                
+
+            </div>
+        </div>
+
+        <div class="row row--1">
+            {{ $arg := slice }}
+            {{ range (where .Site.RegularPages "Type" "news") }}
+            {{ if eq .Params.top "2" }} 
+            {{ $arg = $arg | append .  }}
+            {{ end }}
+            {{ end }}
+            {{ range first 2 $arg }}
+            <div class="col-lg-4">
+                {{- partial "_box.html" . -}}
+            </div>
+            {{ end }}
+        </div>
+
+        <div class="row">
+            {{ $arg := slice }}
+            {{ range (where .Site.RegularPages "Type" "news") }}
+            {{ if eq .Params.top "3" }} 
+            {{ $arg = $arg | append .  }}
+            {{ end }}
+            {{ end }}
+            {{ range first 2 $arg }}
+            <div class="col-lg-4">
+                {{- partial "_card.html" . -}}
+            </div>
+            {{ end }}
+            <div class="col-lg-4">
+                <iframe src="banners/index.html" scrolling="no"
+                height ="300" width="300"
+                frameborder="0"
+                marginwidth="0"
+                marginheight="0" ></iframe>
+            </div>
+        </div>
+
+        <div class="row row--1">
+            {{ $arg := slice }}
+            {{ range (where .Site.RegularPages "Type" "news") }}
+            {{ if eq .Params.top "4" }} 
+            {{ $arg = $arg | append .  }}
+            {{ end }}
+            {{ end }}
+            {{ range first 3 $arg }}
+            <div class="col-lg-4">
+                {{- partial "_box.html" . -}}
+            </div>
+            {{ end }}
+        </div>
+         
+    </div>
+</section>
+

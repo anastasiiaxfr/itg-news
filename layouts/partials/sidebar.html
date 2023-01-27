@@ -1,0 +1,59 @@
+
+  {{- if isset .Site.Taxonomies "tags" }}
+  
+  {{ $tags := .Site.Taxonomies.tags }}
+
+  {{- if not (eq (len $tags) 0) }}
+  {{- $.Scratch.Set "tagsLimit" 0 }}
+  <section class="mb-4">
+  <h3 class="h5">{{ i18n "tags" }}</h3>
+
+  <ul class="list-inline">
+
+  {{- range $name, $items :=  $tags }}
+	{{- $.Scratch.Set "tagsLimit" (add ($.Scratch.Get "tagsLimit") 1) }}
+	{{- if le ($.Scratch.Get "tagsLimit") ($.Site.Param `tagsLimit`) }}
+    <li class="list-inline-item mb-2"><a href="{{ "tags/" | relLangURL }}{{ $name | urlize | lower }}" class="px-3 py-2 d-block bg-light">{{ $name | title | humanize }}</a></li>
+    {{- end }}
+	{{ end }}
+  </ul>
+</section>
+  {{- end }}
+  {{- end }}
+
+
+<section class="mb-4">
+  <h3 class="h5">
+    {{ i18n "latest-news" }}
+  </h3>
+  {{ range first 3 ( where .Site.RegularPages "Type" "news" )}}
+  {{- partial "_video-news.html" . -}}
+  {{ end }}
+</section>
+
+<section class="my-4">
+	<h3 class="h5">
+	 {{ i18n "latest-top-news" }}
+	</h3>
+	{{ range first 3 ( where .Site.RegularPages "Type" "top-news" )}}
+	{{- partial "_video-news.html" . -}}
+	{{ end }}
+  </section>
+
+  <section class="my-4">
+	<h3 class="h5">
+	  {{ i18n "latest-articles" }}
+	</h3>
+	{{ range first 3 ( where .Site.RegularPages "Type" "articles" )}}
+	{{- partial "_video-news.html" . -}}
+	{{ end }}
+  </section>
+
+  <section class="my-4">
+	<h3 class="h5">
+	  {{ i18n "latest-beginners" }}
+	</h3>
+	{{ range first 3 ( where .Site.RegularPages "Type" "beginners" )}}
+	{{- partial "_video-news.html" . -}}
+	{{ end }}
+  </section>

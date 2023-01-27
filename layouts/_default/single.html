@@ -1,0 +1,32 @@
+{{ define "main" }}
+{{ partial "_breadcrumbs.html" . }}
+<section class="section-sm">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8">
+        <h2 class="mb-4">{{ .Title | upper }}</h2>
+
+        {{ if .Params.img }}
+        <img class="img-fluid w-auto mx-auto mb-2" src="{{ .Params.img | relURL }}" alt="{{ .Title }}">
+        {{ end }}
+
+        <div class="mb-4"> <a class="text-dark font-weight-bold"
+            href="{{ `author/` | relLangURL }}{{ .Params.Author | urlize }}">{{ .Params.Author | title }}</a> |
+          <strong class="text-dark">
+            {{  dateFormat "02/01/2006 | 15:04" .Date.Local }}
+          </strong></div>
+        <div class="content">{{ .Content }}</div>
+
+        <!-- comments -->
+        {{ if .Site.DisqusShortname }}
+        <div class="mt-5">
+          {{ template "_internal/disqus.html" . }}
+        </div>
+        {{ end }}
+      </div>
+      {{ partial "blog-sidebar.html" . }}
+    </div>
+  </div>
+</section>
+
+{{ end }}

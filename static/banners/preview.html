@@ -1,0 +1,32 @@
+<html><head>
+    <!--
+    Load various Web Components polyfills required by IE and Edge. While the polyfills are
+    not needed for other browsers, they're loaded irrespective of browser features because we rely
+    on the polyfill's `WebComponentsReady` event as a signal that the app is ready to be initialized
+    (see init.js).
+    -->
+    <!-- Polyfill Web Components. -->
+    <script src="webcomponentsjs/webcomponents-lite.js"></script>
+
+    <!-- Polyfill Web Animations. This file is necessary for some paper elements. -->
+    <script src="webcomponentsjs/web-animations-next-lite.min.js"></script>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Roboto:regular">
+
+    <script src="preview_polymer.js"></script>
+
+    <style>
+      body {
+        margin: 0;
+      }
+
+      tf-creative-preview {
+        width: 100%;
+        height: 100%;
+      }
+    </style>
+  <script>window.gwdPreview = {"config":{"uuid":1669816293114,"previewPath":"index.html","modes":["single"],"sizes":["410x605"],"feeds":{},"feedNames":[],"defaults":{"mode":"single","modeSettings":{"single":{"size":"410x605","feed":null}}}},"strings":{"MSG_ALL_FEEDS_MODE":"\u0412\u0441\u0435 \u043e\u0431\u0440\u0430\u0437\u0446\u044b \u0434\u0430\u043d\u043d\u044b\u0445","MSG_ALL_SIZES_MODE":"\u0412\u0441\u0435 \u0440\u0430\u0437\u043c\u0435\u0440\u044b","MSG_CUSTOM":"\u0421\u043f\u0435\u0446\u0438\u0430\u043b\u044c\u043d\u044b\u0439","MSG_CUSTOM_SIZE":"\u0414\u0440\u0443\u0433\u043e\u0439 \u0440\u0430\u0437\u043c\u0435\u0440","MSG_DESKTOP_MODE":"\u041a\u043e\u043c\u043f\u044c\u044e\u0442\u0435\u0440\u044b","MSG_DEVICE":"\u0423\u0441\u0442\u0440\u043e\u0439\u0441\u0442\u0432\u043e","MSG_MOBILE_MODE":"\u041c\u043e\u0431\u0438\u043b\u044c\u043d\u044b\u0435 \u0443\u0441\u0442\u0440\u043e\u0439\u0441\u0442\u0432\u0430","MSG_NO_SAMPLE_DATA":"\u041d\u0435\u0442 \u043e\u0431\u0440\u0430\u0437\u0446\u043e\u0432 \u0434\u0430\u043d\u043d\u044b\u0445","MSG_NO_SAMPLE_DATA_TO_PREVIEW":"\u0412\u044b\u0431\u0435\u0440\u0438\u0442\u0435 \u043e\u0431\u0440\u0430\u0437\u0446\u044b \u0434\u0430\u043d\u043d\u044b\u0445 \u0434\u043b\u044f \u043f\u0440\u0435\u0434\u0432\u0430\u0440\u0438\u0442\u0435\u043b\u044c\u043d\u043e\u0433\u043e \u043f\u0440\u043e\u0441\u043c\u043e\u0442\u0440\u0430.","MSG_NO_SIZES_TO_PREVIEW":"\u0412\u044b\u0431\u0435\u0440\u0438\u0442\u0435 \u0440\u0430\u0437\u043c\u0435\u0440\u044b \u0434\u043b\u044f \u043f\u0440\u0435\u0434\u0432\u0430\u0440\u0438\u0442\u0435\u043b\u044c\u043d\u043e\u0433\u043e \u043f\u0440\u043e\u0441\u043c\u043e\u0442\u0440\u0430.","MSG_NONE_SELECTED":"\u041d\u0438\u0447\u0435\u0433\u043e \u043d\u0435 \u0432\u044b\u0431\u0440\u0430\u043d\u043e","MSG_PARALLAX_MODE":"\u0421 \u043f\u0440\u043e\u043a\u0440\u0443\u0442\u043a\u043e\u0439","MSG_PREVIEW_MODE":"\u0420\u0435\u0436\u0438\u043c \u043f\u0440\u0435\u0434\u0432\u0430\u0440\u0438\u0442\u0435\u043b\u044c\u043d\u043e\u0433\u043e \u043f\u0440\u043e\u0441\u043c\u043e\u0442\u0440\u0430","MSG_RELOAD":"\u041f\u0435\u0440\u0435\u0437\u0430\u043f\u0443\u0441\u0442\u0438\u0442\u044c","MSG_RELOAD_ALL":"\u041f\u0435\u0440\u0435\u0437\u0430\u043f\u0443\u0441\u0442\u0438\u0442\u044c \u0432\u0441\u0435","MSG_ROTATE_DEVICE":"\u041f\u043e\u0432\u0435\u0440\u043d\u0443\u0442\u044c \u0443\u0441\u0442\u0440\u043e\u0439\u0441\u0442\u0432\u043e","MSG_SAMPLE_FEED":"\u041e\u0431\u0440\u0430\u0437\u0435\u0446 \u0434\u0430\u043d\u043d\u044b\u0445","MSG_SAMPLE_FEEDS":"\u041e\u0431\u0440\u0430\u0437\u0446\u044b \u0434\u0430\u043d\u043d\u044b\u0445","MSG_SELECT_ALL":"\u0412\u044b\u0431\u0440\u0430\u0442\u044c \u0432\u0441\u0435","MSG_SELECT_NONE":"\u041e\u0442\u043c\u0435\u043d\u0438\u0442\u044c \u0432\u044b\u0431\u043e\u0440","MSG_SELECTED":"\u0412\u044b\u0431\u0440\u0430\u043d\u043e: {num}","MSG_SHOW_SIZE":"\u041f\u043e\u043a\u0430\u0437\u0430\u0442\u044c \u0440\u0430\u0437\u043c\u0435\u0440","MSG_SHOW_SIZES":"\u041f\u043e\u043a\u0430\u0437\u0430\u0442\u044c \u0440\u0430\u0437\u043c\u0435\u0440\u044b","MSG_SINGLE_MODE":"\u041e\u0434\u0438\u043d \u0440\u0430\u0437\u043c\u0435\u0440","MSG_VIEWPORT_SIZE":"\u041e\u043a\u043d\u043e \u043f\u0440\u043e\u0441\u043c\u043e\u0442\u0440\u0430"}};</script></head>
+
+  <body>
+
+</body></html>

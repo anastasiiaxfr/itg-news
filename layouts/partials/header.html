@@ -1,0 +1,107 @@
+{{ "<!-- navigation -->" | safeHTML }}
+<header class="fixed-top navigation">
+  <div class="container">
+    <!-- navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-transparent">
+      <a class="navbar-brand" href="{{ .Site.BaseURL | relLangURL }}"><img class="img-fluid"
+          src="{{ .Site.Params.logo | relURL }}" alt="{{ .Site.Title }}" width="{{ .Site.Params.logo_w }}"></a>
+      
+          <div class="d-flex align-items-center order-lg-1">
+          {{ if .Site.Params.search }}
+          {{ "<!-- search -->" | safeHTML }}
+          <div class="search px-4">
+            <button id="searchOpen" class="search-btn"><i class="ti-search"></i></button>
+            <div class="search-wrapper">
+              <form action="{{ `search`| relLangURL }}" class="h-100">
+                <input class="search-box px-4" id="search-query" name="s" type="search" placeholder="{{ i18n ` search_placeholder`}}">
+              </form>
+              <button id="searchClose" class="search-close"><i class="ti-close text-dark"></i></button>
+            </div>
+          </div>
+          {{ end }}
+
+      <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navigation">
+        <i class="navbar-toggler--open ti-align-justify text-white"></i>
+        <i class="navbar-toggler--close ti-close d-none"></i>
+      </button>
+      <script>
+        
+        let menu_toggler=document.querySelector('.navbar-toggler--open');
+        let menu_toggler_close=document.querySelector('.navbar-toggler--close');
+        menu_toggler.addEventListener('click',function(){this.style.display="none";menu_toggler_close.classList.toggle('d-none');});menu_toggler_close.addEventListener('click',function(){this.classList.toggle('d-none');menu_toggler.style.display="block";});
+
+      </script>
+      </div>
+
+      <div class="collapse navbar-collapse text-center" id="navigation">
+        <ul class="navbar-nav">
+          <!-- <li class="nav-item">
+            <a class="nav-link" href="{{ .Site.BaseURL | relLangURL }}">{{ .Site.Params.Home }}</a>
+          </li> -->
+          {{ range .Site.Menus.main }}
+          {{ if .HasChildren }}
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
+              aria-expanded="false">
+              {{ .Name }}
+            </a>
+            <div class="dropdown-menu">
+              {{ range .Children }}
+              <a class="dropdown-item" href="{{ .URL | absLangURL }}">{{ .Name }}</a>
+              {{ end }}
+            </div>
+          </li>
+          {{ else }}
+          <li class="nav-item">
+            <a class="nav-link" href="{{ .URL | absLangURL }}">{{ .Name }}</a>
+          </li>
+          {{ end }}
+          {{ end }}
+        </ul>
+
+        <!-- Language List -->
+        {{ if .IsTranslated }}
+        <select class="m-2 border-0" id="select-language" onchange="location = this.value;">
+          {{ $siteLanguages := .Site.Languages}}
+          {{ $pageLang := .Page.Lang}}
+          {{ range .Page.AllTranslations }}
+          {{ $translation := .}}
+          {{ range $siteLanguages }}
+          {{ if eq $translation.Lang .Lang }}
+          {{ $selected := false }}
+          {{ if eq $pageLang .Lang}}
+          <option id="{{ $translation.Language }}" value="{{ $translation.Permalink }}" selected>{{ .LanguageName }}
+          </option>
+          {{ else }}
+          <option id="{{ $translation.Language }}" value="{{ $translation.Permalink }}">{{ .LanguageName }}</option>
+          {{ end }}
+          {{ end }}
+          {{ end }}
+          {{ end }}
+        </select>
+        {{ end }}
+
+
+
+      </div>
+    </nav>
+  </div>
+</header>
+{{ "<!-- /navigation -->" | safeHTML }}
+
+
+{{ if and ($.IsNode) (eq $.Section "") }} 
+<div id="cr-widget-marquee"
+data-coins="bitcoin,ethereum,tether,ripple,cardano"
+data-theme="light"
+data-show-symbol="true"
+data-show-icon="true"
+data-show-period-change="true"
+data-period-change="24H"
+data-api-url="https://api.cryptorank.io/v0"
+>
+<a href="https://cryptorank.io"></a>
+<script src="https://cryptorank.io/widget/marquee.js"></script>
+</div>
+
+{{ else }} {{ end }}

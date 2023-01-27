@@ -1,0 +1,28 @@
+<div class="card rounded-0">
+
+  {{ if .Params.Img }}
+  <img class="card-img-top rounded-0" src="{{ .Params.Img | relURL }}">
+  {{ else }}
+  <img class="card-img-top rounded-0" src="{{ `/images/news/news.jpg` | relURL }}">
+  {{ end }}
+
+  <div class="card-body">
+    <div class="mb-2"> <a class="text-dark font-weight-bold" href="{{ `author/` | relLangURL }}{{ .Params.Author | urlize }}">{{ .Params.Author | title }}</a> |
+      <strong class="text-dark">
+        {{  dateFormat "02/01/2006 | 15:04" .Date.Local }}
+      </strong></div>
+    <h4>
+      {{ if .Params.url }}
+      <a href="{{ .Params.url }}">{{ .Title | truncate 50 }}</a>
+      {{ else }}
+      <a href="{{ .Permalink }}">{{ .Title | truncate 50 }}</a>
+      {{ end }}
+    </h4>
+    <p>{{ .Summary }}...</p>
+    {{ if .Params.url }}
+    <a href="{{ .Params.url }}" class="btn btn-primary btn-sm">{{ i18n "read_more"}}</a>
+    {{ else }}
+    <a href="{{ .Permalink }}" class="btn btn-primary btn-sm">{{ i18n "read_more"}}</a>
+    {{ end }}
+  </div>
+</div>

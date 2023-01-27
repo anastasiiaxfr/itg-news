@@ -1,0 +1,88 @@
+{{ $data := index .Site.Data .Site.Language.Lang }}
+
+
+<section class="section section_news" id="news">
+    <div class="container">
+        <div class="heading__group">
+            <h3>{{ i18n "more-news" }}</h3>
+            <a href="/news/" class="btn--text">{{ i18n "other-news" }}
+                <i class="ti-angle-right"></i>
+            </a>
+
+        </div>
+        <div>
+            <table class="table1">
+                <tr>
+                    {{ $arg := slice }}
+                    {{ range (where .Site.RegularPages "Type" "news") }}
+                    {{ if eq .Params.position "news-1" }}
+                    {{ $arg = $arg | append . }}
+                    {{ end }}
+                    {{ end }}
+                    {{ range first 2 $arg }}
+                    <td class="table1__col">
+                        <div>
+                            {{- partial "_card.html" . -}}
+                        </div>
+                    </td>
+                    {{ end }}
+
+                    <td rowspan="3" class="d-none d-lg-table-cell">
+                        <iframe src="banners/index.html" scrolling="no" frameborder="0" width="410" height="605"
+                            marginwidth="0" marginheight="0" class="banner"></iframe>
+                    </td>
+                </tr>
+                <tr>
+                    {{ $arg := slice }}
+                    {{ range (where .Site.RegularPages "Type" "news") }}
+                    {{ if eq .Params.position "news-2" }}
+                    {{ $arg = $arg | append . }}
+                    {{ end }}
+                    {{ end }}
+                    {{ range first 2 $arg }}
+                    <td class="table1__col">
+                        <div>
+                            {{- partial "_box.html" . -}}
+                        </div>
+                    </td>
+                    {{ end }}
+                </tr>
+                <tr>
+                    {{ $arg := slice }}
+                    {{ range (where .Site.RegularPages "Type" "news") }}
+                    {{ if eq .Params.position "news-3" }}
+                    {{ $arg = $arg | append . }}
+                    {{ end }}
+                    {{ end }}
+                    {{ range first 2 $arg }}
+                    <td>
+                        <div>
+                            {{- partial "_card.html" . -}}
+                        </div>
+                    </td>
+                    {{ end }}
+                    
+                </tr>
+                <tr>
+                    {{ $arg := slice }}
+                    {{ range (where .Site.RegularPages "Type" "news") }}
+                    {{ if eq .Params.position "news-4" }}
+                    {{ $arg = $arg | append . }}
+                    {{ end }}
+                    {{ end }}
+                    {{ range first 3 $arg }}
+                    <td>
+                        <div>
+                            {{- partial "_box.html" . -}}
+                        </div>
+                    </td>
+                    {{ end }}
+                </tr>
+            </table>
+
+        </div>
+
+
+
+    </div>
+</section>

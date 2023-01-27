@@ -1,0 +1,105 @@
+<!-- footer -->
+<footer class="footer bg-cover overlay overflow-hidden"
+  style="background-image: url('{{`images/backgrounds/footer.jpg` | relURL}}');">
+  <div class="container" style="position: relative; z-index: 1;">
+    <div class="row justify-content-center py-3">
+
+      <div class="col-md-9 text-center text-md-left">
+
+
+        <div class="row align-items-center">
+
+          <div class="col-md-8">
+
+            <!-- BEGIN soc -->
+            {{- partial "_soc-all.html" . -}}
+            <!-- END soc -->
+            <p clas="d-none d-sm-block">
+              Мы инновационная, динамично развивающаяся консалтинговая компания, открывающая перед инвесторами
+              глобальные перспективы в мире Web 3.0 технологий и геополитического устройства мира финансов.
+            </p>
+          </div>
+          <div class="col-md-4">
+            <a href="/about" class="btn-sm btn-bd mr-sm-2">
+              О нас
+            </a>
+            <a href="/adv" class="btn-sm btn-bd my-3">
+              Реклама
+            </a>
+          </div>
+        </div>
+
+
+        <div class="row align-items-center">
+          <div class="col-md-4">
+            <div class="logo__wrap mb-4 mb-md-0 d-none d-md-block">
+              <a href="{{ .Site.BaseURL }}" class="d-flex align-items-center">
+                <img class="" src="{{ .Site.Params.logo | relURL }}" alt="{{ .Site.Title }}"
+                  width="{{ .Site.Params.logo_w }}">
+              </a>
+              <span>International Trade Group</span>
+            </div>
+          </div>
+          <div class="col-md-8">
+            Все опубликованные материалы принадлежат ITG. Вы можете перепечатывать наши материалы только после
+            согласования с редакцией и с указанием активной ссылки на ITG.
+          </div>
+        </div>
+
+
+
+      </div>
+      <div class="col-md-3 mt-4 mt-md-0">
+        <div class="qr">
+          <img src="{{ `images/news.svg` | relURL }}" width="170" height="170" alt="{{ .Title }}">
+        </div>
+        <nav class="policy mt-2">
+          <a href="/privacy">Политика приватности</a><br>
+          <a href="/terms">Условия пользования</a>
+        </nav>
+      </div>
+    </div>
+
+  </div>
+  </div>
+</footer>
+<!-- /footer -->
+
+{{ if .Site.Params.search }}
+<script>
+  var indexURL = {{ "index.json" | relURL}}
+</script>
+{{ end }}
+
+{{ "<!-- Google Map API -->" | safeHTML }}
+{{ with .Site.Params.map.gmap_api }}
+<script src="{{ . | safeURL }}"></script>
+{{ end }}
+
+{{ "<!-- JS Plugins -->" | safeHTML }}
+{{ range .Site.Params.plugins.js}}
+<script src="{{ .link | relURL }}"></script>
+{{ end }}
+
+{{ "<!-- Main Script -->" | safeHTML }}
+{{ $script := resources.Get "js/script.js" | minify}}
+<script src="{{ $script.Permalink }}"></script>
+
+{{ "<!-- google analitycs -->" | safeHTML }}
+{{ with .Site.Params.google_analitycs_id}}
+<script>
+  (function (i, s, o, g, r, a, m) {
+    i['GoogleAnalyticsObject'] = r;
+    i[r] = i[r] || function () {
+      (i[r].q = i[r].q || []).push(arguments)
+    }, i[r].l = 1 * new Date();
+    a = s.createElement(o),
+      m = s.getElementsByTagName(o)[0];
+    a.async = 1;
+    a.src = g;
+    m.parentNode.insertBefore(a, m)
+  })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+  ga('create', '{{ . }}', 'auto');
+  ga('send', 'pageview');
+</script>
+{{ end }}

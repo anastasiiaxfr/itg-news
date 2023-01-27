@@ -1,0 +1,33 @@
+- id: more-news
+  translation: Больше новостей
+- id: other-news
+  translation: Остальные новости
+- id:  all-video
+  translation: Смотреть все видео 
+- id: beginners
+  translation: Новичкам
+- id: articles
+  translation: Статьи
+- id: more-articles
+  translation: Больше статей
+- id: subscribe
+  translation: Подписывайтесь на нашу рассылку
+- id: rss
+  translation: Более 50 процентов авторитетных аналитиков, опрошенных компанией Finder, уверены, что шуточную криптовалюту Dogecoin ждет крах в ближайшие четыре года.
+      Как оказалось, большинство криптовалютных аналитиков считают, что токен Dogecoin (DOGE) обречен 
+- id: rss-timeout
+  translation: Рассылка раз в неделю
+- id: subscribe-btn
+  translation: Подписаться
+- id: tags
+  translation: Теги
+- id: latest-news
+  translation: Новости
+- id: latest-top-news
+  translation: ТОП новости 
+- id: latest-articles
+  translation: Статьи
+- id: latest-beginners
+  translation: Новичкам 
+- id: read_more
+  translation: Детальнiше

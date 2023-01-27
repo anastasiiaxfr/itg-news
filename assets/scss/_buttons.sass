@@ -1,0 +1,246 @@
+/* Button style */
+.btn
+  font-size: 15px
+  font-family: $primary-font
+  text-transform: capitalize
+  padding: 15px 40px
+  border-radius: 0
+  font-weight: 500
+  border: 1px solid
+  position: relative
+  z-index: 1
+  transition: .2s ease
+
+  &:hover,
+  &:active,
+  &:focus
+    outline: 0
+    box-shadow: none !important
+ 
+
+  &-lg
+    padding: 18px 50px
+    font-size: 18px
+ 
+  &-sm
+    padding: 10px 35px
+    font-size: 14px
+ 
+  &-bd
+    display: inline-flex
+    border: 1px solid $white
+    border-radius: 20pc
+    &:hover
+      color: $dark
+      background-color: $white
+
+.btn-primary
+  background: $primary-color
+  color: $white
+  border-color: $primary-color
+
+  &:active,
+  &:hover,
+  &.focus,
+  &.active
+    background: darken($color: $primary-color, $amount: 10) !important
+    border-color: darken($color: $primary-color, $amount: 10) !important
+ 
+
+
+.btn-outline-primary
+  background: transparent
+  color: $primary-color
+  border-color: $primary-color
+
+  &:active,
+  &:hover,
+  &.focus,
+  &.active
+    background: darken($color: $primary-color, $amount: 10) !important
+    border-color: darken($color: $primary-color, $amount: 10) !important
+    color: $white
+ 
+
+
+.btn-secondary
+  background: $secondary-color
+  color: $white
+  border-color: $secondary-color
+
+  &:active,
+  &:hover,
+  &.focus,
+  &.active
+    background: darken($color: $secondary-color, $amount: 10) !important
+    border-color: darken($color: $secondary-color, $amount: 10) !important
+ 
+
+
+.btn-outline-secondary
+  background: transparent
+  color: $secondary-color
+  border-color: $secondary-color
+
+  &:active,
+  &:hover,
+  &.focus,
+  &.active
+    background: darken($color: $secondary-color, $amount: 10) !important
+    border-color: darken($color: $secondary-color, $amount: 10) !important
+    color: $white
+ 
+
+
+
+.card-logo
+  display: block
+  max-width: 100px
+  height: 80px
+  margin: 0 auto
+  object-fit: contain
+
+
+.card-table
+  td
+    width: 50%
+    font-size: 12px
+ 
+
+  th
+    width: 50%
+    padding-right: 10px
+
+    font-size: 12px
+    font-weight: bold
+    // text-align: right
+
+ 
+
+  tr
+
+    &:nth-last-child(2)
+    
+     
+      td
+        padding-bottom: 10px
+     
+   
+ 
+.soc
+    
+    list-style-type: none
+    display: inline-flex
+    align-items: center
+    justify-content: center
+
+    
+    margin: 5px
+
+    transition: $trs
+
+    &:hover
+      img
+        transform: scale(1.1)
+
+    a
+      display: inline-flex
+      align-items: center
+      justify-content: center
+      margin: 0
+      background-color: $white
+      color: $blue
+      fill: $blue
+
+      width: 50px
+      height: 50px
+      border-radius: 50%
+
+    img
+      display: block
+      width: 20px
+      height: 20px
+
+    &__wrap
+      margin: -5px -5px 10px
+      padding: 0
+
+    
+
+
+.lang-switcher
+    white-space: nowrap
+    margin-left: 5px
+    button
+        background: transparent
+        border: none
+        color: inherit
+        position: relative
+        padding: 0
+        &::after
+            content: '/'
+            margin-left: 5px
+            margin-right: 5px 
+        &:last-child
+            &::after
+                content: none
+            
+
+
+.rss
+    label
+        display: block
+        +ft(14, 17, 400)
+        margin-bottom: 8px
+    input[type=email]
+        border-radius: 20pc
+        border: 1px solid lighten($black0, 80%)
+        padding: 8px 17px
+    input[type=submit]
+        +theme(dark)
+        border-radius: 14px
+        padding: 8px 15px
+    +maw($sm)
+        margin-top: 30px
+        input
+            width: 100%
+            &:last-child
+                margin-top: 15px
+
+.btn
+    &--text
+        +flex(inline-flex, center, center, nowrap)
+        background-color: transparent
+        border: none
+        //+ft(22, 22, 700)
+        +ft(18, 18, 500, 'Oswald')
+        color: inherit
+        white-space: nowrap
+        +maw($sm)
+            +ft(12, 12, 700)
+        &:hover, &:focus
+            box-shadow: none
+        i
+          font-size: inherit
+    &--top
+        width: 40px
+        height: 40px
+        position: fixed
+        bottom: 10px
+        right: 10px
+        z-index: 100
+        border: none
+        background-color: lighten($black, 80%)
+        svg
+            transform: rotate(-90deg)
+            fill: $white
+
+.heading
+    &__group
+        +flex(flex, center, space-between, nowrap)
+        padding-bottom: 24px
+        margin-bottom: 39px
+        border-bottom: 1px solid lighten($black0, 80%)
+        +maw($sm)
+            padding-bottom: 15px
+            margin-bottom: 15px

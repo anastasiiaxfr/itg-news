@@ -1,0 +1,21 @@
+{{ $data := index .Site.Data .Site.Language.Lang }}
+
+<div class="box">
+  <div class="box__title">
+    <a href="{{ .Permalink }}">
+      {{ .Title | truncate 100 }}
+    </a>
+  </div>
+  <div class="box__footer">
+    <div class="box__date">
+      {{ .PublishDate.Format "02/01/2006" }} | 
+      {{  .PublishDate.Format "15:04" }}
+    </div>
+    <a href="{{ .Permalink }}" class="btn--text"
+      >Подробнее
+      <svg class="icon" width="10" height="10">
+        <use xlink:href="#i3"></use>
+      </svg>
+    </a>
+  </div>
+</div>

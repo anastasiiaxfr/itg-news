@@ -1,0 +1,21 @@
+{{ $data := index .Site.Data .Site.Language.Lang }}
+
+<article class="card">
+  <a href="{{ .Permalink }}">
+    {{ if .Params.img }}
+    <img src="{{ .Params.img | relURL }}" alt="{{ .Title }}" class="card__img" />
+    {{ else }}
+    <img src="{{ `/images/news/news.jpg` | relURL }}">
+    {{ end }}
+    <div class="card__content">
+      <div class="card__title">
+        <div>
+          {{ .Title | truncate 50 }}
+        </div>
+      </div>
+      <div class="card__date">
+        {{  dateFormat "02/01/2006 | 15:04" .Date.Local }}
+      </div>
+    </div>
+  </a>
+</article>

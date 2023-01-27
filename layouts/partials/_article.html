@@ -1,0 +1,22 @@
+{{ $data := index .Site.Data .Site.Language.Lang }}
+
+<article class="article">
+  <div class="article__heading">
+    <div class="article__cat">
+      {{ range .Params.cat }}
+        {{ . }}
+      {{ end }}
+      </div>
+    <div class="article__date">
+      {{  dateFormat "02/01/2006 | 15:04" .Date.Local }}
+    </div>
+  </div>
+  <div class="article__content">
+    <a href="{{ .Permalink }}">
+      {{ .Title | truncate 100 }}
+    </a>
+  </div>
+  <div class="article__footer">
+    {{ .Params.author }}
+  </div>
+</article>

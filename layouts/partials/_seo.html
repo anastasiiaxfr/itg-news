@@ -1,0 +1,140 @@
+{{ $title := slice }}
+{{ $description := slice }}
+
+{{ if (.Params.title_before | or .Params.title_after) }}
+{{ $title = $title | append .Params.title_before }}
+{{ $title = $title | append .Title }}
+{{ $title = $title | append .Params.title_after }}
+{{ $title = delimit $title " " }}
+{{ else }}
+{{ $title = .Title }}
+{{ end }}
+
+{{ if (.Params.description_before | or .Params.description_after) }}
+{{ $description = $description | append .Params.description_before }}
+{{ $description = $description | append .Params.description }}
+{{ $description = $description | append .Params.description_after }}
+{{ $description = delimit $description " " }}
+{{ else }}
+{{ $description = .Params.description }}
+{{ end }}
+
+<meta charset="utf-8">
+<title>{{ $title | truncate 60 }}</title>
+<meta name="description" content="{{ $description | truncate 160 }}">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+{{ with .Site.Params.author }}
+<meta name="author" content="{{ . }}">{{ end }}
+{{ hugo.Generator }}
+
+<!-- canonical link tag -->
+<link rel="canonical" href="{{ .Permalink }}" />
+
+<!-- Facebook and Twitter integration -->
+{{ if not .Site.Params.OpenGraph.hide }}
+<!-- FACESPACE -->
+<meta property="og:title" content="{{ $title | truncate 60 }}">
+<meta property="og:description" content="{{ $description | truncate 160 }}">
+
+<meta property="og:image:height" content="...">
+<meta property="og:image:width" content="...">
+<meta property="og:image" content="fav/screenshot.jpg">
+
+<meta property="fb:app_id" content="...">
+<meta property="fb:admins" content="{{ .Site.Params.author }}">
+
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="{{ .Site.Title }}">
+<meta property="og:url" content="{{ .Permalink }}">
+
+<meta name="twitter:title" content="{{ .Site.Title }}" />
+<meta name="twitter:url" content="{{ .Permalink }}" />
+<meta name="twitter:image" content="fav/screenshot.jpg" />
+<meta name="twitter:card" content="" />
+{{ end }}
+
+<!-- THE TWITTER MACHINE -->
+<meta name="twitter:card" content="...">
+
+<meta name="twitter:site" content="{{ .Permalink }}">
+<meta name="twitter:creator" content="{{ .Site.Params.author }}">
+
+<meta name="twitter:title" content="{{ $title | truncate 60 }}">
+<meta name="twitter:description" content="{{ $description | truncate 160 }}">
+<meta name="twitter:image:src" content="...">
+
+
+<!-- G++ -->
+<meta itemprop="name" content="{{ .Permalink }}">
+<meta itemprop="description" content="{{ $description | truncate 60 }}">
+<meta itemprop="image" content="...">
+
+
+<link href="fav/minilogo.ico" rel="shortcut icon" type="image/x-icon" />
+<link href="fav/minilogo.ico" rel="icon" type="image/x-icon" />
+
+<!--Favicon-->
+<link rel="shortcut icon" href="{{ `fav/favicon.png` | relURL }}" type="image/x-icon">
+<link rel="icon" href="{{ `fav/favicon.png` | relURL }}" type="image/x-icon">
+
+<link rel="apple-touch-icon" sizes="144x144" href="{{ `fav/apple-touch-icon.png` | relURL }}">
+<link rel="icon" type="image/png" sizes="32x32" href="{{ `fav/favicon-32x32.png` | relURL }}">
+<link rel="icon" type="image/png" sizes="16x16" href="{{ `fav/favicon-16x16.png` | relURL }}">
+<link rel="mask-icon" href="{{ `fav/safari-pinned-tab.svg` | relURL }}" color="#fff">
+
+<link rel="manifest" href="{{ `fav/site.webmanifest` | relURL }}">
+<link rel="mask-icon" href="{{ `fav/safari-pinned-tab.svg` |relURL }}" color="#3a1b70">
+<meta name="msapplication-TileColor" content="#3a1b70">
+<meta name="theme-color" content="#3a1b70">
+
+<meta name="facebook-domain-verification" content="chcxsmb13vcz0c179zis348teqrr2m" />
+
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-C1CV4BEC77"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-C1CV4BEC77');
+</script>
+
+<!-- Google tag (gtag.js) --> 
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-RSF2Z11LX6"></script> <script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-RSF2Z11LX6'); </script>
+
+{{ "<!-- Meta Pixel Code -->" | safeHTML }}
+  <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '395240172578352');
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=395240172578352&ev=PageView&noscript=1"
+    /></noscript>
+    {{ "<!-- End Meta Pixel Code -->" | safeHTML }}
+  
+    <script>
+      function gtag_report_conversion(url) {
+           var callback = function () {
+           if (typeof(url) != 'undefined') {
+            window.location = url;
+          }
+        };
+        gtag('event', 'conversion', {
+            'send_to': 'TAG_ID/CONVERSION_LABEL',
+            'value': 1.0,
+             'event_callback': callback
+        });
+      return false;
+      }
+      </script>

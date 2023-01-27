@@ -1,0 +1,35 @@
+{{ $data := index .Site.Data .Site.Language.Lang }}
+
+<section class="section section_video">
+    <div class="container">
+        <div class="heading__group">
+            <h3>YouTube</h3>
+            <a href="/beginners/" class="btn--text">{{ i18n "all-video" }}
+                <i class="ti-angle-right"></i>
+            </a>
+       </div>
+
+       <div class="row">
+        <div class="col-lg-6">
+            {{ range first 1 (where .Site.RegularPages "Type" "youtube") }}
+           {{ if eq .Params.top true }} 
+            <a href="{{ .Permalink }}" class="video__wrap">
+                <!-- <img src="{{ .Params.img }}" alt="{{ .Title }}" class="video"> -->
+                <iframe width="100%" height="315" src="{{ .Params.video }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </a>
+            {{ end }}
+            {{ end }}
+        </div>
+        <div class="col-lg-6">
+          
+    {{ range first 4 (where .Site.RegularPages "Type" "youtube") }}
+
+                {{- partial "_video-news.html" . -}}
+                
+    {{ end }}          
+        </div>
+       </div>
+    </div>
+</section>
+
+

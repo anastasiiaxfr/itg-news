@@ -1,0 +1,27 @@
+{{ $data := index .Site.Data .Site.Language.Lang }}
+
+<article class="news">
+  <div class="news__img">
+    {{ if .Params.img }}
+    <a href="{{ .Permalink }}">
+      <img src="{{ .Params.img | relURL}}" alt="{{ .Title }}" />
+    </a>
+    {{ else }}
+    <a href="{{ .Permalink }}"><img src="{{ `/images/news/news.jpg` | relURL }}"></a>
+    {{ end }}
+  </div>
+  <div class="news__content">
+    <div class="news__title">
+      <a href="{{ .Permalink }}"> {{ .Title | truncate 100 }}</a>
+    </div>
+    <div class="news__footer">
+      <div class="news__author">
+        {{ .Params.author }}
+      </div>
+      <div class="news__date">
+        <small> {{  dateFormat "15:04" .Date.Local }} </small> <br>
+        {{  dateFormat "02/01/2006" .Date.Local }} 
+      </div>
+    </div>
+  </div>
+</article>

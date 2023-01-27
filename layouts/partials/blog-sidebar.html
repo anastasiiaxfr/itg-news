@@ -1,0 +1,75 @@
+{{ "<!-- sidebar -->" | safeHTML }}
+<aside class="col-lg-4 order-1 order-lg-2">
+ <div class="sidebar__inner">
+  {{ "<!-- categories -->" | safeHTML }}
+  <div class="d-none bg-white mb-5">
+    <h4 class="mb-4">{{ i18n "categories" }}</h4>
+    {{- if isset .Site.Taxonomies "categories" }}
+    {{- if not (eq (len .Site.Taxonomies.categories) 0) }}
+    <ul class="list-unstyled">
+      {{- range $name, $items := .Site.Taxonomies.categories }}
+      <li class="border-bottom"><a href="{{ "categories/" | relLangURL }}{{ $name | urlize | lower }}" class="d-block pb-3 mt-3">{{ $name | title | humanize }}</a></li>
+      {{- end }}
+    </ul>
+    {{- end }}
+    {{- end }}
+  </div>
+  {{ "<!-- tags -->" | safeHTML }}
+  <div class="bg-white mb-3">
+    
+    {{- if isset .Site.Taxonomies "tags" }}
+    {{ $tags := .Site.Taxonomies.tags }}
+
+      {{- if not (eq (len $tags) 0)  }}
+      <h4 class="mb-4">{{ i18n "tags" }}</h4>
+      {{- $.Scratch.Set "tagsLimit" 0 }}
+
+    <ul class="list-inline">
+      {{- range $name, $items :=  $tags }}
+
+      {{- $.Scratch.Set "tagsLimit" (add ($.Scratch.Get "tagsLimit") 1) }}
+      {{- if le ($.Scratch.Get "tagsLimit") ($.Site.Param `tagsLimit`) }}
+    
+        <li class="list-inline-item mb-2"><a class="px-3 py-2 d-block bg-light" href="{{ "tags/" | relLangURL }}{{ $name | urlize | lower }}">{{ $name | humanize }}</a></li>
+     
+      {{ end }}
+      {{- end }}
+    </ul>
+
+   
+    {{- end }}
+    {{- end }}
+  </div>
+  {{ "<!-- latest post -->" | safeHTML }}
+
+
+
+  <section class="mb-4">
+    <h3 class="h5">
+      {{ i18n "latest-news" }}
+    </h3>
+    {{ range first 3 ( where .Site.RegularPages "Type" "news" )}}
+    {{- partial "_video-news.html" . -}}
+    {{ end }}
+  </section>
+  
+    <section class="my-4">
+    <h3 class="h5">
+      {{ i18n "latest-articles" }}
+    </h3>
+    {{ range first 3 ( where .Site.RegularPages "Type" "articles" )}}
+    {{- partial "_video-news.html" . -}}
+    {{ end }}
+    </section>
+  
+    <section class="my-4">
+    <h3 class="h5">
+      {{ i18n "latest-beginners" }}
+    </h3>
+    {{ range first 3 ( where .Site.RegularPages "Type" "beginners" )}}
+    {{- partial "_video-news.html" . -}}
+    {{ end }}
+    </section>
+ </div>
+</aside>
+{{ "<!-- /sidebar -->" | safeHTML }}
