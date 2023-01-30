@@ -2,7 +2,7 @@
 author = "Владимир Матвеев"
 cat = ["НОВОСТИ"]
 date = 2023-01-30T07:54:00Z
-img = ""
+img = "/images/2023/01/27/polygon_2-min_720.webp"
 position = "top-news-2"
 tags = []
 title = "TEST-RSS-IMG_21-54"
