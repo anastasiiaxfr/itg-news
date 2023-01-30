@@ -1,8 +1,7 @@
 +++
 author = "Владимир Матвеев"
 cat = ["НОВОСТИ"]
-date = 2023-01-27T09:44:00Z
-draft = true
+date = 2023-01-30T07:12:00Z
 img = "/images/apple-iphone-china.webp"
 position = ""
 tags = []
