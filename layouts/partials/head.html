@@ -10,7 +10,7 @@
 
   {{ "<!-- plugins -->" | safeHTML }}
   {{ range .Site.Params.plugins.css }}
-  <link rel="stylesheet" href="{{ .link | absURL }} ">
+  <link rel="stylesheet" href="{{ .link | relURL }} ">
   {{ end }}
 
   {{ "<!-- Main Stylesheet -->" | safeHTML }}
@@ -21,4 +21,11 @@
   <link rel="shortcut icon" href="{{ `images/favicon.png` | absURL }} " type="image/x-icon">
   <link rel="icon" href="{{ `images/favicon.png` | absURL }} " type="image/x-icon">
 
+  <link rel="apple-touch-icon" sizes="180x180" href="{{ `fav/apple-touch-icon.png` | relURL }}">
+<link rel="icon" type="image/png" sizes="32x32" href="{{ `fav/favicon-32x32.png` | relURL }}">
+<link rel="icon" type="image/png" sizes="16x16" href="{{ `fav/favicon-16x16.png` | relURL }}">
+<link rel="manifest" href="{{ `fav/site.webmanifest` | relURL }}">
+<link rel="mask-icon" href="{{ `fav/safari-pinned-tab.svg` | relURL }}" color="#fff">
+<meta name="msapplication-TileColor" content="#fff">
+<meta name="theme-color" content="#1f2749">
 </head>

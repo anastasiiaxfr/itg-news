@@ -1,5 +1,5 @@
 ---
-title: "Services"
+title: "O нас"
 title_before: ""
 titile_after: ""
 

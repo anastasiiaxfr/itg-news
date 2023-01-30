@@ -1,6 +1,6 @@
 ######################## default configuration ####################
 baseURL = "/"
-relativeURLs = true
+# relativeURLs = true
 
 title = "ITG"
 # theme = "slots-nj-hugo"
@@ -12,7 +12,7 @@ summaryLength = "10"
 disqusShortname = "itg" # get your shortname form here : https://disqus.com
 # disable language
 defaultContentLanguage = "ru"
-disableLanguages = [] # desable language from here
+disableLanguages = ["en", "ua"] # desable language from here
 languageCode = "ru"
 
 
@@ -147,7 +147,7 @@ logo_w = "98"
 home = "Home"
 # Meta data
 description = "This is meta description"
-author = "xfr"
+author = "Anastasiia Berest"
 # contact info
 
 # contact form action
@@ -234,19 +234,19 @@ icon = "images/icon/email.svg" # themify icon pack : https://themify.me/themify-
 link = "mailto: office@itg-investments.com"
 ################################### English language #####################################
 [Languages.en]
-contentDir = "content/en"
+contentDir = "content/en/"
 home = "Home"
 languageCode = "en-us"
 languageName = "En"
 weight = 2
 [Languages.ru]
-contentDir = "content/ru"
+contentDir = "content/ru/"
 home = "Главная"
 languageCode = "ru"
 languageName = "Ру"
 weight = 1
 [Languages.ua]
-contentDir = "content/ua"
+contentDir = "content/ua/"
 home = "Головна"
 languageCode = "ua"
 languageName = "Укр"
