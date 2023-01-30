@@ -1,8 +1,7 @@
 +++
 author = "Владимир Матвеев"
 cat = ["НОВОСТИ"]
-date = 2023-01-25T09:10:00Z
-draft = true
+date = 2023-01-30T07:55:00Z
 img = "/images/photo_2023-01-23_20-26-45.jpg"
 position = ""
 tags = []
