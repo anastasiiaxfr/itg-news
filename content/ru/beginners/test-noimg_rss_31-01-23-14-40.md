@@ -1,8 +1,7 @@
 +++
 author = "Владимир Матвеев"
 cat = ["ПОЛЕЗНОЕ"]
-date = 2023-01-31T00:38:00Z
-draft = true
+date = 2023-01-31T00:40:00Z
 img = ""
 position = ""
 tags = []
