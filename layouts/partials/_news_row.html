@@ -1,0 +1,40 @@
+{{ $data := index .Site.Data .Site.Language.Lang }}
+
+<article class="news">
+  <div class="news__img">
+    {{- partial "_share.html" . -}}
+    <div class="cats">
+      <div class="cat">
+        <a href="{{ $.Parent.Page.Permalink }}" class="cat__item">
+          {{ $.Parent.Page.Params.title }}
+        </a>
+      </div>
+    </div>
+    
+
+    {{ if .Params.img }}
+    <a href="{{ .Permalink }}">
+      <img src="{{ .Params.img | relURL}}" alt="{{ .Title }}" />
+    </a>
+    {{ else }}
+    <a href="{{ .Permalink }}"><img src="{{ `/images/news-2.jpg` | relURL }}"></a>
+    {{ end }}
+  </div>
+  <div class="news__content">
+    <div class="news__title">
+      <a href="{{ .Permalink }}"> {{ .Title | truncate 100 }}</a>
+    </div>
+    <div class="news__text">
+      <a href="{{ .Permalink }}"> {{ .Content | truncate 150 }}</a>
+    </div>
+    <div class="news__footer">
+      <div class="news__author">
+        {{ .Params.author }}
+      </div>
+      <div class="news__date">
+        {{  .PublishDate.Format "15:04" }} / <span>{{ .PublishDate.Format "02.01.2006"  }} </span> 
+                 
+      </div>
+    </div>
+  </div>
+</article>

@@ -1,0 +1,16 @@
+<div class="share__wrap">
+   <button class="share__btn">
+     <img class="share__close" src="{{ `images/icon/share/close.svg` | relURL }}" alt="Share">
+     <img class="share__open" src="{{ `images/icon/share/share.svg` | relURL }}" alt="Share">
+   </button>
+  
+
+   <div class="share__menu">
+     {{ range .Site.Params.share }}
+       <a class="share__link" href="{{ if eq .title "Telegram" }}{{ .link }}{{ $.Site.Params.site_url }}{{ $.Permalink }}&text={{ $.Params.title | truncate 100 }}{{ else }} {{ if eq .title "Twitter" }} {{ .link }}{{ $.Site.Params.site_url }}{{ $.Permalink }}{{ "\n\n" }}{{ $.Params.title | truncate 100 }} {{ else }}  {{ if eq .title "Facebook" }}{{ .link }}{{ $.Site.Params.site_url }}{{ $.Permalink | urlize }}&quote={{ $.Params.title | urlize }} {{ else }}
+       {{ if eq .title "Instagram" }}{{ .link }}{{ $.Site.Params.site_url }}{{ $.Permalink }}&title={{ $.Params.title | truncate 100 }}{{ end }}{{ end }}{{ end }}{{ end }}">
+         <img src="{{ .icon | relURL }}" alt="{{ .Title }}">
+       </a>
+     {{ end }}
+   </div>
+</div>

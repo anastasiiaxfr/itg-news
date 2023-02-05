@@ -1,15 +1,50 @@
 
-  {{- if isset .Site.Taxonomies "tags" }}
+  {{- if isset .Site.Taxonomies "cat" }}
   
-  {{ $tags := .Site.Taxonomies.tags }}
+  {{ $tags := .Site.Taxonomies.cat }}
   {{- if not (eq (len $tags) 0) }}
   {{- $.Scratch.Set "myLimit" 0 }}
   <section class="mb-4">
-  <h3 class="h5">{{ i18n "tags" }}</h3>
+    <div class="d-none bg-white mb-5">
+      <!-- {{- if isset .Site.Taxonomies "categories" }}
+      {{- if not (eq (len .Site.Taxonomies.categories) 0) }}
+      <ul class="list-unstyled">
+        {{- range $name, $items := .Site.Taxonomies.categories }}
+        <li class="border-bottom"><a href="{{ "categories/" | relLangURL }}{{ $name | urlize | lower }}" class="d-block pb-3 mt-3">{{ $name | title | humanize }}</a></li>
+        {{- end }}
+      </ul>
+      {{- end }}
+      {{- end }} -->
+    </div>
+    <div class="d-none bg-white mb-5">
+    {{ "<!-- tags -->" | safeHTML }}
+    <!-- <div class="bg-white mb-3">
+      
+      {{- if isset .Site.Taxonomies "tags" }}
+      {{ $tags := .Site.Taxonomies.tags }}
+  
+        {{- if not (eq (len $tags) 0)  }}
+        {{- $.Scratch.Set "tagsLimit" 0 }}
+  
+      <ul class="list-inline">
+        {{- range $name, $items :=  $tags }}
+  
+        {{- $.Scratch.Set "tagsLimit" (add ($.Scratch.Get "tagsLimit") 1) }}
+        {{- if le ($.Scratch.Get "tagsLimit") ($.Site.Param `tagsLimit`) }}
+      
+          <li class="list-inline-item mb-2"><a class="px-3 py-2 d-block bg-light" href="{{ "tags/" | relLangURL }}{{ $name | urlize | lower }}">{{ $name | humanize }}</a></li>
+       
+        {{ end }}
+        {{- end }}
+      </ul>
+      {{- end }}
+      {{- end }}
+    </div> -->
+  </div>
+    {{ "<!-- latest post -->" | safeHTML }}
 
-  <ul class="list-inline">
-
-    {{- range $name, $items :=  $tags }}
+  <ul class="cats">
+  {{- range $name, $items :=  $tags }}
 	{{- $.Scratch.Set "myLimit" (add ($.Scratch.Get "myLimit") 1) }}
 	{{- if le ($.Scratch.Get "myLimit") ($.Site.Param `tagsLimit`) }}
     <li><a href="{{ "tags/" | relLangURL }}{{ $name | urlize | lower }}" class="list-inline-item mb-2">{{ $name | title | humanize }}</a></li>

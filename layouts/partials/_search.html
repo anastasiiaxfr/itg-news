@@ -1,0 +1,22 @@
+{{ if .Site.Params.search }} 
+    {{ "<!-- search -->" | safeHTML }}
+    <div class="search">
+      <div class="search-wrapper">
+        <button id="searchOpen" class="search-btn">
+          <i class="ti-search"></i>
+        </button>
+        <form action="{{ `search`| relLangURL }}" class="h-100">
+          <input
+            class="search-box"
+            id="search-query"
+            name="s"
+            type="search"
+            placeholder="{{ i18n ` search_placeholder`}}"
+          />
+        </form>
+        <button id="searchClose" class="search-close">
+          <i class="ti-close"></i>
+        </button>
+      </div>
+    </div>
+{{ end }}

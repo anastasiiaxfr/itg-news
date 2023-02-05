@@ -1,0 +1,31 @@
+{{ $data := index .Site.Data .Site.Language.Lang }}
+{{ $arg_main := slice }} 
+{{ range $i, $arr := .Site.RegularPages }} 
+{{ if not (or (eq $i 0) (eq $i 1) (eq $i 2) (eq $i 3) (eq $i 4) (eq $i 5) (eq $i 6) (eq $i 7) (eq $i 8)) }} {{ $arg_main = $arg_main | append . }} {{ end }}
+{{ end }}
+<section class="section section_news" id="news">
+  <div class="container">
+    <div class="heading__group">
+      <h3>{{ i18n "news" }}</h3>
+      <a class="btn--text" href="/news/">
+        {{ i18n "all-news" }}
+        <i class="ti-angle-right"></i>
+      </a>
+    </div>
+    <div class="row">
+      <div class="item__wrap">
+        {{ range first 2 (where $arg_main "Type" "news") }}
+        {{- partial "_news.html" . -}} 
+        {{ end }}
+
+        {{- partial "_banner.html" . -}} 
+      
+        {{ range $i, $el := first 6 (where $arg_main "Type" "news") }}
+        {{ if not (or (eq $i 0) (eq $i 1) (eq $i 2)) }}
+        {{- partial "_news.html" . -}} 
+        {{ end }}
+        {{ end }}
+      </div>
+    </div>
+  </div>
+</section>

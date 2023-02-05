@@ -1,0 +1,16 @@
+{{ $data := index .Site.Data .Site.Language.Lang }}
+
+
+<section class="section section_all">
+   
+    <div class="container">
+        <div>
+        
+        {{ range $i, $arr := first 30 .Site.RegularPages }} 
+        {{- partial "_news_row.html" . -}}
+        {{ end }}
+
+        </div>
+    </div>
+</section>
+

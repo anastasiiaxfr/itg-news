@@ -10,22 +10,24 @@
       <tr>
         <td>
           <div class="row">
-
-            {{ range first 6 (where .Site.RegularPages "Type" "beginners") }}
-            {{ if ne .Params.position "beginners-top" }} 
+            {{ $arg := slice }}
+            {{ range (where .Site.RegularPages "Type" "beginners") }}
+            {{ if ne .Params.position "top" }} 
+            {{ $arg = $arg | append .  }}
+            {{ end }}
+            {{ end }}
+            {{ range first 6 $arg }}   
             <div class="col-md-6">
               {{- partial "_article.html" . -}}
             </div>
             {{ end }}
-            {{ end }}
-
             
           </div>
         </td>
         <td>
           {{ $arg := slice }}
           {{ range (where .Site.RegularPages "Type" "beginners") }}
-          {{ if eq .Params.position "beginners-top" }} 
+          {{ if eq .Params.position "top" }} 
           {{ $arg = $arg | append .  }}
           {{ end }}
           {{ end }}
@@ -50,7 +52,8 @@
                   {{ .Params.author }}
                 </div>
                 <div class="article-top__date">
-                  {{  dateFormat "02/01/2006 | 15:04" .Date.Local }}
+                  <span>{{ .PublishDate.Format "2006/01/02"  }} </span> |
+                 {{  .PublishDate.Format "15:04" }}
                 </div>
               </div>
               <div class="article-top__content">

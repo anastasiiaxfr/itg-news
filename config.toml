@@ -3,41 +3,59 @@ baseURL = "/"
 # relativeURLs = true
 
 title = "ITG"
-# theme = "slots-nj-hugo"
+
 # post pagination
 paginate = "8"
 # post excerpt
 summaryLength = "10"
 # disqus short name
 disqusShortname = "itg" # get your shortname form here : https://disqus.com
-# disable language
+# language
 defaultContentLanguage = "ru"
-disableLanguages = ["en", "ua"] # desable language from here
+disableLanguages = ["ua"] # desable language from here
 languageCode = "ru"
 
-
 [outputs]
-home = ["HTML", "RSS", "JSON"]
+  home = ["HTML", "RSS", "JSON"]
 [outputFormats.RSS]
-    mediaType = "application/rss+xml"
-    baseName = "feed"
+  baseName = "feed"
+  mediaType = "application/rss+xml"
+
+[taxonomies]
+  cat = 'cat'
+  tag = 'tags'
 
 [permalinks]
-  news = ':section/post-:year-:month-:day-:15:04/'
-  top-news = ':section/post-:year-:month-:day-:15:04/'
-  beginners = ':section/post-:year-:month-:day-:15:04/'
-  articles = ':section/post-:year-:month-:day-:15:04/'
+  news = ':section/post-:year-:month-:day-:15:04:05/'
+  top-news = ':section/post-:year-:month-:day-:15:04:05/'
+  beginners = ':section/post-:year-:month-:day-:15:04:05/'
+  articles = ':section/post-:year-:month-:day-:15:04:05/'
+  youtube = ':section/youtube-:year-:month-:day-:15:04:05/'
+  blockchain = ':section/blockchain-:year-:month-:day-:15:04:05/'
+  geopolitics = ':section/geopolitics-and-finances-:year-:month-:day-:15:04:05/'
+  investments = ':section/investments-:year-:month-:day-:15:04:05/'
+  crypto = ':section/cryptocurrencies-:year-:month-:day-:15:04:05/'
+  mining = ':section/mining-:year-:month-:day-:15:04:05/'
+  finances = ':section/finances-:year-:month-:day-:15:04:05/'
+  economy = ':section/economy-:year-:month-:day-:15:04:05/'
+  analytics = ':section/analytics-:year-:month-:day-:15:04:05/'
 
-  
+[sitemap]
+  ChangeFreq = "daily"
+  Priority = 0.6
+  Weight = [["main", "1"], ["sub2", "0.8"], ["sub3", "0.6"]]
+  enableRobotsTXT = true
+
+
 ############################# Plugins ##############################
 
 # CSS Plugins
 [[params.plugins.css]]
 link = "plugins/bootstrap/bootstrap.min.css"
-[[params.plugins.css]]
-link = "plugins/slick/slick.css"
-[[params.plugins.css]]
-link = "plugins/magnific-popup/magnific-popup.css"
+# [[params.plugins.css]]
+# link = "plugins/slick/slick.css"
+# [[params.plugins.css]]
+# link = "plugins/magnific-popup/magnific-popup.css"
 [[params.plugins.css]]
 link = "plugins/themify-icons/themify-icons.css"
 
@@ -46,22 +64,22 @@ link = "plugins/themify-icons/themify-icons.css"
 link = "plugins/jQuery/jquery.min.js"
 [[params.plugins.js]]
 link = "plugins/bootstrap/bootstrap.min.js"
-[[params.plugins.js]]
-link = "plugins/slick/slick.min.js"
-[[params.plugins.js]]
-link = "plugins/match-height/jquery.matchHeight-min.js"
-[[params.plugins.js]]
-link = "plugins/shuffle/shuffle.min.js"
-[[params.plugins.js]]
-link = "plugins/magnific-popup/jquery.magnific.popup.min.js"
+# [[params.plugins.js]]
+# link = "plugins/slick/slick.min.js"
+# [[params.plugins.js]]
+# link = "plugins/match-height/jquery.matchHeight-min.js"
+# [[params.plugins.js]]
+# link = "plugins/shuffle/shuffle.min.js"
+# [[params.plugins.js]]
+# link = "plugins/magnific-popup/jquery.magnific.popup.min.js"
 [[params.plugins.js]]
 link = "plugins/search/fuse.min.js"
 [[params.plugins.js]]
 link = "plugins/search/mark.js"
 [[params.plugins.js]]
 link = "plugins/search/search.js"
-[[params.plugins.js]]
-link = "plugins/google-map/gmap.js"
+# [[params.plugins.js]]
+# link = "plugins/google-map/gmap.js"
 
 ############################## navigation ###############################
 # main menu
@@ -75,40 +93,57 @@ URL = "/news"
 name = "НОВОСТИ"
 weight = 2
 
-
 [[menu.main]]
-URL = "/articles"
-name = "СТАТЬИ"
+URL = "/analytics"
+name = "АНАЛИТИКА"
 weight = 3
 
-
 [[menu.main]]
-URL = "/beginners"
-name = "НОВИЧКАМ"
+name = "ГЕОПОЛИТИКА И ФИНАНСЫ"
+url = "/geopolitics"
 weight = 4
 
-
 [[menu.main]]
-URL = "#"
-name = "КОМЬЮНИТИ"
+URL = "/categories"
+identifier = "category"
+name = "КАТЕГОРИИ"
 weight = 5
-
+[[menu.main]]
+name = "БЛОКЧЕЙН"
+parent = "category"
+url = "/blockchain"
+weight = 1
+[[menu.main]]
+name = "КРИПТОВАЛЮТЫ"
+parent = "category"
+url = "/crypto"
+weight = 2
 
 [[menu.main]]
-URL = "#"
-name = "RESEARCH"
+name = "ЭКОНОМИКА"
+parent = "category"
+url = "/economy"
+weight = 3
+[[menu.main]]
+name = "МАЙНИНГ"
+parent = "category"
+url = "/mining"
+weight = 4
+[[menu.main]]
+name = "ИНВЕСТИЦИИ"
+parent = "category"
+url = "/investments"
+weight = 5
+[[menu.main]]
+name = "ФИНАНСЫ"
+parent = "category"
+url = "/finances"
 weight = 6
 
-
-[[menu.main]]
-URL = "#"
-name = "ABOUT"
-weight = 7
-hasChildren = true
-
-
-
-
+# [[menu.main]]
+# URL = "#"
+# name = "RESEARCH"
+# weight = 6
 
 # footer menu
 [[menu.footer]]
@@ -121,7 +156,6 @@ URL = "#"
 name = "Геополитика"
 weight = 2
 
-
 [[menu.footer]]
 URL = "#"
 name = "Сводки"
@@ -132,7 +166,6 @@ URL = "#"
 name = "Разместить статью"
 weight = 4
 
-
 [[menu.footer]]
 URL = "#"
 name = "Контакты"
@@ -140,14 +173,17 @@ weight = 5
 
 #################### default parameters ################################
 [params]
-tagsLimit = 15
+home = "Home"
 logo = "images/logo_w.svg"
 logo_dark = "images/logo.svg"
 logo_w = "98"
-home = "Home"
+site_url = "https://itg-group-news.netlify.app/"
+tagsLimit = 15
 # Meta data
-description = "This is meta description"
 author = "Anastasiia Berest"
+banner = "banners/index.html"
+description = "ITG - Международная инвестиционная трейдинговая компания, которая более пяти лет успешно управляет высокоприбыльными портфелями на рынке цифровых активов, предоставляет услуги консалтинга для повышения дохода инвесторов и компаний, а также решает проблемы инновационного подхода к инвестированию и интеграции Web 3.0 технологий в бизнес."
+
 # contact info
 
 # contact form action
@@ -159,7 +195,7 @@ search = true
 
 # Preloader
 [params.preloader]
-enable = true
+enable = true 
 preloader = "" # use jpg, png, svg or gif format.
 
 # Navigation button
@@ -168,70 +204,78 @@ enable = true
 label = "get a quote"
 link = "contact"
 
-# google map
-[params.map]
-enable = true
-gmap_api = "https://maps.googleapis.com/maps/api/js?key=AIzaSyBu5nZKbeK-WHQ70oqOWo-_4VmwOwKP9YQ"
-map_latitude = "51.5223477"
-map_longitude = "-0.1622023"
-map_marker = "images/marker.png"
-
-
-
 ############################# social icon #################################
 [[params.social]]
-icon = "ti-facebook" # themify icon pack : https://themify.me/themify-icons
-link = "#"
+icon = "images/icon/nav/im.svg" # themify icon pack : https://themify.me/themify-icons
+link = "https://www.instagram.com/itg_official__/" 
 
 [[params.social]]
-icon = "ti-twitter-alt" # themify icon pack : https://themify.me/themify-icons
-link = "#"
+icon = "images/icon/nav/tm.svg" # themify icon pack : https://themify.me/themify-icons
+link = "https://t.me/ITG_club" 
+
 
 [[params.social]]
-icon = "ti-linkedin" # themify icon pack : https://themify.me/themify-icons
-link = "#"
+icon = "images/icon/nav/fb.svg" # themify icon pack : https://themify.me/themify-icons
+link = "https://www.facebook.com/InternationalTradeGroup2018" 
 
 [[params.social]]
-icon = "ti-github" # themify icon pack : https://themify.me/themify-icons
-link = "#"
-
-[[params.social]]
-icon = "ti-instagram" # themify icon pack : https://themify.me/themify-icons
-link = "#"
+icon = "images/icon/nav/ytb.svg" # themify icon pack : https://themify.me/themify-icons
+link = "https://www.youtube.com/channel/UC4Blz7CAtrKwTL8mYt6LpfA" 
 
 
 ####
 [[params.soc]]
 icon = "images/icon/im.svg" # themify icon pack : https://themify.me/themify-icons
-link = "https://www.instagram.com/itg_official__/"
+link = "https://www.instagram.com/itg_official__/" 
 
 [[params.soc]]
 icon = "images/icon/ytb.svg" # themify icon pack : https://themify.me/themify-icons
-link = "https://www.youtube.com/channel/UC4Blz7CAtrKwTL8mYt6LpfA"
+link = "https://www.youtube.com/channel/UC4Blz7CAtrKwTL8mYt6LpfA" 
 
 [[params.soc]]
 icon = "images/icon/tm.svg" # themify icon pack : https://themify.me/themify-icons
-link = "https://t.me/ITG_club"
+link = "https://t.me/ITG_club" 
 
 [[params.soc]]
 icon = "images/icon/tn.svg" # themify icon pack : https://themify.me/themify-icons
-link = "https://ru.tradingview.com/u/ITG_company"
+link = "https://ru.tradingview.com/u/ITG_company" 
 
 [[params.soc]]
 icon = "images/icon/tk.svg" # themify icon pack : https://themify.me/themify-icons
-link = "http://www.tiktok.com/@itg_general__"
+link = "http://www.tiktok.com/@itg_general__" 
 
 [[params.soc]]
 icon = "images/icon/tw.svg" # themify icon pack : https://themify.me/themify-icons
-link = "https://twitter.com/ITG_General_"
+link = "https://twitter.com/ITG_General_" 
 
 [[params.soc]]
 icon = "images/icon/fb.svg" # themify icon pack : https://themify.me/themify-icons
-link = "https://www.facebook.com/InternationalTradeGroup2018"
+link = "https://www.facebook.com/InternationalTradeGroup2018" 
 
 [[params.soc]]
 icon = "images/icon/email.svg" # themify icon pack : https://themify.me/themify-icons
-link = "mailto: office@itg-investments.com"
+link = "mailto: office@itg-investments.com" 
+
+###
+[[params.share]]
+title = "Instagram"
+icon = "images/icon/share/share-im.svg"
+link = "https://www.instagram.com/share?url=" 
+
+[[params.share]]
+title = "Telegram"
+icon = "images/icon/share/share-tm.svg"
+link = "https://t.me/share/url?url=" 
+
+[[params.share]]
+title = "Twitter"
+icon = "images/icon/share/share-tw.svg"
+link = "https://twitter.com/intent/tweet?text=" 
+
+[[params.share]]
+title = "Facebook"
+icon = "images/icon/share/share-fb.svg"
+link = "https://www.facebook.com/sharer/sharer.php?u=" 
 ################################### English language #####################################
 [Languages.en]
 contentDir = "content/en/"

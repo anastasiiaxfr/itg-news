@@ -5,7 +5,7 @@
       {{ if .Params.Img }}
       <a href="{{ .Permalink }}"><img src="{{ .Params.Img | relURL }}"></a>
       {{ else }}
-      <a href="{{ .Permalink }}"><img src="{{ `/images/news/news.jpg` | relURL }}"></a>
+      <a href="{{ .Permalink }}"><img src="{{ `/images/news-2.jpg` | relURL }}"></a>
       {{ end }}
     
   </div>
@@ -15,8 +15,16 @@
         {{ .Title | truncate 50 }}
       </a>
     </div>
+    {{ if .Content }}
+    <div class="video-news__text">
+      <a href="{{ .Permalink }}">
+        {{ .Content | truncate 125 }}
+      </a>
+    </div>
+    {{ end }}
     <div class="video-news__date">
-      {{  dateFormat "02/01/2006 | 15:04" .Date.Local }}
+      {{  .PublishDate.Format "15:04" }} /
+      <span>{{ .PublishDate.Format "02.01.2006"  }} </span> 
     </div>
   </div>
 </div>

@@ -1,0 +1,47 @@
+{{ $data := index .Site.Data .Site.Language.Lang }}
+{{ $class := .Scratch.Get "class" }}
+<div class="item {{ if $class }} {{ $class }} {{ end }}">
+  <div class="item__img">
+    {{ if .Params.img }}
+   
+      <img src="{{ .Params.img | relURL}}" alt="{{ .Title }}" />
+   
+    {{ else }}
+   <img src="{{ `/images/news.jpg` | relURL }}">
+    {{ end }}
+  </div>
+
+  <div class="item__content">
+    <div class="item__header">
+
+      <!-- {{ .Scratch.Set "limit" 1 }}
+      {{- partial "_categories.html" . -}} -->
+
+      <div class="cat">
+        <a href="{{ $.Parent.Page.Permalink }}" class="cat__item">
+          {{ $.Parent.Page.Params.title }}
+        </a>
+      </div>
+
+    </div>
+    <div class="item__title">
+      <a href="{{ .Permalink }}">{{ .Title | truncate 65 }}</a>
+    </div>
+    <div class="item__footer">
+      <div class="item__author">
+        {{ .Params.author }}
+      </div>
+      <div class="item__date">
+        {{  .PublishDate.Format "15:04" }} /
+        <span>{{ .PublishDate.Format "02.01.2006"  }} </span> 
+        
+      </div>
+    </div>
+    <div class="item__media">
+      <a href="{{ .Permalink }}" class="btn--bd">Подробнее</a>
+
+      {{- partial "_share.html" . -}}
+    
+    </div>
+  </div>
+</div>

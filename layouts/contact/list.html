@@ -9,7 +9,7 @@
       <div class="col-lg-7 mobile-height mb-5 mb-lg-0" id="map_canvas" 
       data-latitude="{{ .Site.Params.map.map_latitude }}"
       data-longitude="{{ .Site.Params.map.map_longitude }}"
-      data-marker="{{ .Site.Params.map.map_marker | absURL }}"
+      data-marker="{{ .Site.Params.map.map_marker | relURL }}"
       data-marker-name="{{ .Site.Title }}"></div>
       {{ end }}
       <div class="col-lg-4">

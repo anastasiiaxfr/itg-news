@@ -2,21 +2,17 @@
 
 <article class="article">
   <div class="article__heading">
-    <div class="article__cat">
-      {{ range .Params.cat }}
-        {{ . }}
-      {{ end }}
-      </div>
+    {{ if .Params.cat }}
+    <div class="article__cat">{{ .Params.cat }}</div>
+    {{ end }}
+
     <div class="article__date">
-      {{  dateFormat "02/01/2006 | 15:04" .Date.Local }}
+      <span>{{ .PublishDate.Format "2006/01/02" }} </span> | 
+      {{ .PublishDate.Format "15:04" }}
     </div>
   </div>
   <div class="article__content">
-    <a href="{{ .Permalink }}">
-      {{ .Title | truncate 100 }}
-    </a>
+    <a href="{{ .Permalink }}"> {{ .Title | truncate 100 }} </a>
   </div>
-  <div class="article__footer">
-    {{ .Params.author }}
-  </div>
+  <div class="article__footer">{{ .Params.author }}</div>
 </article>

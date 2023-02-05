@@ -1,0 +1,201 @@
+backend:
+  name: git-gateway
+  branch: master
+
+# local_backend:
+#   url: "http://localhost:8076/api/v1"
+
+media_folder: "/static/images"
+public_folder: "/images"
+
+# publish_mode: editorial_workflow
+
+logo_url: static/images/logo.svg
+show_preview_links: false 
+
+i18n:
+  structure: multiple_folders
+  locales: [en, ru, ua]
+
+
+collections:
+  - label: 'Authors'
+    name: 'authors'
+    widget: "object"
+    folder: 'content/authors'
+    format: 'frontmatter'
+    create: true
+    i18n: true
+    slug: 'author-{{year}}-{{month}}-{{day}}-{{slug}}'
+    identifier_field: 'author'
+    editor:
+      preview: false
+    sortable_fields: ['date', 'author']
+    fields:
+      - { name: 'author', label: 'Author Name', widget: string, i18n: true }
+  - label: 'Categories'
+    name: 'categories'
+    widget: "object"
+    folder: 'content/categories'
+    format: 'frontmatter'
+    create: true
+    i18n: true
+    slug: 'category-{{year}}-{{month}}-{{day}}-{{slug}}'
+    identifier_field: 'category'
+    editor:
+      preview: false
+    sortable_fields: ['date', 'category']
+    fields:
+      - { name: 'category', label: 'category', widget: string, i18n: true }
+
+  - label: "TOP Новости"
+    name: "top-news"
+    folder: "content/top-news"
+    # path: 'top-news/{{slug}}'
+    slug: "post-{{year}}-{{month}}-{{day}}-{{hour}}-{{minute}}"
+    preview_path: "top-news/{{slug}}"
+    create: true
+    i18n: true
+    editor:
+      preview: false
+    filter:
+      field: type
+    sortable_fields: ['date', 'author', 'type']
+    view_groups:
+      - label: Year
+        field: date
+        pattern: \d{4}
+      - label: Type
+        field: type
+      - label: Drafts
+        field: draft
+    fields:
+      - { label: "Title", name: "title", widget: "string", i18n: true }
+      - { label: "Type", i18n: true,  name: "type", widget: "select",  options: ["top-news"], required: true }
+      - { label: "Position", name: "position",  widget: "select",  options: ["1", "2", "none"], required: false, i18n: true }
+      - { label: "Date", name: "date", widget: "datetime", default: '',  date_format: "DD.MM.YYYY", time_format: "HH:mm", format: "LLL", picker_utc: false,}
+      - { label: 'Authors', name: 'author', widget: 'relation', collection: 'authors', search_fields: ['author'], value_field: 'author', multiple: true, i18n: true }
+      - { label: "Img", name: "img", widget: "image", media_folder: "/static/images/top-news", choose_url: true, i18n: true}
+      - { label: "Tags", name: "tags", widget: "list", allow_add: true, i18n: true }
+      - { label: 'Categories', name: 'cat', widget: 'relation', collection: 'categories', search_fields: ['categoty'], value_field: 'category', multiple: true, i18n: true }
+      - { label: "Body", name: "body", widget: "markdown", i18n: true }
+
+  - label: "Новости"
+    name: "news"
+    folder: "content"
+    path: 'news/{{slug}}'
+    slug: "post-{{year}}-{{month}}-{{day}}-{{hour}}-{{minute}}"
+    preview_path: "news/{{slug}}"
+    create: true
+    i18n: true
+    editor:
+      preview: false
+    sortable_fields: ['date', 'author', 'type']
+    view_groups:
+      - label: Year
+        field: date
+        pattern: \d{4}
+      - label: Type
+        field: type
+      - label: Drafts
+        field: draft
+    fields:
+      - { label: "Title", name: "title", widget: "string", i18n: true }
+      - { label: "Type", i18n: true,  name: "type", widget: "select",  options: ["news"], required: true }
+      - { label: "Position", name: "position",  widget: "select",  options: ["news-1", "news-2", "news-3", "news-4"], required: true, i18n: true }
+      - { label: "Date", name: "date", widget: "datetime", default: '',  date_format: "DD.MM.YYYY", time_format: "HH:mm", format: "LLL", picker_utc: false, i18n: true }
+      - { label: 'Authors', name: 'author', widget: 'relation', collection: 'authors', search_fields: ['author'], value_field: 'author', multiple: true, i18n: true }
+      - { label: "Img", name: "img", widget: "image", media_folder: "/static/images/news", choose_url: true, i18n: true}
+      - { label: "Tags", name: "tags", widget: "list", allow_add: true, i18n: true }
+      - { label: 'Categories', name: 'cat', widget: 'relation', collection: 'categories', search_fields: ['categoty'], value_field: 'category', multiple: true, i18n: true }
+      - { label: "Body", name: "body", widget: "markdown", i18n: true }
+ 
+  - label: "Статьи"
+    name: "articles"
+    folder: "content"
+    path: 'articles/{{slug}}'
+    slug: "post-{{year}}-{{month}}-{{day}}-{{hour}}-{{minute}}"
+    preview_path: "articles/{{slug}}"
+    create: true
+    i18n: true
+    editor:
+      preview: false
+    sortable_fields: ['date', 'author', 'type']
+    view_groups:
+      - label: Year
+        field: date
+        pattern: \d{4}
+      - label: Type
+        field: type
+      - label: Drafts
+        field: draft
+    fields:
+      - { label: "Title", name: "title", widget: "string", i18n: true }
+      - { label: "Type", i18n: true,  name: "type", widget: "select",  options: ["articles"], required: true }
+      - { label: "Date", name: "date", widget: "datetime", default: '',  date_format: "DD.MM.YYYY", time_format: "HH:mm", format: "LLL", picker_utc: false, i18n: true }
+      - { label: 'Authors', name: 'author', widget: 'relation', collection: 'authors', search_fields: ['author'], value_field: 'author', multiple: true, i18n: true }
+      - { label: "Img", name: "img", widget: "image", media_folder: "/static/images/articles/", choose_url: true, i18n: true}
+      - { label: "Tags", name: "tags", widget: "list", allow_add: true, i18n: true }
+      - { label: 'Categories', name: 'cat', widget: 'relation', collection: 'categories', search_fields: ['categoty'], value_field: 'category', multiple: true, i18n: true }
+      - { label: "Body", name: "body", widget: "markdown", i18n: true }
+
+  - label: "Новичкам"
+    name: "beginners"
+    folder: "content"
+    path: 'beginners/{{slug}}'
+    slug: "post-{{year}}-{{month}}-{{day}}-{{hour}}-{{minute}}"
+    preview_path: "beginners/{{slug}}"
+    create: true
+    i18n: true
+    editor:
+      preview: false
+    sortable_fields: ['date', 'author', 'type']
+    view_groups:
+      - label: Year
+        field: date
+        pattern: \d{4}
+      - label: Type
+        field: type
+      - label: Drafts
+        field: draft
+    fields:
+      - { label: "Title", name: "title", widget: "string", i18n: true }
+      - { label: "Type", i18n: true,  name: "type",  widget: "select",  options: ["beginners"], required: true }
+      - { label: "Position", name: "position",  widget: "select",  options: ["top", "none"], i18n: true }
+      - { label: "Date", name: "date", widget: "datetime", default: '',  date_format: "DD.MM.YYYY", time_format: "HH:mm", format: "LLL", picker_utc: false, i18n: true }
+      - { label: 'Authors', name: 'author', widget: 'relation', collection: 'authors', search_fields: ['author'], value_field: 'author', multiple: true, i18n: true }
+      - { label: "Img", name: "img", widget: "image", media_folder: "/static/images/beginners/", choose_url: true, i18n: true}
+      - { label: "Tags", name: "tags", widget: "list", allow_add: true, i18n: true }
+      - { label: 'Categories', name: 'cat', widget: 'relation', collection: 'categories', search_fields: ['categoty'], value_field: 'category', multiple: true, i18n: true }
+      - { label: "Body", name: "body", widget: "markdown", i18n: true }
+  
+  - label: "YouTube"
+    name: "youtube"
+    folder: "content"
+    path: 'youtube/{{slug}}'
+    slug: "post-{{year}}-{{month}}-{{day}}-{{hour}}-{{minute}}"
+    preview_path: "youtube/{{slug}}"
+    create: true
+    i18n: true
+    editor:
+      preview: false
+    sortable_fields: ['date', 'author', 'type']
+    view_groups:
+      - label: Year
+        field: date
+        pattern: \d{4}
+      - label: Type
+        field: type
+      - label: Drafts
+        field: draft
+    fields:
+      - { label: "Title", name: "title", widget: "string", i18n: true }
+      - { label: "Type", i18n: true,  name: "type",  widget: "select",  options: ["youtube"], required: true }
+      - { label: "Position", name: "position",  widget: "select",  options: ["top"], i18n: true }
+      - { label: "Date", name: "date", widget: "datetime", default: '',  date_format: "DD.MM.YYYY", time_format: "HH:mm", format: "LLL", picker_utc: false, i18n: true }
+      - { label: 'Authors', name: 'author', widget: 'relation', collection: 'authors', search_fields: ['author'], value_field: 'author', multiple: true, i18n: true }
+      - { label: "Video URL", name: "video", widget: "string", i18n: true}
+      - { label: "Img", name: "img", widget: "image", media_folder: "/static/images/youtube/", choose_url: true, i18n: true}
+      - { label: "Tags", name: "tags", widget: "list", allow_add: true, i18n: true }
+      - { label: 'Categories', name: 'cat', widget: 'relation', collection: 'categories', search_fields: ['categoty'], value_field: 'category', multiple: true, i18n: true }
+      - { label: "Body", name: "body", widget: "markdown", i18n: true }

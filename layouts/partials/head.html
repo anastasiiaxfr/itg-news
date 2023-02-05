@@ -1,12 +1,32 @@
 <head>
   <meta charset="utf-8">
-  <title>{{ .Title }}</title>
+
+  <title>{{ if .IsHome }} {{ .Title }} Company News {{ else }} {{ .Title }} | ITG News {{ end }}</title>
+  <meta name="description"
+    content="{{ with .Description }}{{ . }}{{ else }}{{ with .Site.Params.description }}{{ . }}{{ end }}{{ end }}">
+  <!-- canonical link tag -->
+  <link rel="canonical" href="{{ .Permalink }}"/>
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="{{ .Permalink }}">
+  <meta property="og:site_name" content="{{ .Site.Title }}">
+  <meta property="og:title" content="{{ if .IsHome }}{{ .Site.Title }} Company | News {{ else }}{{ .Title }} {{ end }}">
+  <meta property="og:description" content="{{ if .IsHome }}{{ .Site.Params.description }}{{ else }}{{ .Content | truncate 150 }}{{ end }}" />
+
+  <meta property="og:image" content="{{ .Site.BaseURL }}images/og.jpg">
+  <meta property="og:image:width" content="600" />
+  <meta property="og:image:height" content="300" />
+  <meta property="og:locale" content="{{ .Page.Lang }}" />
+  {{ with .Site.Params.author }}
+  <meta name="author" content="{{ . }}">{{ end }}
+  {{ hugo.Generator }}  
+  <meta name="twitter:title" content="{{ .Site.Title }} Company | News" />
+  <meta name="twitter:url" content="{{ .Permalink }}" />
+  <meta name="twitter:image" content="{{ .Site.BaseURL }}images/og.jpg" />
+
 
   {{ "<!-- mobile responsive meta -->" | safeHTML }}
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ with .Site.Params.description }}{{ . }}{{ end }}{{ end }}">
-  {{ with .Site.Params.author }}<meta name="author" content="{{ . }}">{{ end }}
-  {{ hugo.Generator }}
+
 
   {{ "<!-- plugins -->" | safeHTML }}
   {{ range .Site.Params.plugins.css }}
@@ -18,14 +38,22 @@
   <link rel="stylesheet" href="{{ $styles.Permalink }}" media="screen">
 
   {{ "<!--Favicon-->" | safeHTML }}
-  <link rel="shortcut icon" href="{{ `images/favicon.png` | absURL }} " type="image/x-icon">
-  <link rel="icon" href="{{ `images/favicon.png` | absURL }} " type="image/x-icon">
+  <link rel="shortcut icon" href="{{ `images/favicon.png` | relURL }} " type="image/x-icon">
+  <link rel="icon" href="{{ `images/favicon.png` | relURL }} " type="image/x-icon">
 
   <link rel="apple-touch-icon" sizes="180x180" href="{{ `fav/apple-touch-icon.png` | relURL }}">
-<link rel="icon" type="image/png" sizes="32x32" href="{{ `fav/favicon-32x32.png` | relURL }}">
-<link rel="icon" type="image/png" sizes="16x16" href="{{ `fav/favicon-16x16.png` | relURL }}">
-<link rel="manifest" href="{{ `fav/site.webmanifest` | relURL }}">
-<link rel="mask-icon" href="{{ `fav/safari-pinned-tab.svg` | relURL }}" color="#fff">
-<meta name="msapplication-TileColor" content="#fff">
-<meta name="theme-color" content="#1f2749">
+  <link rel="icon" type="image/png" sizes="32x32" href="{{ `fav/favicon-32x32.png` | relURL }}">
+  <link rel="icon" type="image/png" sizes="16x16" href="{{ `fav/favicon-16x16.png` | relURL }}">
+  <link rel="manifest" href="{{ `fav/site.webmanifest` | relURL }}">
+  <link rel="mask-icon" href="{{ `fav/safari-pinned-tab.svg` | relURL }}" color="#fff">
+  <meta name="msapplication-TileColor" content="#fff">
+  <meta name="theme-color" content="#1f2749">
+
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+
 </head>

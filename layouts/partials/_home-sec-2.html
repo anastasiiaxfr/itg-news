@@ -1,32 +1,40 @@
 {{ $data := index .Site.Data .Site.Language.Lang }}
+{{ $arg_main := slice }} 
+{{ range $i, $arr := .Site.RegularPages }} 
+{{ if not (or (eq $i 0) (eq $i 1) (eq $i 2) (eq $i 3) (eq $i 4) (eq $i 5) (eq $i 6) (eq $i 7) (eq $i 8)) }} {{ $arg_main = $arg_main | append . }} {{ end }}
+{{ end }}
 
 <section class="section section_video">
     <div class="container">
         <div class="heading__group">
             <h3>YouTube</h3>
-            <a href="/beginners/" class="btn--text">{{ i18n "all-video" }}
+            <a href="/youtube/" class="btn--text">
+                <span>
+                    {{ i18n "all-video" }}
+                </span>
                 <i class="ti-angle-right"></i>
             </a>
        </div>
 
        <div class="row">
         <div class="col-lg-6">
-            {{ range first 1 (where .Site.RegularPages "Type" "youtube") }}
-           {{ if eq .Params.top true }} 
+            {{ range first 1 (where $arg_main "Type" "youtube") }}
             <a href="{{ .Permalink }}" class="video__wrap">
-                <!-- <img src="{{ .Params.img }}" alt="{{ .Title }}" class="video"> -->
-                <iframe width="100%" height="315" src="{{ .Params.video }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                {{ if .Params.Img }}
+                <img src="{{ .Params.Img | relURL }}">
+                {{ else }}
+                <img src="{{ `/images/news-2.jpg` | relURL }}">
+                {{ end }}                <!-- <iframe width="100%" height="100%" src="{{ .Params.video | relURL }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
             </a>
             {{ end }}
-            {{ end }}
+            
         </div>
         <div class="col-lg-6">
-          
-    {{ range first 4 (where .Site.RegularPages "Type" "youtube") }}
-
+            {{ range $i, $el := first 4 (where $arg_main "Type" "youtube") }}
+            {{ if not (eq $i 0) }}
                 {{- partial "_video-news.html" . -}}
-                
-    {{ end }}          
+            {{ end }}          
+            {{ end }}
         </div>
        </div>
     </div>

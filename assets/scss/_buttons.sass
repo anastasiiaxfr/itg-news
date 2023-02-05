@@ -1,246 +1,430 @@
 /* Button style */
 .btn
-  font-size: 15px
-  font-family: $primary-font
-  text-transform: capitalize
-  padding: 15px 40px
-  border-radius: 0
-  font-weight: 500
-  border: 1px solid
-  position: relative
-  z-index: 1
-  transition: .2s ease
+	font-size: 15px
+	font-family: $ffHeading
+	text-transform: capitalize
+	padding: 15px 40px
+	border-radius: 0
+	font-weight: 500
+	border: 1px solid
+	position: relative
+	z-index: 1
+	transition: .2s ease
 
-  &:hover,
-  &:active,
-  &:focus
-    outline: 0
-    box-shadow: none !important
- 
+	&:hover,
+	&:active,
+	&:focus
+		outline: 0
+		box-shadow: none !important
+	
 
-  &-lg
-    padding: 18px 50px
-    font-size: 18px
- 
-  &-sm
-    padding: 10px 35px
-    font-size: 14px
- 
-  &-bd
-    display: inline-flex
-    border: 1px solid $white
-    border-radius: 20pc
-    &:hover
-      color: $dark
-      background-color: $white
+	&-lg
+		padding: 18px 50px
+		font-size: 18px
+	
+	&-sm
+		padding: 10px 35px
+		font-size: 14px
+	
+	&-bd
+		+flex(inline-flex, center, center, nowrap)
+		border: 1px solid $white
+		border-radius: 20pc
+		&:hover
+			color: $dark
+			background-color: $white
+		+maw($xlg)
+			min-width: 130px
+			width: 100%
+		+maw($md)
+			width: auto
+
+			&:first-child
+				margin-right: 15px
 
 .btn-primary
-  background: $primary-color
-  color: $white
-  border-color: $primary-color
+	background: $primary-color
+	color: $white
+	border-color: $primary-color
 
-  &:active,
-  &:hover,
-  &.focus,
-  &.active
-    background: darken($color: $primary-color, $amount: 10) !important
-    border-color: darken($color: $primary-color, $amount: 10) !important
- 
+	&:active,
+	&:hover,
+	&.focus,
+	&.active
+		background: darken($color: $primary-color, $amount: 10) !important
+		border-color: darken($color: $primary-color, $amount: 10) !important
+	
 
 
 .btn-outline-primary
-  background: transparent
-  color: $primary-color
-  border-color: $primary-color
+	background: transparent
+	color: $primary-color
+	border-color: $primary-color
 
-  &:active,
-  &:hover,
-  &.focus,
-  &.active
-    background: darken($color: $primary-color, $amount: 10) !important
-    border-color: darken($color: $primary-color, $amount: 10) !important
-    color: $white
- 
+	&:active,
+	&:hover,
+	&.focus,
+	&.active
+		background: darken($color: $primary-color, $amount: 10) !important
+		border-color: darken($color: $primary-color, $amount: 10) !important
+		color: $white
+	
 
 
 .btn-secondary
-  background: $secondary-color
-  color: $white
-  border-color: $secondary-color
+	background: $secondary-color
+	color: $white
+	border-color: $secondary-color
 
-  &:active,
-  &:hover,
-  &.focus,
-  &.active
-    background: darken($color: $secondary-color, $amount: 10) !important
-    border-color: darken($color: $secondary-color, $amount: 10) !important
- 
+	&:active,
+	&:hover,
+	&.focus,
+	&.active
+		background: darken($color: $secondary-color, $amount: 10) !important
+		border-color: darken($color: $secondary-color, $amount: 10) !important
+	
 
 
 .btn-outline-secondary
-  background: transparent
-  color: $secondary-color
-  border-color: $secondary-color
+	background: transparent
+	color: $secondary-color
+	border-color: $secondary-color
 
-  &:active,
-  &:hover,
-  &.focus,
-  &.active
-    background: darken($color: $secondary-color, $amount: 10) !important
-    border-color: darken($color: $secondary-color, $amount: 10) !important
-    color: $white
- 
+	&:active,
+	&:hover,
+	&.focus,
+	&.active
+		background: darken($color: $secondary-color, $amount: 10) !important
+		border-color: darken($color: $secondary-color, $amount: 10) !important
+		color: $white
+	
 
 
 
 .card-logo
-  display: block
-  max-width: 100px
-  height: 80px
-  margin: 0 auto
-  object-fit: contain
+	display: block
+	max-width: 100px
+	height: 80px
+	margin: 0 auto
+	object-fit: contain
 
 
 .card-table
-  td
-    width: 50%
-    font-size: 12px
- 
+	td
+		width: 50%
+		font-size: 12px
+	th
+		width: 50%
+		padding-right: 10px
 
-  th
-    width: 50%
-    padding-right: 10px
-
-    font-size: 12px
-    font-weight: bold
-    // text-align: right
-
- 
-
-  tr
-
-    &:nth-last-child(2)
-    
-     
-      td
-        padding-bottom: 10px
-     
+		font-size: 12px
+		font-weight: bold
+		// text-align: right
+	tr
+		&:nth-last-child(2)
+		td
+			padding-bottom: 10px
+		
    
  
 .soc
-    
-    list-style-type: none
-    display: inline-flex
-    align-items: center
-    justify-content: center
+	list-style-type: none
+	display: inline-flex
+	align-items: center
+	justify-content: center
+	margin: 5px
+	transition: $trs
 
-    
-    margin: 5px
+	&:hover
+		img
+			transform: scale(1.1)
 
-    transition: $trs
+	a
+		display: inline-flex
+		align-items: center
+		justify-content: center
+		margin: 0
+		background-color: $white
+		color: $blue
+		fill: $blue
 
-    &:hover
-      img
-        transform: scale(1.1)
+		width: 50px
+		height: 50px
+		border-radius: 50%
 
-    a
-      display: inline-flex
-      align-items: center
-      justify-content: center
-      margin: 0
-      background-color: $white
-      color: $blue
-      fill: $blue
+	img
+		display: block
+		width: 20px
+		height: 20px
 
-      width: 50px
-      height: 50px
-      border-radius: 50%
+	&__wrap
+		margin: -5px -5px 36px
+		padding: 0
+		user-select: none
 
-    img
-      display: block
-      width: 20px
-      height: 20px
+		+maw($sm)
+			margin-bottom: 30px
 
-    &__wrap
-      margin: -5px -5px 10px
-      padding: 0
-
-    
+	
 
 
 .lang-switcher
-    white-space: nowrap
-    margin-left: 5px
-    button
-        background: transparent
-        border: none
-        color: inherit
-        position: relative
-        padding: 0
-        &::after
-            content: '/'
-            margin-left: 5px
-            margin-right: 5px 
-        &:last-child
-            &::after
-                content: none
-            
+	+flex(flex, center, flex-start, nowrap)
+	white-space: nowrap
+
+	button
+		background: transparent
+		border: none
+		color: inherit
+		position: relative
+		padding: 0
+		text-transform: uppercase
+		+ft(16, 22, 400, $ffHeading)
+
+	.dropdown-menu
+		min-width: auto
+		padding: 10px 15px
+		border-color: $white
+		button
+			+ft(14, 14*1.2, 400, $ffHeading)
+			&:hover, &:focus, &:active
+		  		color: $blue
+
+	.dropdown-toggle::after
+	  	transform: scale(0.8)
 
 
 .rss
-    label
-        display: block
-        +ft(14, 17, 400)
-        margin-bottom: 8px
-    input[type=email]
-        border-radius: 20pc
-        border: 1px solid lighten($black0, 80%)
-        padding: 8px 17px
-    input[type=submit]
-        +theme(dark)
-        border-radius: 14px
-        padding: 8px 15px
-    +maw($sm)
-        margin-top: 30px
-        input
-            width: 100%
-            &:last-child
-                margin-top: 15px
+	&_title
+		+ft(30, 41, 700, $ffHeading)
+		text-transform: uppercase
+		margin-bottom: 47px
+	&_input
+		+flex(flex, center, flex-start, nowrap)
+		margin-bottom: 27px
+		&:last-child
+			margin-bottom: 0
+	label
+		display: block
+		+ft(18, 24, 400)
+		margin-bottom: 0
+		margin-left: 13px
+	input[type=email]
+		border-radius: 20pc
+		border: 1px solid lighten($black0, 80%)
+		padding: 8px 17px
+	input[type=submit]
+		+theme(dark)
+		border-radius: 14px
+		padding: 8px 15px
+	+maw($sm)
+		&_title
+			+ft(22, 22*1.3, 700)
+			margin-bottom: 30px
+			text-align: center
+		label
+		  	+ft(16, 16*1.3, 400)
+		input:not[type=radio]
+			width: 100%
+			&:last-child
+				margin-top: 15px
 
 .btn
-    &--text
-        +flex(inline-flex, center, center, nowrap)
-        background-color: transparent
-        border: none
-        //+ft(22, 22, 700)
-        +ft(18, 18, 500, 'Oswald')
-        color: inherit
-        white-space: nowrap
-        +maw($sm)
-            +ft(12, 12, 700)
-        &:hover, &:focus
-            box-shadow: none
-        i
-          font-size: inherit
-    &--top
-        width: 40px
-        height: 40px
-        position: fixed
-        bottom: 10px
-        right: 10px
-        z-index: 100
-        border: none
-        background-color: lighten($black, 80%)
-        svg
-            transform: rotate(-90deg)
-            fill: $white
+	&--bd
+		+flex(inline-flex, center, center, nowrap)
+		min-width: 180px
+		height: 42px
+		padding: 13px
+		border: 1px solid $white
+		+ft(14, 17, 600, $ffText)
+		transition: $trs
+		&:hover, &:active, &:focus
+			+theme(white)
+
+	&--text
+		+flex(inline-flex, center, center, nowrap)
+		background-color: transparent
+		border: none
+		//+ft(24, 29, 400, $ffText)
+		+ft(17, 17, 400, $ffText)
+		color: inherit
+		white-space: nowrap
+		+maw($sm)
+			+ft(12, 12, 700)
+		&:hover, &:focus, &:active
+			box-shadow: none
+			i
+			  transition: $trs
+			  transform: translateX(5px)
+			// span
+			//     text-decoration: underline
+		i
+		  	font-size: 70%
+	&--top
+		width: 40px
+		height: 40px
+		position: fixed
+		bottom: 10px
+		right: 10px
+		z-index: 100
+		border: none
+		background-color: lighten($black, 80%)
+		svg
+			transform: rotate(-90deg)
+			fill: $white
 
 .heading
-    &__group
-        +flex(flex, center, space-between, nowrap)
-        padding-bottom: 24px
-        margin-bottom: 39px
-        border-bottom: 1px solid lighten($black0, 80%)
-        +maw($sm)
-            padding-bottom: 15px
-            margin-bottom: 15px
+	&__group
+		+flex(flex, center, space-between, nowrap)
+		padding-bottom: 20px
+		margin-bottom: 20px
+		border-bottom: 1px solid lighten($black0, 80%)
+
+		h1, h2, h3, h4, h5, h6
+			margin-bottom: 0
+
+		+maw($xmd)
+			margin-top: 30px
+
+		+maw($sm)
+			padding-bottom: 15px
+			margin-bottom: 15px
+			margin-top: 15px
+
+.list-inline
+	+flex(flex, center, space-between, wrap)
+	margin-left: 20px
+	margin-right: 20px
+	padding: 10px 25px
+	border: 1px solid rgba($black, 0.14)
+	border-width: 0 1px 
+
+	+maw($xmd)
+		padding: 0
+		border: 0
+
+	&-item
+		opacity: 0.5
+		transition: $trs
+		user-select: none
+		&:not(:last-child)
+		margin-right: 20px
+		&:hover, &:focus, &:active
+		opacity: 1
+
+
+.switch
+	position: relative
+	+flex(flex, center, center, nowrap)
+	+sz(38px, 18px)
+	margin-bottom: 0 
+	
+	input
+		opacity: 0
+		+sz(38px, 38px)
+		z-index: 1
+		cursor: pointer
+		&.active + .slider, &:checked + .slider
+			background-color: $grey3
+			border-color: $grey3
+			// &:focus + .slider 
+			//   box-shadow: 0 0 1px #2196F3
+		
+		&.active + .slider:before, &:checked + .slider:before
+			transform: translateX(19px)
+			background-color: $white
+	
+	.slider
+		display: block
+		+ps(absolute, (t, 0), (l, 0), (r, 0), (b, 0))
+		border: 1px solid rgba($grey1, 0.65)
+		border-color: inherit
+		border-radius: 18pc
+		transition: $trs
+		cursor: pointer
+		&::before
+			content: ""
+			+ps(absolute, (l, 3px), (t, 0px), (b, 0px))
+			margin: auto
+			+sz(12px, 12px)
+			background-color: $grey1
+			border-radius: 50%
+			transition: $trs
+
+	&__wrap
+		+flex(flex, center, flex-start, wrap)
+	&__title
+		margin-right: 10px
+		text-transform: uppercase
+		+ft(12, 14, 400, $ffText)
+		//color: $grey1
+		+maw($sm)
+			display: none
+
+.cat
+	padding: 8px 13px
+	list-style-type: none
+	+theme(white)
+	text-transform: uppercase
+	+ft(12, 16, 700, $ffHeading)
+	box-shadow: 0px 4px 4px rgba($black, 0.25)
+
+	&:hover, &:active, &:focus
+		box-shadow: 0px 4px 4px rgba($black, 0.15)
+
+	&s
+		+flex(flex, center, flex-start, wrap)
+		padding: 0
+		gap: 8px
+		background: transparent
+
+
+.share
+	&__wrap
+		position: relative
+		z-index: 1
+		flex: 1
+		+flex(flex, center, flex-end, nowrap)
+		width: auto
+		min-height: 42px
+		cursor: pointer
+
+		&:hover, &:active, &:focus
+			// .share__menu
+			// 	display: flex
+			// .share__btn
+			// 	.share__open
+			// 		display: none
+			// 	.share__close
+			// 		display: block
+
+	&__menu
+		+ps(absolute, (b, 0), (t, 0), (r, 35px))
+		z-index: 2
+		+flex(flex, center, flex-start, nowrap)
+		display: none
+		width: calc(100% - 35px)
+	
+		
+	&__btn
+		+sz(28px, 28px)
+		padding: 0
+		background: transparent
+		border: 0
+		display: flex
+		justify-content: flex-end
+		
+		img
+			+sz(25px, 25px)
+
+	&__close
+		display: none		
+		
+		
+	&__link
+		+sz(28px, 28px)
+		margin-right: 10px
+		&:hover, &:active, &:focus
+			transform: scale(1.1)
+			
+
