@@ -23,10 +23,10 @@ home = ["HTML", "RSS", "JSON"]
     baseName = "feed"
 
 [permalinks]
-  news = ':section/post-:year-:month-:day-:15:04/'
-  top-news = ':section/post-:year-:month-:day-:15:04/'
-  beginners = ':section/post-:year-:month-:day-:15:04/'
-  articles = ':section/post-:year-:month-:day-:15:04/'
+  news = ':section/post-:year-:month-:day-:15:04:05/'
+  top-news = ':section/post-:year-:month-:day-:15:04:05/'
+  beginners = ':section/post-:year-:month-:day-:15:04:05/'
+  articles = ':section/post-:year-:month-:day-:15:04:05/'
 
   
 ############################# Plugins ##############################
@@ -94,15 +94,15 @@ name = "КОМЬЮНИТИ"
 weight = 5
 
 
-[[menu.main]]
-URL = "#"
-name = "RESEARCH"
-weight = 6
+# [[menu.main]]
+# URL = "#"
+# name = "RESEARCH"
+# weight = 6
 
 
 [[menu.main]]
 URL = "#"
-name = "ABOUT"
+name = "О НАС"
 weight = 7
 hasChildren = true
 
@@ -148,6 +148,7 @@ home = "Home"
 # Meta data
 description = "This is meta description"
 author = "Anastasiia Berest"
+banner = "banners/index.html"
 # contact info
 
 # contact form action

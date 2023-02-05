@@ -7,7 +7,7 @@
       <img src="{{ .Params.img | relURL}}" alt="{{ .Title }}" />
     </a>
     {{ else }}
-    <a href="{{ .Permalink }}"><img src="{{ `/images/news/news.jpg` | relURL }}"></a>
+    <a href="{{ .Permalink }}"><img src="{{ `/images/news.jpg` | relURL }}"></a>
     {{ end }}
   </div>
   <div class="news__content">
@@ -19,8 +19,8 @@
         {{ .Params.author }}
       </div>
       <div class="news__date">
-        <small> {{  dateFormat "15:04" .Date.Local }} </small> <br>
-        {{  dateFormat "02/01/2006" .Date.Local }} 
+        <span>{{ .PublishDate.Format "2006/01/02"  }} </span> <br>
+                 {{  .PublishDate.Format "15:04" }}
       </div>
     </div>
   </div>

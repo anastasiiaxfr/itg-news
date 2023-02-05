@@ -15,7 +15,7 @@
                 <tr>
                     {{ $arg := slice }}
                     {{ range (where .Site.RegularPages "Type" "news") }}
-                    {{ if eq .Params.position "news-1" }}
+                    {{ if eq .Params.position "1" }}
                     {{ $arg = $arg | append . }}
                     {{ end }}
                     {{ end }}
@@ -28,14 +28,14 @@
                     {{ end }}
 
                     <td rowspan="3" class="d-none d-lg-table-cell">
-                        <iframe src="banners/index.html" scrolling="no" frameborder="0" width="410" height="605"
+                        <iframe src="{{ .Site.Params.banner | relURL }}" scrolling="no" frameborder="0" width="410" height="605"
                             marginwidth="0" marginheight="0" class="banner"></iframe>
                     </td>
                 </tr>
                 <tr>
                     {{ $arg := slice }}
                     {{ range (where .Site.RegularPages "Type" "news") }}
-                    {{ if eq .Params.position "news-2" }}
+                    {{ if eq .Params.position "2" }}
                     {{ $arg = $arg | append . }}
                     {{ end }}
                     {{ end }}
@@ -50,7 +50,7 @@
                 <tr>
                     {{ $arg := slice }}
                     {{ range (where .Site.RegularPages "Type" "news") }}
-                    {{ if eq .Params.position "news-3" }}
+                    {{ if eq .Params.position "3" }}
                     {{ $arg = $arg | append . }}
                     {{ end }}
                     {{ end }}
@@ -66,7 +66,7 @@
                 <tr>
                     {{ $arg := slice }}
                     {{ range (where .Site.RegularPages "Type" "news") }}
-                    {{ if eq .Params.position "news-4" }}
+                    {{ if eq .Params.position "4" }}
                     {{ $arg = $arg | append . }}
                     {{ end }}
                     {{ end }}

@@ -8,8 +8,8 @@
   </div>
   <div class="box__footer">
     <div class="box__date">
-      {{ .PublishDate.Format "02/01/2006" }} | 
-      {{  .PublishDate.Format "15:04" }}
+      <span>{{ .PublishDate.Format "2006/01/02"  }} </span> |
+                 {{  .PublishDate.Format "15:04" }}
     </div>
     <a href="{{ .Permalink }}" class="btn--text"
       >Подробнее

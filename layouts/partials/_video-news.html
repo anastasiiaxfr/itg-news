@@ -5,7 +5,7 @@
       {{ if .Params.Img }}
       <a href="{{ .Permalink }}"><img src="{{ .Params.Img | relURL }}"></a>
       {{ else }}
-      <a href="{{ .Permalink }}"><img src="{{ `/images/news/news.jpg` | relURL }}"></a>
+      <a href="{{ .Permalink }}"><img src="{{ `/images/news.jpg` | relURL }}"></a>
       {{ end }}
     
   </div>
@@ -16,7 +16,8 @@
       </a>
     </div>
     <div class="video-news__date">
-      {{  dateFormat "02/01/2006 | 15:04" .Date.Local }}
+      <span>{{ .PublishDate.Format "2006/01/02"  }} </span> |
+                 {{  .PublishDate.Format "15:04" }}
     </div>
   </div>
 </div>
