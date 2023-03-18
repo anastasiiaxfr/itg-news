@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Youtubes on ITG</title>
+    <link>/youtube/</link>
+    <description>Recent content in Youtubes on ITG</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ru</language>
+    <lastBuildDate>Sun, 05 Feb 2023 14:51:35 +0200</lastBuildDate><atom:link href="/youtube/feed.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Внедрение CBDC - инновации или жесткие ограничения?</title>
+      <link>/youtube/youtube-2023-02-05-12-51-1/</link>
+      <pubDate>
+      05/02/2023 | 14:51
+      </pubDate>
+      
+      <guid>/youtube/youtube-2023-02-05-12-51-1/</guid>
+      
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Итоги 2022 года</title>
+      <link>/youtube/youtube-2023-02-05-12-51/</link>
+      <pubDate>
+      05/02/2023 | 14:51
+      </pubDate>
+      
+      <guid>/youtube/youtube-2023-02-05-12-51/</guid>
+      
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Брифинг 01.02.2023 Смотрим за состоянием крипторынка.</title>
+      <link>/youtube/youtube-2023-02-05-12-50-1/</link>
+      <pubDate>
+      05/02/2023 | 14:50
+      </pubDate>
+      
+      <guid>/youtube/youtube-2023-02-05-12-50-1/</guid>
+      
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Брифинг 02.02.2023 Что произошло после ставки ФРС.</title>
+      <link>/youtube/youtube-2023-02-05-12-50/</link>
+      <pubDate>
+      05/02/2023 | 14:49
+      </pubDate>
+      
+      <guid>/youtube/youtube-2023-02-05-12-50/</guid>
+      
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

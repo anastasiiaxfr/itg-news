@@ -3,8 +3,12 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   {{ range .Data.Pages }}
   <url>
-    <loc>{{ .RelPermalink }}</loc>{{ if not .Lastmod.IsZero }}
-    <lastmod>{{ safeHTML ( .Lastmod.Format "20018-01-02T15:04:05-07:00" ) }}</lastmod>{{ end }}
+    <loc>{{ .RelPermalink }}</loc>
+    {{ if not .Lastmod.IsZero }}
+    <lastmod>
+    {{ safeHTML ( .Lastmod.Format "20018-01-02T15:04:05-07:00" ) }}
+    </lastmod>
+    {{ end }}
 
     {{ with .Sitemap.ChangeFreq }}
     <changefreq>{{ . }}</changefreq>
@@ -23,7 +27,7 @@
     {{ $urlCheck := .RelPermalink | relURL }}
     {{ $urlSub2 := findRE "([^/]+).*" .RelPermalink 1 }}
 
-    {{ $urlSubFix := replaceRE "^https?://[^/]*?((?:/[^/]*?){2})$" "$1" .RelPermalink }}
+    {{ $urlSubFix := replaceRE "[^/]*?((?:/[^/]*?){2})$" "$1" .RelPermalink }}
 
 
     {{ if eq $urlCheck $urlSubFix  }}
@@ -39,7 +43,8 @@
 
     {{ end }}
 
-    {{ if .IsTranslated }}{{ range .Translations }}
+    {{ if .IsTranslated }}
+    {{ range .Translations }}
     <xhtml:link
       rel="alternate"
       hreflang="{{ .Lang }}"

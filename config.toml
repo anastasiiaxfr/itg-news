@@ -28,7 +28,14 @@ home = ["HTML", "RSS", "JSON"]
   beginners = ':section/post-:year-:month-:day-:15:04:05/'
   articles = ':section/post-:year-:month-:day-:15:04:05/'
 
-  
+
+[sitemap]
+ChangeFreq = "daily"
+Priority = 0.6
+Weight = [["main", "1"], ["sub2", "0.8"], ["sub3", "0.6"]]
+enableRobotsTXT = true
+
+ 
 ############################# Plugins ##############################
 
 # CSS Plugins
@@ -252,3 +259,5 @@ home = "Головна"
 languageCode = "ua"
 languageName = "Укр"
 weight = 3
+
+
