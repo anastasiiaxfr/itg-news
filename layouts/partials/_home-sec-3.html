@@ -10,15 +10,17 @@
       <tr>
         <td>
           <div class="row">
-
-            {{ range first 6 (where .Site.RegularPages "Type" "beginners") }}
+            {{ $arg := slice }}
+            {{ range (where .Site.RegularPages "Type" "beginners") }}
             {{ if ne .Params.position "top" }} 
+            {{ $arg = $arg | append .  }}
+            {{ end }}
+            {{ end }}
+            {{ range first 6 $arg }}   
             <div class="col-md-6">
               {{- partial "_article.html" . -}}
             </div>
             {{ end }}
-            {{ end }}
-
             
           </div>
         </td>

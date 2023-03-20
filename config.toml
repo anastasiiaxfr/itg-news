@@ -152,6 +152,7 @@ logo = "images/logo_w.svg"
 logo_dark = "images/logo.svg"
 logo_w = "98"
 home = "Home"
+site_url = "https://itg-news-group.netlify.app"
 # Meta data
 description = "This is meta description"
 author = "Anastasiia Berest"
@@ -175,14 +176,6 @@ preloader = "" # use jpg, png, svg or gif format.
 enable = true
 label = "get a quote"
 link = "contact"
-
-# google map
-[params.map]
-enable = true
-gmap_api = "https://maps.googleapis.com/maps/api/js?key=AIzaSyBu5nZKbeK-WHQ70oqOWo-_4VmwOwKP9YQ"
-map_latitude = "51.5223477"
-map_longitude = "-0.1622023"
-map_marker = "images/marker.png"
 
 
 

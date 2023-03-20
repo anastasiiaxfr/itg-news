@@ -3,7 +3,7 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   {{ range .Data.Pages }}
   <url>
-    <loc>{{ .RelPermalink }}</loc>
+    <loc>{{ .Site.Params.site_url }}{{ .RelPermalink }}</loc>
     {{ if not .Lastmod.IsZero }}
     <lastmod>
     {{ safeHTML ( .Lastmod.Format "20018-01-02T15:04:05-07:00" ) }}
@@ -16,11 +16,8 @@
 
     {{ if ge .Sitemap.Priority 0.0 }}
     
-
     {{ if eq .RelPermalink .Site.BaseURL }}
-    
     <priority> 1 </priority>
-
     {{ end }}
 
 
@@ -28,7 +25,6 @@
     {{ $urlSub2 := findRE "([^/]+).*" .RelPermalink 1 }}
 
     {{ $urlSubFix := replaceRE "[^/]*?((?:/[^/]*?){2})$" "$1" .RelPermalink }}
-
 
     {{ if eq $urlCheck $urlSubFix  }}
     <priority> 0.8 </priority>
@@ -38,8 +34,6 @@
     {{ if not ( eq .RelPermalink .Site.BaseURL | or ( eq $urlCheck $urlSubFix )) }}
     <priority> 0.6 </priority>
     {{ end }}
-
-
 
     {{ end }}
 
@@ -56,5 +50,6 @@
         href="{{ .RelPermalink }}"
         />{{ end }}
       </url>
-      {{ end }}
+       {{ end }}
+   
     </urlset>
