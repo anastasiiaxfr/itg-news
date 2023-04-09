@@ -2,7 +2,7 @@
 
 <section aria-label="breadcrumb" class="breadcrumb__wrap">
 	<nav class="container">
-	<ul class="breadcrumb">
+	<ul class="breadcrumb" class="breadcrumb" itemscope="itemscope" itemtype="http://schema.org/BreadcrumbList">
 		{{ template "breadcrumbnav" (dict "p1" . "p2" .) }}
 	  </ul>
 	  
@@ -12,8 +12,8 @@
 		{{ else if not .p1.IsHome }}
 		  {{ template "breadcrumbnav" (dict "p1" .p1.Site.Home "p2" .p2 )}}
 		{{ end }}
-		<li{{ if eq .p1 .p2 }} class="active"{{ end }}>
-		  <a href="{{ .p1.RelPermalink }}">{{ .p1.Title | truncate 50 }}</a>
+		<li class="breadcrumb-item" {{ if eq .p1 .p2 }} class="active" {{ end }} itemprop="itemListElement" itemscope="itemscope" itemtype="http://schema.org/ListItem">
+		  <a href="{{ .p1.RelPermalink }}" itemprop="item">{{ .p1.Title | truncate 50 }}</a>
 		</li>
 	  {{ end }}
 	
