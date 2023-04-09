@@ -2,6 +2,8 @@
 
 {{ partial "page-title.html" . }}
 
+{{ partial "_breadcrumbs.html" . }}
+
 {{ "<!-- blog -->" | safeHTML }}
 <section class="section-sm">
   <div class="container">
@@ -12,12 +14,12 @@
           {{ range $paginator.Pages }}
           {{ "<!-- blog post -->" | safeHTML }}
 
-          <article class="col-md-6 mb-4">
-            {{ .Render "post"}}
+          <article class="col-md-6 mb-30">
+            {{ partial "_news.html" . }}
           </article>
           {{ end }}
           {{"<!-- pagination -->" | safeHTML }}
-          <div class="col-12 mt-5">
+          <div class="col-12 mt-3 mt-lg-5">
             {{ $paginator := .Paginator }}
             <!-- Number of links either side of the current page. -->
             {{ $adjacent_links := 2 }}

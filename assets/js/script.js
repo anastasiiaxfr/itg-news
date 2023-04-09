@@ -17,55 +17,132 @@
 
 
   //  Search Form Open
-  $('#searchOpen').on('click', function () {
-    $('.search-wrapper').addClass('open');
-    setTimeout(function () {
-      $('.search-box').focus();
-    }, 400);
+  $('#search-query').on('keyup', function () {
+    if($(this).val().length > 0) {
+      $('#searchClose').show();
+    } else {
+      $('#searchClose').hide();
+    }
   });
   $('#searchClose').on('click', function () {
-    $('.search-wrapper').removeClass('open');
+    $('#search-query').val("");
+    $(this).hide();
   });
 
+  // Share
+  $('.share__close').click(function() {
+    $(this).hide();
+    $(this).parent().parent().find('.share__menu').hide();
+    $(this).parent().parent().find('.share__open').show();
+    $(this).parent().parent().parent().find('.btn--bd').show();
+  });
+
+  $('.share__open').click(function() {
+    $(this).hide();
+    $(this).parent().parent().find('.share__close').show();
+    $(this).parent().parent().parent().find('.btn--bd').hide();
+    $(this).parent().parent().find('.share__menu').css('display', 'flex');
+  });
+  
+ 
+  //Cookie
+  function setCookie(name, value, days) {
+    var expires = "";
+    if (days) {
+      var date = new Date();
+      date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+      expires = "; expires=" + date.toUTCString();
+    }
+    document.cookie = name + "=" + (value || "") + expires + "; path=/";
+  }
+  
+  function getCookie(name) {
+    var nameEQ = name + "=";
+    var ca = document.cookie.split(';');
+    for (var i = 0; i < ca.length; i++) {
+      var c = ca[i];
+      while (c.charAt(0) == ' ') c = c.substring(1, c.length);
+      if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
+    }
+    return null;
+  }
+  
+  function removeCookie(name) {
+    document.cookie = name + '=; Max-Age=-99999999;';
+  }
+
+  // Switcher
+  $('.toogle-col input[type=checkbox]').change(function() {
+    if ($(this).is(':checked')) {
+    // $(this).addClass("active");
+    $('.items-row').removeClass("d-none").addClass("d-block");
+    $('.items-col').removeClass("d-block").addClass("d-none");
+    } else {
+      // $(this).removeClass("active");
+      $('.items-row').removeClass("d-block").addClass("d-none");
+      $('.items-col').removeClass("d-none").addClass("d-block");
+    }
+  });
+
+
+    if (getCookie("theme") === "dark") {
+      $('body').addClass("dark");
+      $('.toogle-theme input[type=checkbox]').prop('checked', true);
+    } else {
+      $('body').removeClass("dark");
+      $('.toogle-theme input[type=checkbox]').prop('checked', false);
+    }
+  
+    $('.toogle-theme input[type=checkbox]').change(function() {
+      if ($(this).is(':checked')) {
+        $('body').addClass("dark").removeClass("light");
+        setCookie("theme", "dark", 365);
+      } else {
+        $('body').removeClass("dark").addClass("light");
+        removeCookie("theme");
+        setCookie("theme", "light", 365);
+      }
+    });
+ 
 
   // clients logo slider
-  $('.client-logo-slider').slick({
-    infinite: true,
-    slidesToShow: 5,
-    slidesToScroll: 1,
-    autoplay: true,
-    dots: false,
-    arrows: false,
-    responsive: [{
-        breakpoint: 1024,
-        settings: {
-          slidesToShow: 3,
-          slidesToScroll: 1
-        }
-      },
-      {
-        breakpoint: 600,
-        settings: {
-          slidesToShow: 3,
-          slidesToScroll: 1
-        }
-      },
-      {
-        breakpoint: 480,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 1
-        }
-      },
-      {
-        breakpoint: 400,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1
-        }
-      }
-    ]
-  });
+  // $('.client-logo-slider').slick({
+  //   infinite: true,
+  //   slidesToShow: 5,
+  //   slidesToScroll: 1,
+  //   autoplay: true,
+  //   dots: false,
+  //   arrows: false,
+  //   responsive: [{
+  //       breakpoint: 1024,
+  //       settings: {
+  //         slidesToShow: 3,
+  //         slidesToScroll: 1
+  //       }
+  //     },
+  //     {
+  //       breakpoint: 600,
+  //       settings: {
+  //         slidesToShow: 3,
+  //         slidesToScroll: 1
+  //       }
+  //     },
+  //     {
+  //       breakpoint: 480,
+  //       settings: {
+  //         slidesToShow: 2,
+  //         slidesToScroll: 1
+  //       }
+  //     },
+  //     {
+  //       breakpoint: 400,
+  //       settings: {
+  //         slidesToShow: 1,
+  //         slidesToScroll: 1
+  //       }
+  //     }
+  //   ]
+  // });
 
 
   // match height

@@ -1,16 +1,35 @@
 body {
-  background-color: $body-color;
+  @include theme(white);
   overflow-x: hidden;
-  color: $black;
+
+ &.dark {
+  background-color: lighten($dark, 4%);
+  color: $white;
+
+  ::selection {
+    background: #27278d;
+  }
+
+  .switch input {
+    border-color: $white;
+  }
+  .switch .slider::before {
+    background-color: $white;
+  }
+
+  .switch input.active+.slider, .switch input:checked+.slider {
+    background-color: lighten($secondary-color, 5%);
+    border-color: lighten($secondary-color, 5%);
+  }
+				
+ }
 }
 
 ::selection {
-  background: lighten($color: $primary-color, $amount: 10);
-  color: $white;
+  background: $white;
 }
 
 /* preloader */
-
 .preloader {
   position: fixed;
   top: 0;
@@ -19,7 +38,7 @@ body {
   bottom: 0;
   z-index: 9999;
 
-  background-color: #fff;
+  background-color: $primary-color;
 
   display: flex;
   align-items: center;
@@ -30,6 +49,7 @@ a,
 a:hover,
 a:focus {
   text-decoration: none;
+  color: inherit;
 }
 
 a,
@@ -43,9 +63,6 @@ select {
   }
 }
 
-a:hover {
-  color: $primary-color;
-}
 
 .slick-slide {
   outline: 0;
@@ -53,12 +70,19 @@ a:hover {
 
 .section {
   &-sm {
-    padding-top: 80px;
+    padding-top: 0;
     padding-bottom: 80px;
 
   @include maw($md){
-    padding-top: 20px;
+    padding-top: 0;
+    padding-bottom: 45px;
   }
+
+  @include maw($xsm){
+    padding-top: 0;
+    padding-bottom: 15px;
+  }
+
   }
 
   &-lg {
@@ -143,8 +167,30 @@ a:hover {
   color: $primary-color !important;
 }
 
+.mt-20 {
+  margin-top: 20px;
+}
+
+.mt-50 {
+  margin-top: 50px;
+}
+
+.mt-60 {
+  margin-top: 60px;
+
+  @include maw($xsm){
+    margin-top: 15px;
+  }
+  @include maw($xs){
+    margin-top: 15px;
+  }
+}
+
 .mb-10 {
   margin-bottom: 10px !important;
+}
+.mb-15 {
+  margin-bottom: 15px;
 }
 
 .mb-20 {
@@ -217,7 +263,18 @@ a:hover {
 }
 
 .page-title {
-  padding: 150px 0 100px;
+  padding: 90px 0;
+  position: relative;
+  z-index: 1;
+
+  &::after {
+    content: '';
+    @include ps(absolute, (t, 0), (l, 0));
+    z-index: -1;
+    display: block;
+    @include sz(100%, 100%);
+    background: linear-gradient(180deg, rgba(2, 30, 115, 0) 0%, #021E73 84.9%);
+  }
 }
 
 blockquote {
@@ -322,13 +379,16 @@ blockquote {
 /* pagination */
 .pagination {
   .page-item {
-    margin: 0 5px;
+    margin: 0 2px;
+    min-width: 35px;
+    height: 35px;
 
     &.active {
       .page-link {
-        background: $secondary-color;
+        background: $primary-color;
         color: $white;
-        border-color: $secondary-color;
+        border-color: $black2;
+        outline: 3px solid $black2;
       }
     }
 
@@ -338,7 +398,13 @@ blockquote {
     }
 
     .page-link {
-      color: $text-color;
+      @include flex(flex, center, center, nowrap);
+      height: 100%;
+      padding: 2px 5px;
+      color: inherit;
+      background-color: inherit;
+      text-align: center;
+      cursor: pointer;
     }
   }
 }

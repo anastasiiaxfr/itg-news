@@ -2,8 +2,12 @@
   translation: Больше новостей
 - id: other-news
   translation: Остальные новости
+- id: actual-news
+  translation: Актуальные новости
 - id:  all-video
-  translation: Смотреть все видео 
+  translation: Все видео 
+- id:  all-news
+  translation: Все новости 
 - id: beginners
   translation: Новичкам
 - id: articles
@@ -31,3 +35,5 @@
   translation: Новичкам последнее
 - id: read_more
   translation: Подробнее
+- id: finance
+  translation: Геополитика и финансы

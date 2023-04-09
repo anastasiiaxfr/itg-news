@@ -5,7 +5,10 @@
   {{ $siteLanguages := .Site.Languages}}
   {{ $pageLang := .Page.Lang}}
 
-  <!-- <button class="btn btn-secondary" type="button">
+  <button class="dropdown-toggle" type="button" id="lang-menu" role="button"
+  data-toggle="dropdown"
+  aria-haspopup="true"
+  aria-expanded="false">
    
     {{ range $siteLanguages }}
     {{ if eq $pageLang .Lang}}
@@ -13,9 +16,10 @@
     {{ end }}
     {{ end }}
 
-  </button> -->
+  </button>
 
 
+  <ul class="dropdown-menu" aria-labelledby="lang-menu">
     
     {{ range .Page.AllTranslations }}
     {{ $translation := .}}
@@ -24,22 +28,22 @@
     {{ $selected := false }}
     {{ if eq $pageLang .Lang}}
    
-    
+    <li>
       <button class="" id="{{ $translation.Language }}" value="{{ $translation.Permalink }}" onClick="location = this.value;">{{ .LanguageName }}</button>
-    
+    </li>
 
     {{ else }}
-   
+    <li>
       <button class="" id="{{ $translation.Language }}" value="{{ $translation.Permalink }}" onClick="location = this.value;">
         {{ .LanguageName }}
       </button>
-    
+    </li>
 
     {{ end }}
     {{ end }}
     {{ end }}
     {{ end }}
-  
+  </ul>
   
 </nav>
 

@@ -4,8 +4,10 @@
 
   {{ "<!-- mobile responsive meta -->" | safeHTML }}
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ with .Site.Params.description }}{{ . }}{{ end }}{{ end }}">
-  {{ with .Site.Params.author }}<meta name="author" content="{{ . }}">{{ end }}
+  <meta name="description"
+    content="{{ with .Description }}{{ . }}{{ else }}{{ with .Site.Params.description }}{{ . }}{{ end }}{{ end }}">
+  {{ with .Site.Params.author }}
+  <meta name="author" content="{{ . }}">{{ end }}
   {{ hugo.Generator }}
 
   {{ "<!-- plugins -->" | safeHTML }}
@@ -18,17 +20,22 @@
   <link rel="stylesheet" href="{{ $styles.Permalink }}" media="screen">
 
   {{ "<!--Favicon-->" | safeHTML }}
-  <link rel="shortcut icon" href="{{ `images/favicon.png` | absURL }} " type="image/x-icon">
-  <link rel="icon" href="{{ `images/favicon.png` | absURL }} " type="image/x-icon">
+  <link rel="shortcut icon" href="{{ `images/favicon.png` | relURL }} " type="image/x-icon">
+  <link rel="icon" href="{{ `images/favicon.png` | relURL }} " type="image/x-icon">
 
   <link rel="apple-touch-icon" sizes="180x180" href="{{ `fav/apple-touch-icon.png` | relURL }}">
-<link rel="icon" type="image/png" sizes="32x32" href="{{ `fav/favicon-32x32.png` | relURL }}">
-<link rel="icon" type="image/png" sizes="16x16" href="{{ `fav/favicon-16x16.png` | relURL }}">
-<link rel="manifest" href="{{ `fav/site.webmanifest` | relURL }}">
-<link rel="mask-icon" href="{{ `fav/safari-pinned-tab.svg` | relURL }}" color="#fff">
-<meta name="msapplication-TileColor" content="#fff">
-<meta name="theme-color" content="#1f2749">
+  <link rel="icon" type="image/png" sizes="32x32" href="{{ `fav/favicon-32x32.png` | relURL }}">
+  <link rel="icon" type="image/png" sizes="16x16" href="{{ `fav/favicon-16x16.png` | relURL }}">
+  <link rel="manifest" href="{{ `fav/site.webmanifest` | relURL }}">
+  <link rel="mask-icon" href="{{ `fav/safari-pinned-tab.svg` | relURL }}" color="#fff">
+  <meta name="msapplication-TileColor" content="#fff">
+  <meta name="theme-color" content="#1f2749">
 
-<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 
 </head>

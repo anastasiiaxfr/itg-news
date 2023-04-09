@@ -1,0 +1,14 @@
+{{ $title := .Scratch.Get "title" }}
+{{ $class := .Scratch.Get "class" }}
+<div class="switch__wrap">
+  {{ if $title }}
+  <div class="switch__title">
+   {{ $title }}
+  </div>
+  {{ end }}
+
+  <label class="switch {{ $class }}">
+    <input type="checkbox">
+    <span class="slider round"></span>
+  </label>
+</div>

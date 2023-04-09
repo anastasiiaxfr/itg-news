@@ -15,9 +15,16 @@
         {{ .Title | truncate 50 }}
       </a>
     </div>
+    {{ if .Content }}
+    <div class="video-news__text">
+      <a href="{{ .Permalink }}">
+        {{ .Content | truncate 125 }}
+      </a>
+    </div>
+    {{ end }}
     <div class="video-news__date">
-      <span>{{ .PublishDate.Format "2006/01/02"  }} </span> |
-                 {{  .PublishDate.Format "15:04" }}
+      {{  .PublishDate.Format "15:04" }} /
+      <span>{{ .PublishDate.Format "02.01.2006"  }} </span> 
     </div>
   </div>
 </div>

@@ -1,0 +1,29 @@
+{{ $data := index .Site.Data .Site.Language.Lang }}
+
+{{ $arg_main := slice }} 
+{{ range $i, $arr := .Site.RegularPages }} 
+{{ if not (in $i (slice 0 1 2 3 4 5 6 7 8)) }} 
+{{ $arg_main = $arg_main | append . }} 
+{{ end }}
+{{ end }}
+
+
+<section class="section section_analytics" id="analytics">
+  <div class="container">
+    <div class="heading__group">
+      <h3>{{ i18n "analytics" }}</h3>
+      <a class="btn--text" href="/analytics/">
+        {{ i18n "all-news" }}
+        <i class="ti-angle-right"></i>
+      </a>
+    </div>
+    <div class="row">
+      <div class="item__wrap">
+        {{ range first 3 (where $arg_main "Type" "analytics") }}
+        {{- partial "_news.html" . -}} 
+        {{ end }}
+       
+      </div>
+    </div>
+  </div>
+</section>

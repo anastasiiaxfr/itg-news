@@ -1,6 +1,5 @@
 <!-- footer -->
-<footer class="footer bg-cover overlay overflow-hidden"
-  style="background-image: url('{{`images/backgrounds/footer.jpg` | relURL}}');">
+<footer class="footer">
   <div class="container" style="position: relative; z-index: 1;">
     <div class="row justify-content-center py-3">
 
@@ -30,14 +29,14 @@
         </div>
 
 
-        <div class="row align-items-center">
+        <div class="footer__btm row align-items-center">
           <div class="col-md-4">
             <div class="logo__wrap mb-4 mb-md-0 d-none d-md-block">
               <a href="{{ .Site.BaseURL }}" class="d-flex align-items-center">
                 <img class="" src="{{ .Site.Params.logo | relURL }}" alt="{{ .Site.Title }}"
                   width="{{ .Site.Params.logo_w }}">
               </a>
-              <span>International Trade Group</span>
+              <!-- <span>International Trade Group</span> -->
             </div>
           </div>
           <div class="col-md-8">

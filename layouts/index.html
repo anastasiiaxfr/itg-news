@@ -10,24 +10,43 @@
 {{ "<!-- Hero Section -->" | safeHTML }}
 {{ "<!-- End of Hero Section -->" | safeHTML }}
 
+<div class="container">
+    <div class="heading__group mt-60">
+        <h3>{{ i18n "actual-news" }}</h3>
+        
+        {{ .Scratch.Set "title" "Все материалы по порядку" }}
+        {{ .Scratch.Set "class" "toogle-col" }}
+        {{- partial "_switch.html" . -}}
+      </div>
+</div>
 
-
+<div class="items-col">
 <!-- BEGIN section -->
 {{- partial "_home-sec-0.html" . -}}
 <!-- END section -->
+
 <!-- BEGIN section -->
-{{- partial "_home-sec-1.html" . -}}
+{{- partial "_home-sec-7.html" . -}}
 <!-- END section -->
+
+<!-- BEGIN section -->
+{{- partial "_home-sec-6.html" . -}}
+<!-- END section -->
+
+<!-- BEGIN section -->
+{{- partial "_home-sec-5.html" . -}}
+<!-- END section -->
+
 <!-- BEGIN section -->
 {{- partial "_home-sec-2.html" . -}}
 <!-- END section -->
-<!-- BEGIN section -->
-{{- partial "_home-sec-3.html" . -}}
-<!-- END section -->
-<!-- BEGIN section -->
-{{- partial "_home-sec-4.html" . -}}
-<!-- END section -->
+</div>
 
+<div class="items-row d-none">
+<!-- BEGIN section -->
+{{- partial "_home-sec-all.html" . -}}
+<!-- END section -->
+</div>    
 
 
 <!-- BEGIN section -->

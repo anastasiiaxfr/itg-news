@@ -44,10 +44,10 @@
       <div class="{{$column}} shuffle-item">
         <div class="gallery-item mb-4">
           <div class="d-block">
-            <img src="{{ .image | absURL }}" alt="gallery-image" class="img-fluid w-100">
+            <img src="{{ .image | relURL }}" alt="gallery-image" class="img-fluid w-100">
             <div class="gallery-content bg-secondary d-flex align-items-center justify-content-center">
               <div class="text-center">
-                <a class="d-inline-block p-3 popup-image" href="{{ .image | absURL }}"
+                <a class="d-inline-block p-3 popup-image" href="{{ .image | relURL }}"
                   title="{{ .content | markdownify }}" data-effect="mfp-zoom-in"><i
                     class="ti-fullscreen text-white"></i></a>
                 <div class="text-white content">{{ .content | markdownify }}</div>
@@ -77,7 +77,7 @@
       <div class="col-lg-4 col-sm-6 mb-4">
         <div class="card rounded-0 text-center hover-bg-secondary">
           <div class="card-body pt-4">
-            <img src="{{ .image | absURL}}" alt="" class="img-sm mx-auto rounded-circle mb-4">
+            <img src="{{ .image | relURL}}" alt="" class="img-sm mx-auto rounded-circle mb-4">
             <h4 class="card-title">{{ .name | markdownify }}</h4>
             <p class="h5 mb-0">{{ .designation | markdownify }}</p>
             <a href="mailto:{{ .email }}">{{ .email }}</a>

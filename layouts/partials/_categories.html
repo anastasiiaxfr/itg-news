@@ -1,0 +1,36 @@
+<!--  
+{{ $limit := .Scratch.Get "limit" }}
+{{ if .Scratch.Get "limit" }}
+{{ $limit = .Scratch.Get "limit" }}
+{{ else }}
+{{ $limit = 2 }}
+{{ end }}
+
+{{- if isset .Site.Taxonomies "cat" }}
+ 
+  {{ $cats := .Site.Taxonomies.cat }}
+
+  {{- if not (eq (len $cats) 0) }}
+  {{- $.Scratch.Set "limit" 0 }}
+  
+  <ul class="cats">
+  {{- range $name, $items :=  $cats }}
+	{{- $.Scratch.Set "limit" (add ($.Scratch.Get "limit") 1) }}
+	{{- if le ($.Scratch.Get "limit") $limit }}
+    <li class="cat"><a href="{{ "cat/" | relLangURL }}{{ $name | urlize | lower }}" class="cat__item">{{ $name | title | humanize }}</a></li>
+    {{- end }}
+	{{ end }}
+  </ul>
+
+  {{- end }}
+  {{- end }} -->
+
+  <ul class="cats">
+    {{ range $index, $section := .Site.Sections }}
+    {{ if lt $index (sub (len .Site.Sections) 4) }}
+      <li class="cat">
+        <a href="{{ $section.Permalink }}" class="cat__item">{{ $section.Name }}</a>
+      </li>
+    {{ end }}
+    {{ end }}
+  </ul>

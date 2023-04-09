@@ -3,7 +3,7 @@
 
 body {
   line-height: 1.5;
-  font-family: $secondary-font;
+  font-family: $ffText;
   -webkit-font-smoothing: antialiased;
   font-size: 15px;
   color: $text-color-light;
@@ -15,28 +15,54 @@ a{
 }
 
 .h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
-  color: $text-color;
-  font-family: $primary-font;
+  margin-bottom: 25px;
+  //color: $text-color;
+  font-family: $ffHeading;
   font-weight: 400;
   line-height: 1.2;
+
+  &:not(:first-of-type){
+    margin-top: 40px;
+  }
 }
 
 h1, .h1{
-  font-size: 60px;
+  margin-bottom: 0;
+  @include ft(59, 80, 800, $ffHeading);
   @include tablet {
     font-size: 45px;
   }
 }
 
 h2, .h2{
-  font-size: 45px;
+  @include ft(24, 33, 700, $ffHeading);
+
   @include tablet {
-    font-size: 36px;
+    @include ft(24, 33, 700, $ffHeading);
+
   }
 }
 
-h3, .h3{
+h3 {
   font-size: 30px;
+  @include ft(24, 33, 700, $ffHeading);
+
+  @include maw($xs){
+    @include ft(20, 20*1.4, 700, $ffHeading);
+  }
+}
+
+.h3 {
+  @include ft(28, 38, 700, $ffHeading);
+  text-transform: initial;
+
+  @include maw($sm){
+    @include ft(22, 22*1.5, 700, $ffHeading);
+  }
+
+  @include maw($xs){
+    @include ft(16, 16*1.5, 700, $ffHeading);
+  }
 }
 
 h4, .h4{

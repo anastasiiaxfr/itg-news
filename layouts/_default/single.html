@@ -1,32 +1,35 @@
 {{ define "main" }}
 {{ partial "_breadcrumbs.html" . }}
-<section class="section-sm">
+<section class="section-sm single">
   <div class="container">
     <div class="row">
       <div class="col-lg-8">
-        <h2 class="mb-4">{{ .Title | upper | markdownify  }}</h2>
 
-       
         {{ if eq .Params.type "youtube" }}
         {{ if .Params.video }}
+
+        {{ if gt (len .Params.video) 8 }}
         <iframe width="100%" height="315" src="{{ .Params.video | relURL }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        {{ end }}
+     
         {{ end }}
         {{ else }}
         {{ if .Params.img }}
-        <img class="img-fluid w-auto mx-auto mb-2" src="{{ .Params.img | relURL }}" alt="{{ .Title }}">
+        <img class="img-fluid w-auto mx-auto" src="{{ .Params.img | relURL }}" alt="{{ .Title }}">
+        {{ end }}
         {{ end }}
 
-        {{ end }}
+        <h1 class="single__title">{{ .Title | upper | markdownify  }}</h1>
 
-        <div class="mb-4"> 
+        <div class="single__meta"> 
           {{ if .Params.author }}
-          <span class="text-dark font-weight-bold">{{ .Params.author | title }}</span> |
+          <span class="">{{ .Params.author | title }}</span> 
           {{ end }}
-          <strong class="text-dark">
-            <span>{{ .PublishDate.Format "2006/01/02"  }} </span> |
-                 {{  .PublishDate.Format "15:04" }}
-          </strong></div>
-        <div class="content">{{ .Content }}</div>
+         <div>
+          <span>{{ .PublishDate.Format "02.01.2006"  }} </span> / {{  .PublishDate.Format "15:04" }}
+        </div>
+         </div>
+        <div class="single__content">{{ .Content }}</div>
 
         <!-- comments -->
         {{ if .Site.DisqusShortname }}

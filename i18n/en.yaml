@@ -2,6 +2,10 @@
   translation: Больше новостей
 - id: other-news
   translation: Остальные новости
+- id: news
+  translation: Новости
+- id: analytics
+  translation: Аналитика
 - id:  all-video
   translation: Смотреть все видео 
 - id: beginners
